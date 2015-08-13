@@ -43,4 +43,4 @@ before_script:
 
 
 # configure notifications (email, IRC, campfire etc)
-n
+
