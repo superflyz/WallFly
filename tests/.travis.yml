@@ -8,4 +8,4 @@ env:
   - TEST_DIR=tests
 
 
-script: phpunit 
+script: phpunit Tests.php
