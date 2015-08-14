@@ -3,4 +3,9 @@ php:
   - 5.5
   - 5.4
   - hhvm
-script: phpunit tests
+
+  env:
+  - TEST_DIR=tests
+
+
+script: phpunit 
