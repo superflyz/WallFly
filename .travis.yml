@@ -10,3 +10,6 @@ env:
 
 script: cd $TEST_DIR && phpunit Test.php
  # && phpunit Database_Test.php
+
+ notifications:
+  email: false
