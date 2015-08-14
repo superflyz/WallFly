@@ -1,0 +1,12 @@
+{
+	"required":{
+		"php": ">=5.5.9"
+	},
+
+	"required-dev":{
+		"phpunit/phpunit": "3.7.21"
+	},
+
+	"autoload": {"psr-0" : {"tests"}
+
+}
