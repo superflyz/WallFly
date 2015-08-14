@@ -10,5 +10,9 @@ class Database_Test extends PHPUnit_Framework_TestCase {
     $this->assertNotEmpty($db);
   }
 
+  public function testOnePlusOne() {
+		$this->assertEquals(1+1,2);
+  	}
+
 
 }
