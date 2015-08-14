@@ -7,5 +7,5 @@ php:
 env:
   - TEST_DIR=tests
 
-script: cd $TEST_DIR
+script: cd $TEST_DIR && phpunit Test.php
 # script: phpunit tests/Test.php
