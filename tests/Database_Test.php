@@ -1,6 +1,6 @@
 <?php
 
-require_once('../classes/Database.php');
+#require_once('../classes/Database.php');
 
 class Database_Test extends PHPUnit_Framework_TestCase {
 
@@ -10,7 +10,7 @@ class Database_Test extends PHPUnit_Framework_TestCase {
   //   $this->assertNotEmpty($db);
   // }
 
-  public function testOnePlusOne() {
+  public function testOnePlus() {
 		$this->assertEquals(1+1,3);
   	}
 
