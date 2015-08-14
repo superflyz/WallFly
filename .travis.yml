@@ -5,6 +5,7 @@ php:
   - 5.4
   - hhvm
 
-
-
-script: cd test
+env:
+  - TEST_DIR=tests
+  
+# script: phpunit tests/Test.php
