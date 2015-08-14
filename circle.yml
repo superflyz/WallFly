@@ -1,6 +1,4 @@
 general:
   build_dir: tests
   
-  test:
-  override:
-    - php ./test-suite/run.php --unit-tests
+ 
