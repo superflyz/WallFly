@@ -7,8 +7,6 @@ php:
 env:
   - TEST_DIR=tests
 
-  before_install:
-  - mysql -e "create database IF NOT EXISTS test;" -uroot
 
-script: cd $TEST_DIR && phpunit Test.php && phpunit Database_Test.php
-# script: phpunit tests/Test.php
+script: cd $TEST_DIR && phpunit Test.php
+ # && phpunit Database_Test.php
