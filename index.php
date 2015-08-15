@@ -15,10 +15,10 @@
        return $data;
     }
 
-    if (isset($_POST["submit"])) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // process the form
    
-        if ( (empty($_POST["username"])) || (!preg_match($pattern, $_POST["username"])) || (strlen($_POST["username"]) > 6) ) {
+        if ( (empty($_POST["username"])) || (!preg_match($pattern, $_POST["username"])) || (strlen($_POST["username"]) < 6) ) {
             $usernameErr = "Must Enter a Valid Username";
             $validform = false;
         }
@@ -26,7 +26,7 @@
             $username = test_input($_POST["username"]);
         }
 
-        if ( (empty($_POST["password"])) || (!ctype_alnum($_POST["password"])) || (strlen($_POST["password"]) > 6) ) {
+        if ( (empty($_POST["password"])) || (!ctype_alnum($_POST["password"])) || (strlen($_POST["password"]) < 6) ) {
             $passwordErr = "Must Enter a Valid Password";
             $validform = false;
         }
@@ -34,7 +34,7 @@
             $password = test_input($_POST["password"]);
         }
 
-        if ( (empty($_POST["first_name"])) || (strlen($_POST["first_name"]) > 3) ) {
+        if ( (empty($_POST["first_name"])) || (strlen($_POST["first_name"]) < 3) ) {
             $first_nameErr = "Must Enter a Valid First Name";
             $validform = false;
         }
@@ -42,7 +42,7 @@
             $first_name = test_input($_POST["first_name"]);
         }
 
-        if ( (empty($_POST["last_name"])) || (strlen($_POST["last_name"]) > 3) ) {
+        if ( (empty($_POST["last_name"])) || (strlen($_POST["last_name"]) < 3) ) {
             $last_nameErr = "Must Enter a Valid First Name";
             $validform = false;
         }
