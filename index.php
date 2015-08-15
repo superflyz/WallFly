@@ -1,5 +1,5 @@
 <?php 
-    require_once('../classes/Database.php');
+    require_once(__DIR__.'../classes/Database.php');
 
      //error vars
     $usernameErr = $passwordErr = $first_nameErr = $last_nameErr = $emailErr = $usertypeErr ="";
