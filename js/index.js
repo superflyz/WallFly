@@ -43,6 +43,14 @@
   });
 
 
-  function openModal() {
-      $('#signup').modal('show');
-  }
+function openModal() {
+    $('#signup').modal('show');
+}
+
+function clearForm() {
+    $('#usrname').val('');
+    $('#psswrd').val('');
+    $('#fname').val('');
+    $('#lname').val('');
+    $('#email').val('');
+}

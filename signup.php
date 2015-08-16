@@ -37,9 +37,8 @@
  		mysql_close();
  		echo "<script type='text/javascript'>";
 		echo "alert('Thank you for join us!');";
-		echo "window.close();";
-		echo "window.opener.location.reload();";
 		echo "</script>";
+		header("Location: error.php");
  	}
 
  	

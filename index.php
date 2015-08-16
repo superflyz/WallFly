@@ -140,7 +140,7 @@
                 </form>
                 <br>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success custom" data-toggle="modal" data-target="#signup">
+                <button type="button" class="btn btn-success custom" data-toggle="modal" data-target="#signup" onclick="clearForm()">
                     Sign Up
                 </button>
                 <!-- Modal -->
@@ -154,23 +154,23 @@
                             <div class="modal-body">
                                 <form id="signup_form" name="signup_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                     <!-- <label for="username">Username</label> -->
-                                    <input class="form-control" type="text" size="12" name="username" placeholder="Username" value="<?php echo $username ?>"/>
+                                    <input class="form-control" type="text" size="12" name="username" placeholder="Username" value="<?php echo $username ?>" id="usrname"/>
                                     <span class="error"><?php echo $usernameErr;?></span>
                                     <br>
                                     <!-- <label for="password">Password</label> -->
-                                    <input class="form-control" type="password" size="12" name="password" placeholder="Password" value="<?php echo $password ?>"/>
+                                    <input class="form-control" type="password" size="12" name="password" placeholder="Password" value="<?php echo $password ?>" id="psswrd"/>
                                     <span class="error"><?php echo $passwordErr;?></span>
                                     <br>
                                     <!-- <label for="first_name">First Name</label> -->
-                                    <input class="form-control" type='text' name='first_name' maxlength='50' size='30' placeholder='First Name' value="<?php echo $first_name ?>"/>
+                                    <input class="form-control" type='text' name='first_name' maxlength='50' size='30' placeholder='First Name' value="<?php echo $first_name ?>" id="fname"/>
                                     <span class="error"><?php echo $first_nameErr;?></span>
                                     <br>
                                     <!-- <label for="last_name">Last Name</label> -->
-                                    <input class="form-control" type='text' name='last_name' maxlength='50' size='30' placeholder='Last Name' value="<?php echo $last_name ?>"/>
+                                    <input class="form-control" type='text' name='last_name' maxlength='50' size='30' placeholder='Last Name' value="<?php echo $last_name ?>" id="lname"/>
                                     <span class="error"><?php echo $last_nameErr;?></span>
                                     <br>
                                     <!-- <label for="email">Email Address</label> -->
-                                    <input class="form-control" type="text" name="email" maxlength="50" size="12" placeholder='Email Address' value="<?php echo $email ?>"/>
+                                    <input class="form-control" type="text" name="email" maxlength="50" size="12" placeholder='Email Address' value="<?php echo $email ?>" id="email"/>
                                     <span class="error"><?php echo $emailErr;?></span>
                                     <br>
                                     <!-- <label for="usertype">User Type</label> -->
@@ -226,7 +226,7 @@
             
                 echo "<script type='text/javascript'>";
                 echo "alert('The username is already taken!');";
-                echo "history.go(-1);";
+                echo "openModal()";
                 echo "</script>";
              }
              else{
@@ -258,14 +258,8 @@
             echo "window.close();";
             echo "window.opener.location.reload();";
             echo "</script>";
-    }
-             }
-            
-
-
-
-
-        
+            }
+        } 
     ?>
 
 </body>
