@@ -15,8 +15,29 @@
        $data = htmlspecialchars($data);
        return $data;
     }
+    
+    ?>
+     <script type="text/javascript">
+     function openModal() {  
+           $('#signup').modal('show');
+        }
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+     </script>
+    
+    
+
+    <?php
+
+
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+
+    
+        
+
+
+
+
     // process the form
    
         if ( (empty($_POST["username"])) || (!preg_match($pattern, $_POST["username"])) || (strlen($_POST["username"]) < 6) ) {
@@ -67,6 +88,12 @@
             $usertype = test_input($_POST["usertype"]);
         }
 
+        if($validform == false){
+
+             echo "<script type='text/javascript'> openModal(); </script>";
+
+        }
+
 
 
 
@@ -100,6 +127,11 @@
 
 <body>
     <style type="text/css">
+
+    .error {
+        color: red;
+    }
+
     #signup_form label.error {
         color: red;
     }
@@ -108,45 +140,45 @@
         border: 1px solid red;
     }
     </style>
-    <script type="text/javascript">
-    $(document).ready(function() {
+     <script type="text/javascript">
+    // $(document).ready(function() {
 
-        $('#signup_form').validate({ // initialize the plugin
-            rules: {
-                username: {
-                    required: true,
-                    minlength: 6,
-                    alphanumeric: true,
-                    nowhitespace: true
+    //     $('#signup_form').validate({ // initialize the plugin
+    //         rules: {
+    //             username: {
+    //                 required: true,
+    //                 minlength: 6,
+    //                 alphanumeric: true,
+    //                 nowhitespace: true
 
-                },
-                password: {
-                    required: true,
-                    minlength: 6,
-                    alphanumeric: true,
-                    nowhitespace: true
-                },
-                first_name: {
-                    required: true,
-                    minlength: 3
-                },
+    //             },
+    //             password: {
+    //                 required: true,
+    //                 minlength: 6,
+    //                 alphanumeric: true,
+    //                 nowhitespace: true
+    //             },
+    //             first_name: {
+    //                 required: true,
+    //                 minlength: 3
+    //             },
 
-                last_name: {
-                    required: true,
-                    minlength: 3
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                usertype: {
-                    required: true
-                }
-            }
-        });
+    //             last_name: {
+    //                 required: true,
+    //                 minlength: 3
+    //             },
+    //             email: {
+    //                 required: true,
+    //                 email: true
+    //             },
+    //             usertype: {
+    //                 required: true
+    //             }
+    //         }
+    //     });
 
-    });
-    </script>
+    // });
+     </script>
     <div class="container-fluid3">
         <div class="row">
             <div class="col-md-12">
@@ -165,6 +197,7 @@
                     <!--</div>-->
                     <br>
                     <input type="submit" name="Submit" value="Login" id="login_btn" class="btn btn-success custom">
+                    <button type="button" class="btn btn-success custom"  onClick="openModal()">Modal Test</button>
                 </form>
                 <br>
                 <!-- Button trigger modal -->
@@ -183,23 +216,23 @@
                                 <form id="signup_form" name="signup_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                     <!-- <label for="username">Username</label> -->
                                     <input class="form-control" type="text" size="12" name="username" placeholder="Username" />
-                                    <span class="error">* <?php echo $usernameErr;?></span>
+                                    <span class="error"><?php echo $usernameErr;?></span>
                                     <br>
                                     <!-- <label for="password">Password</label> -->
                                     <input class="form-control" type="password" size="12" name="password" placeholder="Password" />
-                                    <span class="error">* <?php echo $passwordErr;?></span>
+                                    <span class="error"><?php echo $passwordErr;?></span>
                                     <br>
                                     <!-- <label for="first_name">First Name</label> -->
                                     <input class="form-control" type='text' name='first_name' maxlength='50' size='30' placeholder='First Name'>
-                                    <span class="error">* <?php echo $first_nameErr;?></span>
+                                    <span class="error"><?php echo $first_nameErr;?></span>
                                     <br>
                                     <!-- <label for="last_name">Last Name</label> -->
                                     <input class="form-control" type='text' name='last_name' maxlength='50' size='30' placeholder='Last Name'>
-                                    <span class="error">* <?php echo $last_nameErr;?></span>
+                                    <span class="error"><?php echo $last_nameErr;?></span>
                                     <br>
                                     <!-- <label for="email">Email Address</label> -->
                                     <input class="form-control" type="text" name="email" maxlength="50" size="12" placeholder='Email Address'>
-                                    <span class="error">* <?php echo $emailErr;?></span>
+                                    <span class="error"><?php echo $emailErr;?></span>
                                     <br>
                                     <!-- <label for="usertype">User Type</label> -->
                                     <select class="form-control" name="usertype" placeholder='Please Select'>
@@ -208,7 +241,7 @@
                                         <option value="OWNER">Owner</option>
                                         <option value="TENANT">Tenant</option>
                                     </select>
-                                    <span class="error">* <?php echo $usertypeErr;?></span>
+                                    <span class="error"><?php echo $usertypeErr;?></span>
                             </div>
                             <div class="modal-footer">
                                 <input class="btn btn-success" type="submit" name="btnAdd" value="Add"> &nbsp;&nbsp;
@@ -225,5 +258,8 @@
         </div>
     </div>
 </body>
+
+ 
+
 
 </html>
