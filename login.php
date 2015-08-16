@@ -41,8 +41,8 @@ if($count == 1){
 	$_SESSION["username"] = $row["username"];
 	header("location:home.php");
 } else {
-	
 	header("Location: index.php");
+	
 }
 
 

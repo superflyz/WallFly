@@ -1,6 +1,8 @@
   $(document).ready(function() {
       
       $("#login")[0].reset();
+      $('#username').val('');
+      $('#passwrd').val('');
 
 
       $('#signup_form').validate({ // initialize the plugin
@@ -53,4 +55,9 @@ function clearForm() {
     $('#fname').val('');
     $('#lname').val('');
     $('#email').val('');
+}
+
+function newPage(){
+
+  window.location = 'index.php';
 }

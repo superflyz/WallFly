@@ -1,4 +1,5 @@
 <?php 
+    ob_start();
     session_start();
     require_once(__DIR__.'/classes/Database.php');
     
@@ -18,6 +19,7 @@
 
     if ($username != '') {
         header("Location: home.php");
+        exit();
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
@@ -77,9 +79,7 @@
         }
     }
 
-    function add_databse() {
-       
-    }
+
 ?>
 
 <!DOCTYPE html>
@@ -155,7 +155,7 @@
                     <div class="modal-dialog modal-sm " role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                               <!--  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
                                 <h4 class="modal-title" id="myModalLabel">Wallfly Sign Up</h4>
                             </div>
                             <div class="modal-body">
@@ -191,14 +191,14 @@
                             </div>
                             <div class="modal-footer">
                                 <input class="btn btn-success" type="submit" name="btnAdd" value="Add"> &nbsp;&nbsp;
-                                <input class="btn btn-warning" type="reset" class="button" value="Reset"> &nbsp;&nbsp;
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <input class="btn btn-warning" type="button" class="button" value="Reset" onclick="clearForm()"> &nbsp;&nbsp;
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="newPage()">Close</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--  <button type="button" class="btn btn-success custom" onclick="javascript:void window.open('signup_popup.php','1428456850982','width=500, height=350,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0');return false;">Sign Up</button> -->
+               
             </div>
             <div class="col-md-4"></div>
         </div>
@@ -231,11 +231,11 @@
             if($STH->rowCount() > 0) {
             
                 echo "<script type='text/javascript'>";
-                echo "alert('The username is already taken!');";
+                echo "alert('no way!');";
                 echo "openModal()";
                 echo "</script>";
                 exit();
-            }
+            }else{
 
             $statement = $DBH->prepare("INSERT INTO user(username, password, privilege, email, first_name, last_name)
             VALUES(:username, :password, :usertype, :email, :first_name, :last_name)");
@@ -252,30 +252,16 @@
             #clear the saved form
             $_POST = array();
             $username = $password = $first_name = $last_name = $email = $usertype = "";
+            header('Location: signupmessage.php');
+            exit();
+        }
 
-            echo "<script type='text/javascript'>";
-            echo "alert('Thank you for signing up');";
-            echo "</script>";
-            exit();
-        }
-        if(isset($_SESSION["signedUp"]) && $_SESSION["signedUp"] == "false") {
-            $_SESSION["signedUp"] = "";
-            echo "<script type='text/javascript'>";
-            echo "alert('Thank you for signing up');";
-            echo "</script>";
-            exit();
-        }
-        if(isset($_SESSION["triedLogin"]) && $_SESSION["triedLogin"] == "true") {
-            $_SESSION["triedLogin"] = "";
-            echo "<script type='text/javascript'>";
-            echo "alert('The username is already taken!');";
-            echo "openModal()";
-            echo "</script>";
-            exit();
+            
         }
 
         
     ?>
+
 
 </body>
 
