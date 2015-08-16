@@ -9,37 +9,16 @@
     $validform = true;
     $pattern = '#^[a-z0-9\x20]+$#i';
 
-   function test_input($data) {
+    function test_input($data) {
        $data = trim($data);
        $data = stripslashes($data);
        $data = htmlspecialchars($data);
        return $data;
     }
-    
-    ?>
-     <script type="text/javascript">
-     function openModal() {  
-           $('#signup').modal('show');
-        }
-
-     </script>
-    
-    
-
-    <?php
-
 
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
-
-    
-        
-
-
-
-
-    // process the form
-   
+        // process the form
         if ( (empty($_POST["username"])) || (!preg_match($pattern, $_POST["username"])) || (strlen($_POST["username"]) < 6) ) {
             $usernameErr = "Must Enter a Valid Username";
             $validform = false;
@@ -86,24 +65,10 @@
         }
         else {
             $usertype = test_input($_POST["usertype"]);
-        }
-
-        if($validform == false){
-
-             echo "<script type='text/javascript'> openModal(); </script>";
-
-        }
-
-
-
-
-
-        
-
-
+        } 
     }
-
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -178,7 +143,14 @@
     //     });
 
     // });
-     </script>
+    </script>
+
+    <script type="text/javascript">
+        function openModal() {  
+            $('#signup').modal('show');
+        }
+    </script>
+
     <div class="container-fluid3">
         <div class="row">
             <div class="col-md-12">
@@ -257,9 +229,14 @@
             <div class="col-md-4"></div>
         </div>
     </div>
+
+    <?php
+        if($validform == false){
+
+             echo "<script type='text/javascript'> openModal(); </script>";
+
+        }
+    ?>
+
 </body>
-
- 
-
-
 </html>
