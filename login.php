@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION["triedLogin"] = "true";
 $username = "admin";
 $password = "password";
 $hostname = "localhost"; 
@@ -34,15 +36,13 @@ if($count == 1){
 	$session_expiration = time() + 5000;
 	session_set_cookie_params($session_expiration);
 	//start session
-	session_start();
+	
 	$_SESSION["usertype"] = $row["privilege"];
 	$_SESSION["username"] = $row["username"];
 	header("location:home.php");
 } else {
-	print "<script type='text/javascript'>"; 
-	print "alert('The username or password is wrong.');"; 
-	print "window.location.href='login_page.html';";
-	print "</script>";
+	
+	header("Location: index.php");
 }
 
 

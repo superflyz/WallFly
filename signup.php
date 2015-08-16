@@ -1,6 +1,6 @@
 <?php
 	session_start();
-
+	
 	//connect DB
  	$username = "admin";
  	$password = "password";
@@ -25,20 +25,15 @@
  	$check_username = "SELECT username FROM user WHERE username='$username'";
  	$check_result = mysql_query($check_username);
  	if($check_result && mysql_num_rows($check_result) > 0){
- 		echo "<script type='text/javascript'>";
-		echo "alert('The username is already taken!');";
-		echo "history.go(-1);";
-		echo "</script>";
+ 		$_SESSION['signedUp'] = "flase";
+ 		header("Location: index.php");
  	} else{
 		$sql = "INSERT INTO user(username, password, privilege, email, first_name, last_name)
  				VALUES ('$username', '$password', '$usertype', '$email', '$first_name', '$last_name')";
  		$result = mysql_query($sql);
-	
+		$_SESSION['signedUp'] = "true";
  		mysql_close();
- 		echo "<script type='text/javascript'>";
-		echo "alert('Thank you for join us!');";
-		echo "</script>";
-		header("Location: error.php");
+		header("Location: index.php");
  	}
 
  	

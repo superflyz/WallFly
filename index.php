@@ -1,7 +1,7 @@
 <?php 
-
+    session_start();
     require_once(__DIR__.'/classes/Database.php');
-
+    
      //error vars
     $usernameErr = $passwordErr = $first_nameErr = $last_nameErr = $emailErr = $usertypeErr ="";
     //form vars
@@ -16,12 +16,9 @@
        return $data;
     }
 
-    // if (!$_SERVER["REQUEST_METHOD"] == "POST") { 
-    //     echo "<script>$('form').each(function() { this.reset() });</script>";
-        
-
-
-    // }
+    if ($username != '') {
+        header("Location: home.php");
+    }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") { 
         // process the form
@@ -72,6 +69,16 @@
         else {
             $usertype = test_input($_POST["usertype"]);
         } 
+
+        if($validform == true) {
+            $_SESSION['signedUp'] = "true";
+        } else {
+            $_SESSION['signedUp'] = "false";
+        }
+    }
+
+    function add_databse() {
+       
     }
 ?>
 
@@ -198,40 +205,37 @@
     </div>
 
     <?php
-        if($validform == false){
-
+        if($validform == false) {
              echo "<script type='text/javascript'> openModal(); </script>";
              exit();
-
         }
-        else{
-            try{
-            $DBH = Database::getInstance();
-            $DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-            }
-            catch(PDOException $e) {
-            echo "Unable to connect";
-            file_put_contents('Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
+        if(isset($_SESSION["signedUp"]) && $_SESSION["signedUp"] == "true") {
+            $_SESSION["signedUp"] = "";
+            //database adding
+             try{
+                $DBH = Database::getInstance();
+                $DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+            } catch(PDOException $e) {
+                echo "Unable to connect";
+                file_put_contents('Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
             }
 
             # query db for username
             $STH = $DBH->query("SELECT username FROM user WHERE username='$username'");
  
            
-           # setting the fetch mode
+            # setting the fetch mode
             $STH->setFetchMode(PDO::FETCH_OBJ);
              
             # handling the results
-             if($STH->rowCount() > 0) {
+            if($STH->rowCount() > 0) {
             
                 echo "<script type='text/javascript'>";
                 echo "alert('The username is already taken!');";
                 echo "openModal()";
                 echo "</script>";
-             }
-             else{
- 
-            # execute the insert!
+                exit();
+            }
 
             $statement = $DBH->prepare("INSERT INTO user(username, password, privilege, email, first_name, last_name)
             VALUES(:username, :password, :usertype, :email, :first_name, :last_name)");
@@ -245,21 +249,32 @@
             ));
             #close db connection 
             $DBH = NULL; 
-
             #clear the saved form
             $_POST = array();
             $username = $password = $first_name = $last_name = $email = $usertype = "";
-            echo "<script> $('#signup_form')[0].reset();</script>";
 
-            #success message
             echo "<script type='text/javascript'>";
-            echo "$('#signup_form')[0].reset();";
-            echo "alert('Thank you for join us!');";
-            echo "window.close();";
-            echo "window.opener.location.reload();";
+            echo "alert('Thank you for signing up');";
             echo "</script>";
-            }
-        } 
+            exit();
+        }
+        if(isset($_SESSION["signedUp"]) && $_SESSION["signedUp"] == "false") {
+            $_SESSION["signedUp"] = "";
+            echo "<script type='text/javascript'>";
+            echo "alert('Thank you for signing up');";
+            echo "</script>";
+            exit();
+        }
+        if(isset($_SESSION["triedLogin"]) && $_SESSION["triedLogin"] == "true") {
+            $_SESSION["triedLogin"] = "";
+            echo "<script type='text/javascript'>";
+            echo "alert('The username is already taken!');";
+            echo "openModal()";
+            echo "</script>";
+            exit();
+        }
+
+        
     ?>
 
 </body>
