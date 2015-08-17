@@ -10,6 +10,5 @@ class Database_Test extends PHPUnit_Framework_TestCase {
     $db = Database::getInstance();
     $this->assertNotEmpty($db);
   }
-
   
 }
