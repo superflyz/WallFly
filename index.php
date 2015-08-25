@@ -173,30 +173,68 @@
                  
                 </form>
          </div>
+         </div>
+         </div>
+
          </section>
          <section>
              <hr>
-             <div class="row">
+             <div id="sectiondisplay" class="row">
                 <div class="col-md-4 icon">
-                <img height="200px" src="img/icon1.png">
+                <img height="100px" src="img/icon1.png">
                 <p>
                 here is some text talking about the icon
                 </p>
                 </div>
                  <div class="col-md-4 icon">
-                 <img height="200px" src="img/icon2.png">
+                 <img height="100px" src="img/icon2.png">
                  <p>
                 here is some text talking about the icon
                 </p>
                  </div>
                  <div class="col-md-4 icon">
-                 <img height="200px" src="img/icon3.png">
+                 <img height="100px" src="img/icon3.png">
                  <p>
                 here is some text talking about the icon
                 </p>
                  </div>
              </div>
          </section>
+          <section>
+             <hr>
+             <div id="sectiondisplay" class="row">
+                 <div class="col-md-6 icon">
+                 <img  src="img/logo.jpg">
+                 </div>
+                 <div class="col-md-4 icon ">
+                 <p>
+                 Franz Eilert, has been in the information technology field for most of his career. He sits on a few boards including the Spatial Information Business Association and is the director for Information Ecosystems.
+                 He is interested in this project as he sees the need to have some type of communication between all parties of the rental industry
+                 <br>
+                 <br>
+                Wall Fly is a repository of information where owners, agents and tenants can communicate and share important information.
+                Currently in the rental industry, all three parties are losing.
+                <br>
+                <br>
+                 The owner of a property has limited visibility of the property and related documents.
+                The agent is busy with a lot of properties and needs a streamline process to keep both owners and tenants content with the correct and up to date information.
+                The tenant has limited or nonexistent communication with all parties and does not have an easy documented outlet to ask for repairs.
+                </p>
+                 </div>
+             </div>
+         </section>
+         <section>
+             <hr>
+             <div id="sectiondisplay" class="row">
+                 <div class="col-md-12 ">
+                <p>
+                    Footer here
+                </p>
+                 </div>
+             </div>
+         </section>
+
+
                 
                 
                
@@ -252,8 +290,7 @@
 
        
         
-    </div>
-</div>
+   
 
 
 
