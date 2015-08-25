@@ -540,7 +540,7 @@ a.divLink{
 
  position:absolute;
     top:10%; /* in conjunction with left property, decides the text position */
-    left:10%;
+    left:15%;
     width:600px; /* optional, though better have one */
 
 }
@@ -593,8 +593,14 @@ height: 1px;
   text-align: center;
 }
 
-#sectiondisplay{
+#sectiondisplay {
 
   margin-top: 100px;
-  margin-bottom: 200px;
+  margin-bottom: 150px;
+}
+
+#loginandsignup{
+
+  margin-top: 50px;
+  margin-bottom: 100px;
 }

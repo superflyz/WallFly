@@ -141,14 +141,14 @@
             <div id="banner" class="col-md-12 banner">
                 <img src="img/view.jpg">
                 <div class="text">
-                <p>"The rental experience that actually works"</p>
+                <p>The rental experience that actually works</p>
                 
               </div>
             </div>
         </div>
         <div class="container">
          <div class="row row-centered">
-        <div id="loginandsignup" class="col-md-4 col-centered">
+        <div id="loginandsignup" class="col-md-4 col-centered ">
 
         <form id="login" name="login" method="post" action="login.php">
                     <!--<div class="input-group">-->
@@ -276,6 +276,7 @@
                                         <option value="TENANT">Tenant</option>
                                     </select>
                                     <span class="error"><?php echo $usertypeErr;?></span>
+                                    <br>
                             
                             
                                 <input class="btn btn-success" type="submit" name="btnAdd" value="Add"> &nbsp;&nbsp;
