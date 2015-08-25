@@ -12,8 +12,29 @@
 }
 
 .custom{
+    
     width: 200px;
 }
+
+
+
+ 
+.btn-custom {
+    border: 2px solid #727B7F;
+     padding: 12px 22px;
+    color: #727B7F;
+}
+ 
+.btn-custom:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    border: 2px solid #419641;
+     padding: 12px 22px;
+}
+ 
+.btn-custom:active, .btn-custom.active {
+    background: #419641;
+    box-shadow: none;
+}
+
 
 #signup_form{
   margin:20px;
@@ -33,7 +54,7 @@ $colHover       : #d1ffed;
 */
 
 .container-fluid{
-	background-color: #036E2C;
+	background-color: #2C3539;
 }
 
 .container-fluid2{
@@ -42,8 +63,9 @@ $colHover       : #d1ffed;
 }
 
 .navbar-default {
-    background-color: #2ecc71;
-    border-color: #27ae60;
+    background-color: #2C3539;
+    border-color: #2C3539;
+    margin-bottom: 0px;
 	/*background-color: #036E2C;
 	border-color: #036E2C;*/
     .navbar-nav{
@@ -431,6 +453,9 @@ a.divLink{
   margin-right: auto;
 }
 
+
+
+
 /*---------- chat.html -----------*/
 #chat{
     outline: none;
@@ -499,4 +524,71 @@ a.divLink{
   margin:5px;
   background:#ccc;
   border-radius:4px;
+}
+
+#banner{
+  
+  height: 500px;
+}
+
+.banner{
+
+  position: relative;
+}
+
+.banner .text{
+
+ position:absolute;
+    top:10%; /* in conjunction with left property, decides the text position */
+    left:10%;
+    width:600px; /* optional, though better have one */
+
+}
+
+.text p{
+
+  color: #ffffff;
+  font-size: 2em;
+}
+
+
+#banner img{
+  position: relative;
+  width: 100%;
+  height:100%;
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+#controlbuttons{
+
+  text-align: center;
+}
+
+#login{
+
+  margin-top: 5%;
+}
+
+hr{
+
+  color: #727B7F;
+background-color: #727B7F;
+height: 1px;
+}
+
+.icon{
+
+  text-align: center;
 }

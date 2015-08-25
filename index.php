@@ -125,31 +125,81 @@
     
 
     <div class="container-fluid3">
+    
+        <nav class="navbar navbar-default">
+        <div class="container-fluid">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+       <img alt="Brand" src="...">
+       </a>
+       </div>
+          </div>
+        </nav>
+        
+        <section>
         <div class="row">
-            <div class="col-md-12">
-                <img src="img/logo.jpg">
+            <div id="banner" class="col-md-12 banner">
+                <img src="img/view.jpg">
+                <div class="text">
+                <p>"The rental experience that actually works"</p>
+                
+              </div>
             </div>
         </div>
-        <div class="row row-centered">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <form id="login" name="login" method="post" action="login.php">
+        <div class="container">
+         <div class="row row-centered">
+        <div id="loginandsignup" class="col-md-4 col-centered">
+
+        <form id="login" name="login" method="post" action="login.php">
                     <!--<div class="input-group">-->
+                   
                     <input name="username" type="text" id="username" class="form-control" placeholder="Username">
+
                     <!--</div>-->
                     <!--<div class="input-group">-->
-                    <input name="password" type="password" id="password" class="form-control" placeholder="Password">
+                    <input name="password" type="password" id="password" class="form-control " placeholder="Password">
                     <!--</div>-->
-                    <br>
+                    
+                    <div id="controlbuttons">
                    <!--  <input class="btn btn-warning" type="reset" class="button" value="Reset"> -->
-                    <input type="submit" name="Submit" value="Login" id="login_btn" class="btn btn-success custom">
-                  
-                </form>
-                <br>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-success custom" data-toggle="modal" data-target="#signup" onclick="clearForm()">
+                    <input type="submit" name="Submit" value="Login" id="login_btn" class="btn btn-custom custom"> 
+                    <br>
+                    <br>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-custom custom" data-toggle="modal" data-target="#signup" onclick="clearForm()">
                     Sign Up
                 </button>
+                </div>
+                 
+                </form>
+         </div>
+         </section>
+         <section>
+             <hr>
+             <div class="row">
+                <div class="col-md-4 icon">
+                <img height="200px" src="img/icon1.png">
+                <p>
+                here is some text talking about the icon
+                </p>
+                </div>
+                 <div class="col-md-4 icon">
+                 <img height="200px" src="img/icon2.png">
+                 <p>
+                here is some text talking about the icon
+                </p>
+                 </div>
+                 <div class="col-md-4 icon">
+                 <img height="200px" src="img/icon3.png">
+                 <p>
+                here is some text talking about the icon
+                </p>
+                 </div>
+             </div>
+         </section>
+                
+                
+               
                 <!-- Modal -->
                 <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog modal-sm " role="document">
@@ -188,8 +238,8 @@
                                         <option value="TENANT">Tenant</option>
                                     </select>
                                     <span class="error"><?php echo $usertypeErr;?></span>
-                            </div>
-                            <div class="modal-footer">
+                            
+                            
                                 <input class="btn btn-success" type="submit" name="btnAdd" value="Add"> &nbsp;&nbsp;
                                 <input class="btn btn-warning" type="button" class="button" value="Reset" onclick="clearForm()"> &nbsp;&nbsp;
                                 <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="newPage()">Close</button>
@@ -198,10 +248,18 @@
                         </div>
                     </div>
                 </div>
+            
+
+       
+        
+    </div>
+</div>
+
+
+
+       
                
-            </div>
-            <div class="col-md-4"></div>
-        </div>
+           
     </div>
 
     <?php
