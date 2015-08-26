@@ -489,6 +489,10 @@ body {
     width: 100%;
     height: 100%;
 }
+
+body{
+   padding-top: 50px;
+}
 #alert {
     width: 40px;
     border: none;
@@ -614,4 +618,18 @@ hr {
 }
 #signup_form input.error {
     border: 1px solid red;
+}
+
+#learnmore{
+
+    
+   
+    position: absolute;
+    /*it can be fixed too*/
+    
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 80vh;
+
 }

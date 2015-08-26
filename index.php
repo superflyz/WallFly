@@ -108,7 +108,7 @@
 </head>
 <body>
     <div class="container-fluid3">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">
@@ -144,6 +144,14 @@
                                 </div>
                             </form>
                         </div>
+                    </div>
+                    <div id="learnmore" class="col-md-1">
+                       
+                          <img width="50" src="img/downarrow.png">
+                         
+                       
+
+
                     </div>
                 </div>
             </div>
