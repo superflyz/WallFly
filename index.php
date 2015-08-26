@@ -126,7 +126,7 @@
 
     <div class="container-fluid3">
     
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
         <div class="navbar-header">
         <a class="navbar-brand" href="#">
