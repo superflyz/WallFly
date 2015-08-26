@@ -123,7 +123,7 @@
                     <div class="text">
                         <p>The rental experience that actually works</p>
                     </div>
-                    <div id="loginwrapper" class="col-md-3">
+                    <div id="loginwrapper" class="col-md-2">
                         <div id="loginandsignup" class="col-md-12 col-centered ">
                             <form id="login" name="login" method="post" action="login.php">
                                 <!--<div class="input-group">-->
