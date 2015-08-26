@@ -148,7 +148,7 @@
                     <div id="learnmore" class="col-md-1">
                        
                           <img width="50" src="img/downarrow.png">
-                         
+
                        
 
 
@@ -181,17 +181,13 @@
         </section>
         <section>
             <hr>
-            <div id="sectiondisplay" class="row">
+            <div id="sectiondisplay" class="row description">
                 <div class="col-md-6 icon">
                     <img src="img/logo.jpg">
                 </div>
-                <div class="col-md-4 icon ">
+                <div class="col-md-3 icon ">
                     <p>
                         Franz Eilert, has been in the information technology field for most of his career. He sits on a few boards including the Spatial Information Business Association and is the director for Information Ecosystems. He is interested in this project as he sees the need to have some type of communication between all parties of the rental industry
-                        <br>
-                        <br> Wall Fly is a repository of information where owners, agents and tenants can communicate and share important information. Currently in the rental industry, all three parties are losing.
-                        <br>
-                        <br> The owner of a property has limited visibility of the property and related documents. The agent is busy with a lot of properties and needs a streamline process to keep both owners and tenants content with the correct and up to date information. The tenant has limited or nonexistent communication with all parties and does not have an easy documented outlet to ask for repairs.
                     </p>
                 </div>
             </div>

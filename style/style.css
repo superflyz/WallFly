@@ -595,7 +595,7 @@ hr {
     text-align: center;
 }
 #sectiondisplay {
-    margin-top: 100px;
+    margin-top: 200px;
     margin-bottom: 150px;
 }
 #loginwrapper {
@@ -632,4 +632,9 @@ hr {
     margin: auto;
     margin-top: 80vh;
 
+}
+
+.description p{
+
+  padding-top: 100px;
 }
