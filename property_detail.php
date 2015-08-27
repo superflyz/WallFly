@@ -17,7 +17,7 @@
   $selected = mysql_select_db("admin",$dbhandle)
     or die("Could not select database");
 
-
+    
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -239,10 +239,10 @@
             echo "<div class='tabpage' id='tabpage_3'>";
             echo "<h2>Repair Request</h2>";
         ?>
-          <form name='repair_request_form' method="post" action="">
+          <form name='repair_request_form' method="post" action="repairform.php">
             <table width="70%">
               <tr>
-                <td valign="top" width="20%">
+                <td valign="top" width="20%">   
                   <label for="first_name">First Name *</label>
                 </td>
                 <td valign="top" width="50%">
@@ -290,7 +290,7 @@
 
               <tr style="margin-top: 20px;">
                 <td style="text-align:right" colspan="2">
-                  <button class="btn btn-success btn-sm" name="send_email" onclick="rrsubmit()">Request</button> &nbsp; <input class="btn btn-default btn-sm" type="reset" value="Reset">
+                  <button class="btn btn-success btn-sm" type="submit" name="send_email">Request</button> &nbsp; <input class="btn btn-default btn-sm" type="reset" value="Reset">
                 </td>
               </tr>
             </table>
