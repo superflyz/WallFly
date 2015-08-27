@@ -29,7 +29,7 @@
     }
 
 
-    public function validateform($user,$pass,$first,$last,$mail,$user){
+    public function validform($user,$pass,$first,$last,$mail,$user){
 
         $this->$username = $user;
         $this->$password = $pass;
