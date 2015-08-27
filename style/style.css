@@ -54,20 +54,22 @@ $colHover       : #d1ffed;
 */
 
 .container-fluid{
-	background-color: #2C3539;
+	background-color: #333333;
+    height: 75px;
 }
 
+/*
 .container-fluid2{
 	border-radius: 25px;
 	background-color: #036E2C;
 }
+*/
 
 .navbar-default {
     background-color: #2C3539;
     border-color: #2C3539;
     margin-bottom: 0px;
-	/*background-color: #036E2C;
-	border-color: #036E2C;*/
+
     .navbar-nav{
     	> li {
     		> a {
@@ -80,7 +82,12 @@ $colHover       : #d1ffed;
 .navbar-brand{
 		color: #ffffff;
 	}
+#logo {
+    margin: 0px;
+    width: 100px;
+    height: 75px;
 }
+
 
 
 .glyphicon-home{
