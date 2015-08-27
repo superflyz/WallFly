@@ -590,6 +590,7 @@ hr {
     color: #727B7F;
     background-color: #727B7F;
     height: 1px;
+	margin:0px;
 }
 .icon {
     text-align: center;
@@ -638,3 +639,4 @@ hr {
 
   padding-top: 100px;
 }
+

@@ -117,8 +117,8 @@
                 </div>
             </div>
         </nav>
-        <section>
-            <div class="row">
+        <section id="tester">
+            <div class="row" >
                 <div class="col-md-12 banner">
                     <div class="text">
                         <p>The rental experience that actually works</p>
@@ -155,6 +155,7 @@
                     </div>
                 </div>
             </div>
+			<hr/>
         </section>
         <section>
             
