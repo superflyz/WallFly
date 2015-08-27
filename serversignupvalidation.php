@@ -136,14 +136,14 @@
             if($STH->rowCount() > 0) {
             
                 echo "<script type='text/javascript'>";
-                echo "alert('$username');";
+                echo "alert('Sorry that username already exists');";
                 echo "openModal()";
                 echo "</script>";
                 exit();
             }elseif($STH2->rowCount() > 0){
 
                 echo "<script type='text/javascript'>";
-                echo "alert('$email');";
+                echo "alert('Sorry that email is already registered');";
                 echo "openModal()";
                 echo "</script>";
                 exit();
