@@ -2,85 +2,97 @@
     ob_start();
     session_start();
     require_once(__DIR__.'/classes/Database.php');
-    
+	 require_once(__DIR__.'/serversignupvalidation.php');
+	$validform=true;
+    $returnedvalidation = ["","","","","","",""]; 
+	
+	if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+	$validate = new Validator;
+	
+	$returnedvalidation = $validate->validform($_POST["username"],$_POST["password"],$_POST["first_name"],$_POST["last_name"],$_POST["email"],$_POST["usertype"]);
+	$validform = $returnedvalidation[0];
+	
+	}
+	
+	
      //error vars
-    $usernameErr = $passwordErr = $first_nameErr = $last_nameErr = $emailErr = $usertypeErr ="";
+    // $usernameErr = $passwordErr = $first_nameErr = $last_nameErr = $emailErr = $usertypeErr ="";
     //form vars
-    $username = $password = $first_name = $last_name = $email = $usertype = "";
-    $validform = true;
-    $pattern = '#^[a-z0-9\x20]+$#i';
+    // $username = $password = $first_name = $last_name = $email = $usertype = "";
+    // $validform = true;
+    // $pattern = '#^[a-z0-9\x20]+$#i';
 
-    function test_input($data) {
-       $data = trim($data);
-       $data = stripslashes($data);
-       $data = htmlspecialchars($data);
-       return $data;
-    }
+    // function test_input($data) {
+       // $data = trim($data);
+       // $data = stripslashes($data);
+       // $data = htmlspecialchars($data);
+       // return $data;
+    // }
 
-    if ($username != '') {
-        header("Location: home.php");
-        exit();
-    }
+    // if ($username != '') {
+        // header("Location: home.php");
+        // exit();
+    // }
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") { 
-        // process the form
-        if ( (empty($_POST["username"])) || (!preg_match($pattern, $_POST["username"])) || (strlen($_POST["username"]) < 5) ) {
-            $usernameErr = "Must Enter a Valid Username";
-            $validform = false;
-        }
-        else {
-            $username = test_input($_POST["username"]);
-        }
+    // if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+        //process the form
+        // if ( (empty($_POST["username"])) || (!preg_match($pattern, $_POST["username"])) || (strlen($_POST["username"]) < 5) ) {
+            // $usernameErr = "Must Enter a Valid Username";
+            // $validform = false;
+        // }
+        // else {
+            // $username = test_input($_POST["username"]);
+        // }
 
-        if ( (empty($_POST["password"])) || (!ctype_alnum($_POST["password"])) || (strlen($_POST["password"]) < 6) ) {
-            $passwordErr = "Must Enter a Valid Password";
-            $validform = false;
-        }
-        else {
-            $password = test_input($_POST["password"]);
-        }
+        // if ( (empty($_POST["password"])) || (!ctype_alnum($_POST["password"])) || (strlen($_POST["password"]) < 6) ) {
+            // $passwordErr = "Must Enter a Valid Password";
+            // $validform = false;
+        // }
+        // else {
+            // $password = test_input($_POST["password"]);
+        // }
 
-        if ( (empty($_POST["first_name"])) || (strlen($_POST["first_name"]) < 3) ) {
-            $first_nameErr = "Must Enter a Valid First Name";
-            $validform = false;
-        }
-        else {
-            $first_name = test_input($_POST["first_name"]);
-        }
+        // if ( (empty($_POST["first_name"])) || (strlen($_POST["first_name"]) < 3) ) {
+            // $first_nameErr = "Must Enter a Valid First Name";
+            // $validform = false;
+        // }
+        // else {
+            // $first_name = test_input($_POST["first_name"]);
+        // }
 
-        if ( (empty($_POST["last_name"])) || (strlen($_POST["last_name"]) < 3) ) {
-            $last_nameErr = "Must Enter a Valid First Name";
-            $validform = false;
-        }
-        else {
-            $last_name = test_input($_POST["last_name"]);
-        }
+        // if ( (empty($_POST["last_name"])) || (strlen($_POST["last_name"]) < 3) ) {
+            // $last_nameErr = "Must Enter a Valid First Name";
+            // $validform = false;
+        // }
+        // else {
+            // $last_name = test_input($_POST["last_name"]);
+        // }
 
-        if ( (empty($_POST["email"])) || (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) ) {
-            $emailErr = "Correct Email is Required";
-            $validform = false;
-        }
-        else {
-            $email = test_input($_POST["email"]);
-        }
+        // if ( (empty($_POST["email"])) || (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) ) {
+            // $emailErr = "Correct Email is Required";
+            // $validform = false;
+        // }
+        // else {
+            // $email = test_input($_POST["email"]);
+        // }
 
-        if (empty($_POST["usertype"])) {
-            $usertypeErr = "Correct User Type is Required";
-            $validform = false;
-        }
-        else {
-            $usertype = test_input($_POST["usertype"]);
-        } 
+        // if (empty($_POST["usertype"])) {
+            // $usertypeErr = "Correct User Type is Required";
+            // $validform = false;
+        // }
+        // else {
+            // $usertype = test_input($_POST["usertype"]);
+        // } 
 
-        if($validform == true) {
-            $_SESSION['signedUp'] = "true";
-        } else {
-            $_SESSION['signedUp'] = "false";
-        }
-    }
+        // if($validform == true) {
+            // $_SESSION['signedUp'] = "true";
+        // } else {
+            // $_SESSION['signedUp'] = "false";
+        // }
+    // }
 
 
-?>
+// ?>
 
 <!DOCTYPE html>
 <html>
@@ -99,8 +111,8 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <!-- JQuery Validate Plugin-->
-    <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
+    <!--<script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>-->
     <script type="text/javascript" src="js/index.js"></script>
 
 
@@ -214,23 +226,23 @@
                         <form id="signup_form" name="signup_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                             <!-- <label for="username">Username</label> -->
                             <input class="form-control" type="text" size="12" name="username" placeholder="Username" value="<?php echo $username ?>" id="usrname" />
-                            <span class="error"><?php echo $usernameErr;?></span>
+                            <span class="error"><?php echo $returnedvalidation[1];?></span>
                             <br>
                             <!-- <label for="password">Password</label> -->
                             <input class="form-control" type="password" size="12" name="password" placeholder="Password" value="<?php echo $password ?>" id="psswrd" />
-                            <span class="error"><?php echo $passwordErr;?></span>
+                            <span class="error"><?php echo $returnedvalidation[2];?></span>
                             <br>
                             <!-- <label for="first_name">First Name</label> -->
                             <input class="form-control" type='text' name='first_name' maxlength='50' size='30' placeholder='First Name' value="<?php echo $first_name ?>" id="fname" />
-                            <span class="error"><?php echo $first_nameErr;?></span>
+                            <span class="error"><?php echo $returnedvalidation[3];?></span>
                             <br>
                             <!-- <label for="last_name">Last Name</label> -->
                             <input class="form-control" type='text' name='last_name' maxlength='50' size='30' placeholder='Last Name' value="<?php echo $last_name ?>" id="lname" />
-                            <span class="error"><?php echo $last_nameErr;?></span>
+                            <span class="error"><?php echo $returnedvalidation[4];?></span>
                             <br>
                             <!-- <label for="email">Email Address</label> -->
                             <input class="form-control" type="text" name="email" maxlength="50" size="12" placeholder='Email Address' value="<?php echo $email ?>" id="email" />
-                            <span class="error"><?php echo $emailErr;?></span>
+                            <span class="error"><?php echo $returnedvalidation[5];?></span>
                             <br>
                             <!-- <label for="usertype">User Type</label> -->
                             <select class="form-control" name="usertype" placeholder='Please Select'>
@@ -239,7 +251,7 @@
                                 <option value="OWNER">Owner</option>
                                 <option value="TENANT">Tenant</option>
                             </select>
-                            <span class="error"><?php echo $usertypeErr;?></span>
+                            <span class="error"><?php echo $returnedvalidation[6]?></span>
                             <br>
                             <input class="btn btn-success" type="submit" name="btnAdd" value="Add"> &nbsp;&nbsp;
                             <input class="btn btn-warning" type="button" class="button" value="Reset" onclick="clearForm()"> &nbsp;&nbsp;
