@@ -5,11 +5,18 @@
 	 require_once(__DIR__.'/serversignupvalidation.php');
 	$validform=true;
     $returnedvalidation = ["","","","","","",""]; 
+	$username = $password = $first_name = $last_name = $email = $usertype = "";
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") { 
 	$validate = new Validator;
 	
 	$returnedvalidation = $validate->validform($_POST["username"],$_POST["password"],$_POST["first_name"],$_POST["last_name"],$_POST["email"],$_POST["usertype"]);
+	$username = $_POST["username"];
+	$password = $_POST["password"];
+	$first_name = $_POST["first_name"];
+	$last_name = $_POST["last_name"];
+	$email = $_POST["email"];
+	$usertype = $_POST["usertype"];
 	$validform = $returnedvalidation[0];
 	
 	}

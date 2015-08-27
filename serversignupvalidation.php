@@ -21,7 +21,7 @@
     private $pattern = '#^[a-z0-9\x20]+$#i';
 
 
-    function test_input($data) {
+    public function test_input($data) {
        $data = trim($data);
        $data = stripslashes($data);
        $data = htmlspecialchars($data);
@@ -29,25 +29,25 @@
     }
 
 
-    public function validform($user,$pass,$first,$last,$mail,$user){
+    public function validform($user,$pass,$first,$last,$mail,$usertype){
 
-        $this->$username = $user;
-        $this->$password = $pass;
-        $this->$first_name = $first;
-        $this->$last_name = $last;
-        $this->$email = $mail;
-        $this->$usertype = $user;
+        $this->username = $user;
+        $this->password = $pass;
+        $this->first_name = $first;
+        $this->last_name = $last;
+        $this->email = $mail;
+        $this->usertype = $usertype;
 
         // process the form
-        if ( (empty($username)) || (!preg_match($pattern, $username)) || (strlen($username) < 5) ) {
+        if ( (empty($this->username)) || (!preg_match($this->pattern,$this->username)) || (strlen($this->username) < 5) ) {
             $usernameErr = "Must Enter a Valid Username";
             $validform = false;
         }
         else {
-            $username = test_input($username);
+            $username = $this->test_input($this->username);
         }
 
-        if ( (empty($password)) || (!ctype_alnum($password)) || (strlen($password) < 6) ) {
+        if ( (empty( $this->password )) || (!ctype_alnum( $this->password )) || (strlen( $this->password ) < 6) ) {
             $passwordErr = "Must Enter a Valid Password";
             $validform = false;
         }
@@ -64,7 +64,7 @@
         }
 
         if ( (empty($last_name)) || (strlen($last_name) < 3) ) {
-            $last_nameErr = "Must Enter a Valid First Name";
+            $last_nameErr = "Must Enter a Valid Last Name";
             $validform = false;
         }
         else {
@@ -84,10 +84,10 @@
             $validform = false;
         }
         else {
-            $usertype = test_input($usertype);
+            $usertype = $this->test_input($usertype);
         } 
 		
-		return $array = array($validform,$usernameErr,$passwordErr,$first_nameErr,$last_nameErr,$emailErr,$usertypeErr);
+		return $array = array($validform,$usernameErr,$passwordErr,$first_nameErr,$last_nameErr,$emailErr,$this->usertypeErr);
 		
     }
 
