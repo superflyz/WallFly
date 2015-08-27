@@ -549,7 +549,7 @@ body{
 }
 .banner .text {
     position: absolute;
-    top: 10%;
+    top: 5%;
     /* in conjunction with left property, decides the text position */
     
     left: 15%;
@@ -608,7 +608,7 @@ hr {
     left: 0;
     right: 0;
     margin: auto;
-    margin-top: 30vh;
+    margin-top: 40vh;
 }
 .error {
     color: red;
