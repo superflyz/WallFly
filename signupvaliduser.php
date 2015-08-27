@@ -17,24 +17,26 @@
 
             # query db for username
             $STH = $DBH->query("SELECT username FROM user WHERE username='$username'");
+            $STH2 = $DBH->query("SELECT email FROM user WHERE email='$email'");
  
            
             # setting the fetch mode
             $STH->setFetchMode(PDO::FETCH_OBJ);
+            
              
             # handling the results
             if($STH->rowCount() > 0) {
             
                 echo "<script type='text/javascript'>";
-                echo "alert('no way!');";
+                echo "alert('Sorry that username already exits');";
                 echo "openModal()";
                 echo "</script>";
                 exit();
             }else{
 
-            $statement = $DBH->prepare("INSERT INTO user(username, password, privilege, email, first_name, last_name)
+            $STH3 = $DBH->prepare("INSERT INTO user(username, password, privilege, email, first_name, last_name)
             VALUES(:username, :password, :usertype, :email, :first_name, :last_name)");
-            $statement->execute(array(
+            $STH3->execute(array(
             "username" => $username,
             "password" => $password,
             "usertype" => $usertype,
@@ -52,7 +54,7 @@
         }
 
             
-        }
+        
 
         
     ?>
