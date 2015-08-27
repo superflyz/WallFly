@@ -211,7 +211,7 @@
                         <h4 class="modal-title" id="myModalLabel">Wallfly Sign Up</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="signup_form" name="signup_form" method="post" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>">
+                        <form id="signup_form" name="signup_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                             <!-- <label for="username">Username</label> -->
                             <input class="form-control" type="text" size="12" name="username" placeholder="Username" value="<?php echo $username ?>" id="usrname" />
                             <span class="error"><?php echo $usernameErr;?></span>
