@@ -1,11 +1,4 @@
 <?php
-  require_once('braintree-php-3.3.0/lib/braintree.php');
-  Braintree_Configuration::environment('sandbox');
-  Braintree_Configuration::merchantId('7cb3t9x7mf6n38rz');
-  Braintree_Configuration::publicKey('xq46gh5dq9p8z7qn');
-  Braintree_Configuration::privateKey('9f006fa14e8cbac531dc4145963a449c');
-  $clientToken = Braintree_ClientToken::generate();
-
   session_start();
   $_SESSION['propertyId']=$_GET['id'];
   $property_id = $_SESSION['propertyId'];
@@ -62,9 +55,6 @@
 	</head>
 
 	<body>
-    "<?php echo($clientToken)?>"
-    "eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiJlOWY2ZTQ4ZDc1YzE4NGY3ZTBlNGRkNWI0ZGQwYjU3ZGFkYzcyN2U0YzU0ZDc0YTI2YjMwZWI3YTA3OWUxMWFhfGNyZWF0ZWRfYXQ9MjAxNS0wOC0yN1QwOTo0NDoyNy4zOTI5MTc0ODQrMDAwMFx1MDAyNm1lcmNoYW50X2lkPTM0OHBrOWNnZjNiZ3l3MmJcdTAwMjZwdWJsaWNfa2V5PTJuMjQ3ZHY4OWJxOXZtcHIiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvMzQ4cGs5Y2dmM2JneXcyYi9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJjaGFsbGVuZ2VzIjpbXSwiZW52aXJvbm1lbnQiOiJzYW5kYm94IiwiY2xpZW50QXBpVXJsIjoiaHR0cHM6Ly9hcGkuc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzLzM0OHBrOWNnZjNiZ3l3MmIvY2xpZW50X2FwaSIsImFzc2V0c1VybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXV0aFVybCI6Imh0dHBzOi8vYXV0aC52ZW5tby5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tIiwiYW5hbHl0aWNzIjp7InVybCI6Imh0dHBzOi8vY2xpZW50LWFuYWx5dGljcy5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tIn0sInRocmVlRFNlY3VyZUVuYWJsZWQiOnRydWUsInRocmVlRFNlY3VyZSI6eyJsb29rdXBVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvMzQ4cGs5Y2dmM2JneXcyYi90aHJlZV9kX3NlY3VyZS9sb29rdXAifSwicGF5cGFsRW5hYmxlZCI6dHJ1ZSwicGF5cGFsIjp7ImRpc3BsYXlOYW1lIjoiQWNtZSBXaWRnZXRzLCBMdGQuIChTYW5kYm94KSIsImNsaWVudElkIjpudWxsLCJwcml2YWN5VXJsIjoiaHR0cDovL2V4YW1wbGUuY29tL3BwIiwidXNlckFncmVlbWVudFVybCI6Imh0dHA6Ly9leGFtcGxlLmNvbS90b3MiLCJiYXNlVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhc3NldHNVcmwiOiJodHRwczovL2NoZWNrb3V0LnBheXBhbC5jb20iLCJkaXJlY3RCYXNlVXJsIjpudWxsLCJhbGxvd0h0dHAiOnRydWUsImVudmlyb25tZW50Tm9OZXR3b3JrIjp0cnVlLCJlbnZpcm9ubWVudCI6Im9mZmxpbmUiLCJ1bnZldHRlZE1lcmNoYW50IjpmYWxzZSwiYnJhaW50cmVlQ2xpZW50SWQiOiJtYXN0ZXJjbGllbnQzIiwiYmlsbGluZ0FncmVlbWVudHNFbmFibGVkIjpmYWxzZSwibWVyY2hhbnRBY2NvdW50SWQiOiJhY21ld2lkZ2V0c2x0ZHNhbmRib3giLCJjdXJyZW5jeUlzb0NvZGUiOiJVU0QifSwiY29pbmJhc2VFbmFibGVkIjpmYWxzZSwibWVyY2hhbnRJZCI6IjM0OHBrOWNnZjNiZ3l3MmIiLCJ2ZW5tbyI6Im9mZiJ9";
-
     <!-- Navigator-->
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -245,30 +235,45 @@
           ?>
 
 
+          <!--Test payment function-->
+          <!--Test payment function-->
+          <!--Test payment function-->
+          <!--Test payment function-->
+          <!--Test payment function-->
+          <!--Test payment function-->
+          <?php 
+            require_once('braintree-php-3.3.0/lib/braintree.php');
+            Braintree_Configuration::environment('sandbox');
+            Braintree_Configuration::merchantId('7cb3t9x7mf6n38rz');
+            Braintree_Configuration::publicKey('xq46gh5dq9p8z7qn');
+            Braintree_Configuration::privateKey('9f006fa14e8cbac531dc4145963a449c');
+             
+            $pathToPayment= "transaction.php";
+             
+            $clientToken = Braintree_ClientToken::generate();
+          ?>
+          <form id="checkout" method="post" action="<?php echo $pathToPayment; ?>">
+            <input type="hidden" name="propertyId" value="<?php echo($_SESSION['propertyId']); ?>" />
+            <input type="email" name="userEmail" placeholder="Insert your email" value=""/>
+            <input type="text" name="cardholderName" placeholder="Insert your Full Name" value=""/>
+            <input type="text" name="amount" placeholder="$0.00" value=""/>
+            <div id="payment-form"></div>
+            <input type="submit" name="braintreeSubmit" value="Buy">
+          </form>
 
+          <!-- Including the braintree script to encrypt the card data -->
+          <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+          <script>
+            var clientToken = "<?php echo $clientToken; ?>";
 
-              <h1>Braintree Credit Card Transaction Form</h1>
-              <form action="transaction.php" method="POST" id="braintree-payment-form">
-                <p>
-                  <label>Card Number</label>
-                  <input type="text" size="20" autocomplete="off" data-encrypted-name="number" />
-                </p>
-                <p>
-                  <label>CVV</label>
-                  <input type="text" size="4" autocomplete="off" data-encrypted-name="cvv" />
-                </p>
-                <p>
-                  <label>Expiration (MM/YYYY)</label>
-                  <input type="text" size="2" name="month" /> / <input type="text" size="4" name="year" />
-                </p>
-                <input type="submit" id="submit" />
-              </form>
-              <script type="text/javascript" src="https://js.braintreegateway.com/v1/braintree.js"></script>
-              <script type="text/javascript">
-                var braintree = Braintree.create("MIIBCgKCAQEApqjLCigm7eHAFfmB632Ihjj6ujAgbXXZweOR6/dA9g3HqfX1sxBqcviWitlQX3Wf01TtFKhaC3gjAAvWhHSsrSKV9fswKmu7vXueW4+i6JKzEwLFXTdehCI9Swk9Ukh9+Qtidhl57IGRLqpnrzIebLK5K8mFY7siwFTN91b2Yb5ajY7OXwpgsw15tiFrxrWxfQNryqyrpQRyR1HYeNaI+EUqgskyOXtbbMKT+/uS7Vlbnop7R+W9YR5OCF4xO2aKrBoTdmWHazMwaVQYCBWj6Bqtw+WUW/AjjGuU9k+An7qfD2V+5fjnVUwUtBZfpSrxkJAfVyeukeM9dp8YtN1kCwIDAQAB");
-                braintree.onSubmitEncryptForm('braintree-payment-form');
-              </script>
-
+            braintree.setup(clientToken, "dropin", {
+              container: "payment-form"
+            });
+          </script>
+          <!--End payment function-->
+          <!--End payment function-->
+          <!--End payment function-->
+          <!--End payment function-->
 
 
         </div>
