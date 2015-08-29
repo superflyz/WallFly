@@ -2,8 +2,7 @@
     ob_start();
     session_start();
     require_once(__DIR__.'/classes/Database.php');
-    require_once(__DIR__.'/serversignupvalidation.php');
-    
+    require_once(__DIR__.'/classes/serversignupvalidation.php');
 
     
 	$validform=true;
@@ -186,8 +185,8 @@
                             </select>
                             <span class="error"><?php $returnedvalidation[6];?></span>
                             <br>
-                            <input class="btn btn-success" type="submit" name="btnAdd" value="Add"> &nbsp;&nbsp;
-                            <input class="btn btn-warning" type="button" class="button" value="Reset" onclick="clearForm()"> &nbsp;&nbsp;
+                            <input class="btn btn-success" type="submit" name="btnAdd" value="Add"><span>&nbsp;&nbsp;</span>
+                            <input class="btn btn-warning" type="button" class="button" value="Reset" onclick="clearForm()"> <span>&nbsp;&nbsp;</span>
                             <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="newPage()">Close</button>
                         </form>
                     </div>

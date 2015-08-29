@@ -1,8 +1,10 @@
 <?php
 	session_start();
-	if(!isset($_SESSION['username'])){
-		header("location:login_page.html");
-	}
+
+	
+	require_once(__DIR__.'/logincheck.php');
+	require_once(__DIR__.'/timeoutcheck.php');
+
 ?>
 
 <!DOCTYPE HTML>
@@ -92,7 +94,7 @@
               </li>
             </ul>
           </li>
-          <li><button type="button" class="logout" onclick="window.location.href='login_page.html'"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</button></li>
+          <li><button type="button" class="logout" onclick="window.location.href='logout.php'"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</button></li>
         </ul>
       </div>
     </nav>

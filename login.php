@@ -1,53 +1,55 @@
 <?php
 session_start();
-$_SESSION["triedLogin"] = "true";
-$username = "admin";
-$password = "password";
-$hostname = "localhost"; 
-
-//connection to the database
-$dbhandle = mysql_connect($hostname, $username, $password)
- or die("Unable to connect to MySQL");
-
-//select a database to work with
-$selected = mysql_select_db("admin",$dbhandle)
-  or die("Could not select database");
-
+require_once(__DIR__.'/classes/Database.php');
 $check_user = $_POST['username'];
 $check_password = $_POST['password'];
 
-//To protect MySQL injection
-$check_user = stripslashes($check_user);
-$check_password = stripcslashes($check_password);
-$check_user = mysql_real_escape_string($check_user);
-$check_password = mysql_real_escape_string($check_password);
 
-//execute the SQL query and return records
-$sql = "SELECT * FROM user WHERE username = '$check_user' and password = '$check_password'";
-$result = mysql_query($sql);
+ try{
+        $DBH = Database::getInstance();
+        $DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+    }catch(PDOException $e) {
+        echo "Unable to connect";
+        file_put_contents('Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
+    }
 
-//Mysql_num_row is counting table row
-$count = mysql_num_rows($result);
+try{
 
-//If result matched $check_user and $check_password, table row must be 1 row
-if($count == 1){
-	$row = mysql_fetch_array($result);
-	//session expire setup
-	$session_expiration = time() + 5000;
-	session_set_cookie_params($session_expiration);
-	//start session
-	
-	$_SESSION["usertype"] = $row["privilege"];
-	$_SESSION["username"] = $row["username"];
-	header("location:home.php");
-} else {
-	header("Location: index.php");
-	
-}
+	//To protect MySQL injection
+	$check_user = stripslashes($check_user);
+	$check_password = stripcslashes($check_password);
+	$check_user = mysql_real_escape_string($check_user);
+	$check_password = mysql_real_escape_string($check_password);
 
+	//execute the SQL query and return records
+	$STH = $DBH->query("SELECT * FROM user WHERE username = '$check_user' and password = '$check_password'");
+	$STH->setFetchMode(PDO::FETCH_OBJ);
 
-//close database
-mysql_close($dbhandle);
+	//Mysql_num_row is counting table row
+	$count = mysql_num_rows($result);
 
+	//If result matched $check_user and $check_password, table row must be 1 row
+	if($STH->rowCount() == 1) {
+		$row = $STH->fetch();
+		//session expire setup
+		$_SESSION["expiration"] = time() + 1800;
+		
+		//session user setup
+		$_SESSION["usertype"] = $row->privilege;
+		$_SESSION["username"] = $row->username;
+		header("location:home.php");
+		exit();
+	}else{
+		header("Location:index.php");
+		exit();
+		
+	}
 
+	//close database
+	$DBH = NULL;
+
+}catch(PDOException $e) {
+        echo "Problem logging in";
+        file_put_contents('Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
+    }
 ?>
