@@ -1,3 +1,41 @@
+<<<<<<< HEAD
+=======
+<?php 
+    ob_start();
+    session_start();
+    require_once(__DIR__.'/classes/Database.php');
+    require_once(__DIR__.'/classes/serversignupvalidation.php');
+    if(!isset($_SESSION['loginError'])){
+
+         $_SESSION['loginError'] = "";
+    }
+
+       
+    
+
+    
+	$validform=true;
+    $returnedvalidation = ["","","","","","","","","","",""]; 
+	
+	if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+	$validate = new Validator;
+	
+	$returnedvalidation = $validate->validform($_POST["username"],$_POST["password"],$_POST["first_name"],$_POST["last_name"],$_POST["email"],$_POST["usertype"]);
+	$username = $returnedvalidation[7];
+	$password = $returnedvalidation[8];
+	$first_name = $returnedvalidation[9];
+	$last_name = $returnedvalidation[10];
+	$email = $returnedvalidation[11];
+	$usertype = $returnedvalidation[12];
+	$validform = $returnedvalidation[0];
+	
+	}
+	
+
+
+ ?>
+
+>>>>>>> 1dfa04c8ee3e7380db8c760b0d287725db7c16af
 <!DOCTYPE html>
 <html>
 
@@ -33,13 +71,13 @@
                 </div>
             </div>
         </nav>
-        <section>
-            <div class="row">
+        <section id="tester">
+            <div class="row" >
                 <div class="col-md-12 banner">
                     <div class="text">
                         <p>The rental experience that actually works</p>
                     </div>
-                    <div id="loginwrapper" class="col-md-2">
+                    <div id="loginwrapper" class="col-md-3">
                         <div id="loginandsignup" class="col-md-12 col-centered ">
                             <form id="login" name="login" method="post" action="login.php">
                                 <!--<div class="input-group">-->
@@ -47,6 +85,10 @@
                                 <!--</div>-->
                                 <!--<div class="input-group">-->
                                 <input name="password" type="password" id="password" class="form-control " placeholder="Password">
+                                 <span class="error"><?php echo $_SESSION['loginError']; ?></span>
+                                 <br/>
+                                 <br/>
+
                                 <!--</div>-->
                                 <div id="controlbuttons">
                                     <!--  <input class="btn btn-warning" type="reset" class="button" value="Reset"> -->
@@ -71,6 +113,7 @@
                     </div>
                 </div>
             </div>
+			<hr/>
         </section>
         <section>
             
@@ -126,26 +169,26 @@
                         <h4 class="modal-title" id="slabel">Wallfly Sign Up</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="signup_form" name="signup_form" method="post" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?>">
+                        <form id="signup_form" name="signup_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                             <!-- <label for="username">Username</label> -->
-                            <input class="form-control" type="text" size="12" name="username" placeholder="Username" value="<?php echo $username ?>" id="usrname" />
-                            <span class="error"><?php echo $usernameErr;?></span>
+                            <input class="form-control" type="text" size="12" name="username" placeholder="Username" value="<?php echo $returnedvalidation[7] ?>" id="usrname" />
+                            <span class="error"><?php echo $returnedvalidation[1];?></span>
                             <br>
                             <!-- <label for="password">Password</label> -->
-                            <input class="form-control" type="password" size="12" name="password" placeholder="Password" value="<?php echo $password ?>" id="psswrd" />
-                            <span class="error"><?php echo $passwordErr;?></span>
+                            <input class="form-control" type="password" size="12" name="password" placeholder="Password" value="<?php echo $returnedvalidation[8] ?>" id="psswrd" />
+                            <span class="error"><?php echo $returnedvalidation[2];?></span>
                             <br>
                             <!-- <label for="first_name">First Name</label> -->
-                            <input class="form-control" type='text' name='first_name' maxlength='50' size='30' placeholder='First Name' value="<?php echo $first_name ?>" id="fname" />
-                            <span class="error"><?php echo $first_nameErr;?></span>
+                            <input class="form-control" type='text' name='first_name' maxlength='50' size='30' placeholder='First Name' value="<?php echo $returnedvalidation[9] ?>" id="fname" />
+                            <span class="error"><?php echo $returnedvalidation[3];?></span>
                             <br>
                             <!-- <label for="last_name">Last Name</label> -->
-                            <input class="form-control" type='text' name='last_name' maxlength='50' size='30' placeholder='Last Name' value="<?php echo $last_name ?>" id="lname" />
-                            <span class="error"><?php echo $last_nameErr;?></span>
+                            <input class="form-control" type='text' name='last_name' maxlength='50' size='30' placeholder='Last Name' value="<?php echo $returnedvalidation[10] ?>" id="lname" />
+                            <span class="error"><?php echo $returnedvalidation[4];?></span>
                             <br>
                             <!-- <label for="email">Email Address</label> -->
-                            <input class="form-control" type="text" name="email" maxlength="50" size="12" placeholder='Email Address' value="<?php echo $email ?>" id="email" />
-                            <span class="error"><?php echo $emailErr;?></span>
+                            <input class="form-control" type="text" name="email" maxlength="50" size="12" placeholder='Email Address' value="<?php echo $returnedvalidation[11] ?>" id="email" />
+                            <span class="error"><?php echo $returnedvalidation[5];?></span>
                             <br>
                             <!-- <label for="usertype">User Type</label> -->
                             <select class="form-control" name="usertype" placeholder='Please Select'>
@@ -154,10 +197,10 @@
                                 <option value="OWNER">Owner</option>
                                 <option value="TENANT">Tenant</option>
                             </select>
-                            <span class="error"><?php echo $usertypeErr;?></span>
+                            <span class="error"><?php $returnedvalidation[6];?></span>
                             <br>
-                            <input class="btn btn-success" type="submit" name="btnAdd" value="Add"> &nbsp;&nbsp;
-                            <input class="btn btn-warning" type="button" class="button" value="Reset" onclick="clearForm()"> &nbsp;&nbsp;
+                            <input class="btn btn-success" type="submit" name="btnAdd" value="Add"><span>&nbsp;&nbsp;</span>
+                            <input class="btn btn-warning" type="button" class="button" value="Reset" onclick="clearForm()"> <span>&nbsp;&nbsp;</span>
                             <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="newPage()">Close</button>
                         </form>
                     </div>
@@ -168,6 +211,15 @@
 
 
 
+<<<<<<< HEAD
+=======
+    <?php
+
+        $signupuser = new SignUpValidUser();
+        $signupuser->enterNewUser($validform,$username,$password,$usertype,$email,$first_name,$last_name);
+    ?>
+
+>>>>>>> 1dfa04c8ee3e7380db8c760b0d287725db7c16af
  
 
 </body>

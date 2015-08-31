@@ -17,7 +17,7 @@
   $selected = mysql_select_db("admin",$dbhandle)
     or die("Could not select database");
 
-
+    
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -232,17 +232,60 @@
             else{
               echo "<button id='pay_rent' class='btn btn-success btn-lg btn-block' href='#'>Pay Rent</button>";
             }
-          ?>        
+          ?>
+
+
+          <!--Test payment function-->
+          <!--Test payment function-->
+          <!--Test payment function-->
+          <!--Test payment function-->
+          <!--Test payment function-->
+          <!--Test payment function-->
+          <?php 
+            require_once('braintree-php-3.3.0/lib/braintree.php');
+            Braintree_Configuration::environment('sandbox');
+            Braintree_Configuration::merchantId('7cb3t9x7mf6n38rz');
+            Braintree_Configuration::publicKey('xq46gh5dq9p8z7qn');
+            Braintree_Configuration::privateKey('9f006fa14e8cbac531dc4145963a449c');
+             
+            $pathToPayment= "transaction.php";
+             
+            $clientToken = Braintree_ClientToken::generate();
+          ?>
+          <form id="checkout" method="post" action="<?php echo $pathToPayment; ?>">
+            <input type="hidden" name="propertyId" value="<?php echo($_SESSION['propertyId']); ?>" />
+            <input type="email" name="userEmail" placeholder="Insert your email" value=""/>
+            <input type="text" name="cardholderName" placeholder="Insert your Full Name" value=""/>
+            <input type="text" name="amount" placeholder="$0.00" value=""/>
+            <div id="payment-form"></div>
+            <input type="submit" name="braintreeSubmit" value="Buy">
+          </form>
+
+          <!-- Including the braintree script to encrypt the card data -->
+          <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+          <script>
+            var clientToken = "<?php echo $clientToken; ?>";
+
+            braintree.setup(clientToken, "dropin", {
+              container: "payment-form"
+            });
+          </script>
+          <!--End payment function-->
+          <!--End payment function-->
+          <!--End payment function-->
+          <!--End payment function-->
+
+
         </div>
         <?php
         if ($usertype == $privilege1 || $usertype == $privilege2) {
             echo "<div class='tabpage' id='tabpage_3'>";
             echo "<h2>Repair Request</h2>";
         ?>
-          <form name='repair_request_form' method="post" action="">
+          <form name='repair_request_form' method="post" action="repairform.php">
             <table width="70%">
               <tr>
-                <td valign="top" width="20%">
+                <td valign="top" width="20%">   
                   <label for="first_name">First Name *</label>
                 </td>
                 <td valign="top" width="50%">
@@ -290,7 +333,7 @@
 
               <tr style="margin-top: 20px;">
                 <td style="text-align:right" colspan="2">
-                  <button class="btn btn-success btn-sm" name="send_email" onclick="rrsubmit()">Request</button> &nbsp; <input class="btn btn-default btn-sm" type="reset" value="Reset">
+                  <button class="btn btn-success btn-sm" type="submit" name="send_email">Request</button> &nbsp; <input class="btn btn-default btn-sm" type="reset" value="Reset">
                 </td>
               </tr>
             </table>

@@ -220,7 +220,7 @@ while ($row = mysql_fetch_array($result)) {
 		<br><br>
 		<input type="file" name="photo" size="2000000" accept="image/gif, image/jpeg, image/x-ms-bmp, image/x-png" size="26"><br><br>
 
-		<input class="btn btn-success" type="submit" value="Edit">&nbsp; <input class="btn btn-success" type="reset" value="Reset">
+		<input class="btn btn-success" type="submit" value="Save">&nbsp; <input class="btn btn-success" type="reset" value="Reset">
 
 		<button class="btn btn-danger" onclick="closeWin()" style="margin-left:50%">Cancel</button>
 	</form>
