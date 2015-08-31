@@ -1,0 +1,527 @@
+/*
+References: 
+- http://www.flaticon.com/free-icon/little-down-triangular-arrow_7629
+- https://fortawesome.github.io/Font-Awesome/
+- http://getbootstrap.com
+- http://startbootstrap.com/template-overviews/agency/
+*/
+
+/*------ Global ALL screen ------*/
+body {
+    overflow-x: hidden;
+    background-color: #222222;
+    font-family: Diavlo, "Helvetica Neue",Helvetica,        Arial,sans-serif;
+}
+
+.text-muted {
+    color: #222222;
+}
+
+.text-primary {
+    color: #9fdd5e;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+    outline: 0;
+}
+
+a {
+    color: #9fdd5e;
+}
+
+a:hover,
+a:focus,
+a:active,
+a.active {
+    color: #9fdd5e;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.img-centered {
+    margin: 0 auto;
+}
+
+/*------ Login & Sign Up forms ALL screen ------*/
+.modal-header {
+    color: #ffffff;
+    background-color: #9fdd5e;
+    box-shadow: 0px 1px 5px #222222;
+    padding: 12px;
+    border-top-left-radius: 4px;  
+    border-top-right-radius: 4px; 
+    border: 0px;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+}  
+
+.modal-body {
+    border-bottom-left-radius: 4px;  
+    border-bottom-right-radius: 4px; 
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.close {
+    padding: 18px 28px;
+    font-size: 35px; 
+    line-height: normal;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.form-field label {
+    color: #222222;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.form-field {
+    margin: 16px 0px 0px 0px;
+}
+
+.form-field input {
+    border: 1px solid #222222;
+    outline: 0;
+    padding: 14px 6px 10px 6px;
+    font-size: 14px;
+    box-shadow: none;
+}
+
+.form-field input:hover {
+    border: 1px solid #9fdd5e;
+    outline: 0;
+}
+
+.form-field input:focus {
+    border: 2px solid #9fdd5e;
+    outline: 0;
+    box-shadow: none;
+}
+
+.select-style {
+    border: 1px solid #222222;
+    outline: 0;
+    border-radius: 4px;
+    background: #ffffff url('../images/dropdown.svg') no-repeat 97% 55%;
+    background-size: 12px 12px;
+    padding: 3px 6px 0px 6px;
+    outline: 0;
+    box-shadow: none;
+    -webkit-appearance: none;
+}
+
+.select-style:hover,
+.select-style:active{
+    border: 1px solid #9fdd5e;
+    outline: 0;
+}
+
+.select-style:focus {
+    box-shadow: none;
+    border: 2px solid #9fdd5e;
+}
+
+.submit {
+    color: #ffffff;
+    margin: 30px 0px 0px 0px;
+    background-color: #9fdd5e;
+    border: 2px solid transparent;
+    padding: 12px 6px 8px 6px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.submit:hover,
+.submit:active{
+    color: #9fdd5e;
+    border: 2px solid #9fdd5e;
+    background-color: transparent; 
+}
+
+/*-- Extra small devices (phones, less than 768px) --*/
+/*-- No media query since this is the default in Bootstrap --*/
+
+/*--- Global nav XS screen ---*/ 
+.navbar-default {
+    border-color: transparent;
+    background-color: #222222;
+}
+
+.navbar-default .navbar-brand {
+    width: 125px;
+    margin: -7px 0px 0px 0px;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:active,
+.navbar-default .navbar-brand.active {
+    color: #9fdd5e;
+}
+
+.navbar-default .navbar-collapse {
+    border-color: #9fdd5e;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #9fdd5e;
+    background-color: #9fdd5e;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+    -webkit-transition: .2s ease-in-out;
+    -moz-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+}
+
+.navbar-default .nav li a {
+    text-transform: uppercase;
+    font-weight: 350;
+    padding: 16px 18px 11px 18px;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.navbar-default .nav li a:hover,
+.navbar-default .nav li a:focus {
+    outline: 0;
+    color: #9fdd5e;
+}
+
+.navbar-default .navbar-nav>.active>a {
+    border-radius: 0;
+    color: #ffffff;
+    background-color: #9fdd5e;
+}
+
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    color: #ffffff;
+    background-color: #9fdd5e;
+}
+
+/*--- Login button ALL screen ---*/ 
+.login-btn {
+    padding: 12px 80px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    background-color: #9fdd5e;
+    border: 2px solid #9fdd5e;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.login-btn:hover,
+.login-btn:focus,
+.login-btn:active {
+    border-color: #9fdd5e;
+    background-color: transparent;
+    color: #ffffff;
+    -webkit-transition: .3s ease-in-out;
+    -moz-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    transition-duration: 0.25s;
+}
+
+/*--- Text below login button ALL screen ---*/
+.text {
+    margin-bottom: 100px;
+    color: #ffffff;
+    font-size: 16px;
+}
+    
+.text .s-link {
+    text-decoration: none;
+    color: #9fdd5e;
+}
+    
+.text .s-link:hover,
+.text .s-link:focus,
+.text .s-link:active {
+    text-decoration: underline;
+}
+
+/*--- Scroll down button ALL screen ---*/
+.btn-scroll-down {
+    font-size: 30px;
+    color: #ffffff;
+    border: 1px solid #9fdd5e;
+    border-radius: 100%;
+    padding: 9px 11px 0px 11px;
+    background-color: transparent;
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.btn-scroll-down:hover,
+.btn-scroll-down:focus {
+    border: 1px solid #9fdd5e;
+    color: #ffffff;
+    background-color: #9fdd5e;  
+}
+
+/*-- Small devices (tablets, 768px and up) --*/
+@media(min-width:768px) {
+    
+    /*--- Global nav SM & MD screen ---*/ 
+    .navbar-default {
+        padding: 25px 0;
+        border: 0;
+        background-color: transparent;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .navbar-default .navbar-brand {
+        width: 150px;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+    }
+
+    .navbar-default .navbar-nav>.active>a {
+        border-radius: 4px;
+    }
+
+    .navbar-default.navbar-shrink {
+        padding: 10px 0;
+        background-color: #222222;
+    }
+
+    .navbar-default.navbar-shrink .navbar-brand img {
+        margin: -6.5px 0px 0px 0px;
+    }
+}
+
+/*--- Header XS screen ---*/ 
+header {
+    text-align: center;
+    color: #ffffff;
+    background-attachment: scroll;
+    background-image: url(../images/header-bg.png);
+    background-position: center center;
+    background-repeat: none;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height: 100vh;
+}
+
+header .intro {
+    padding-top: 165px;
+}
+
+header .intro .intro-text-1 {
+    margin-bottom: 30px;
+    font-weight: 500;
+    font-size: 45px;
+    color: #9fdd5e;
+}
+
+header .intro .intro-text-2 {
+    margin-bottom: 65px;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+/*-- Small devices (tablets, 768px and up) --*/
+@media(min-width:768px) {
+
+    /*--- Header SM screen ---*/ 
+    header .intro {
+        padding-top: 175px;
+    }   
+
+    header .intro .intro-text-1 {
+        margin-bottom: 25px;
+        font-weight: 500;
+        font-size: 52px;
+        color: #9fdd5e;
+    }
+
+    header .intro .intro-text-2 {
+        margin-bottom: 50px;
+        text-transform: uppercase;
+        font-size: 32px;
+        font-weight: 300;
+        color: #ffffff;
+    }
+}  
+
+/*-- Medium devices (desktops, 992px and up) --*/
+@media(min-width:992px) {
+
+    /*--- Header MD screen ---*/ 
+    header .intro {
+        padding-top: 175px;
+    }   
+
+    header .intro .intro-text-1 {
+        margin-bottom: 25px;
+        font-weight: 500;
+        font-size: 55px;
+        color: #9fdd5e;
+    }
+
+    header .intro .intro-text-2 {
+        margin-bottom: 50px;
+        text-transform: uppercase;
+        font-size: 40px;
+        font-weight: 300;
+        color: #ffffff;
+    }
+}
+
+/*--- Features section XS screen ---*/    
+#features {
+    background-color: #ffffff; 
+    padding: 90px 0;
+}
+
+#features .feature-heading {
+    margin: 20px 0px 15px 0px;
+    color: #9fdd5e;
+}
+
+.feature {
+    margin: 0px 0px 40px 0px;
+}
+
+/*--- About Information Ecosystems Section XS screen ---*/
+#about-i-e {
+    background-color: #f2f2f2; 
+    padding: 150px 0;
+}
+
+#about-i-e img {
+    margin: 10px 0px 60px 0px;
+}
+
+/*-- Small devices (tablets, 768px and up) --*/
+@media(min-width:768px) {
+    
+    /*--- Features section SM screen ---*/   
+    #features {
+        background-color: #ffffff; 
+        padding: 130px 0;
+    }
+
+    #features .feature-heading {
+        margin: 20px 0px 15px 0px;
+        color: #9fdd5e;
+    }
+    
+    /*--- About Information Ecosystems Section SM screen ---*/
+    #about-i-e {
+        background-color: #f2f2f2; 
+        padding: 180px 0;
+    }
+    
+    #about-i-e img {
+        margin: 0px 0px 60px 0px;
+    }
+    
+}
+
+/*-- Medium devices (desktops, 992px and up) --*/
+@media(min-width:992px) {
+    
+    /*--- Features section MD screen ---*/   
+    #features {
+        background-color: #ffffff; 
+        padding: 232px 0;
+    }
+
+    #features .feature-heading {
+        margin: 20px 0px 15px 0px;
+        color: #9fdd5e;
+    }
+    
+    /*--- About Information Ecosystems Section MD screen ---*/
+    #about-i-e {
+        background-color: #f2f2f2; 
+        padding: 242px 0;
+    }
+    
+    #about-i-e img {
+        margin: 0px 0px 0px 0px;
+    }
+    
+}
+
+/*-- Large devices (large desktops, 1200px and up) --*/
+@media (min-width: 1200px) { ... }
+
+/*--- Footer ALL screen ---*/
+footer {
+    padding: 25px 0px 10px 0px;
+    font-size: 15px;
+    font-weight: 200;
+    background-color: #222222;
+    color: #ffffff;
+}
+
+footer .diff-color {
+   color: #9fdd5e;
+}
+
+::-moz-selection {
+    text-shadow: none;
+    background: #9fdd5e;
+}
+
+::selection {
+    text-shadow: none;
+    background: #9fdd5e;
+}
+
+img::selection {
+    background: #9fdd5e;
+}
+
+img::-moz-selection {
+    background: #9fdd5e;
+}
+
+body {
+    webkit-tap-highlight-color: #9fdd5e;
+}

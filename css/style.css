@@ -1,0 +1,1340 @@
+<<<<<<< HEAD
+/*----------- login_page --------------*/
+
+.col-md-12 {
+    text-align: center;
+}
+
+.row-centered {
+    text-align: center;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.custom {
+    width: 200px;
+}
+
+.btn-custom {
+    border: 2px solid #727B7F;
+    padding: 12px 22px;
+    color: #727B7F;
+}
+
+.btn-custom:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    border: 2px solid #419641;
+    padding: 12px 22px;
+}
+
+.btn-custom:active,
+.btn-custom.active {
+    background: #419641;
+    box-shadow: none;
+}
+
+#signup_form {
+    margin: 20px;
+}
+
+#signup_form table {
+    margin-bottom: 20px;
+}
+
+.select-style {
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+}
+
+.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+}
+
+.select-style select:focus {
+    outline: none;
+}
+
+
+/*------------------ nav ----------------*/
+
+
+/* Green
+$bgDefault      : #2ecc71;
+$bgHighlight    : #27ae60;
+$colDefault     : #ecf0f1;
+$colHover       : #d1ffed;
+*/
+
+<<<<<<< HEAD
+.container-fluid{
+	background-color: #333333;
+    height: 75px;
+}
+
+/*
+.container-fluid2{
+	border-radius: 25px;
+	background-color: #036E2C;
+=======
+.container-fluid {
+    background-color: #2C3539;
+}
+
+.container-fluid2 {
+    border-radius: 25px;
+    background-color: #036E2C;
+>>>>>>> fb3a3d2723f47aa254a179f24a65818d393e2b7d
+}
+*/
+
+.navbar-default {
+    background-color: #2C3539;
+    border-color: #2C3539;
+    margin-bottom: 0px;
+<<<<<<< HEAD
+
+    .navbar-nav{
+    	> li {
+    		> a {
+    			color: #ecf0f1;
+    			&:hover, &:focus {
+    				color: #d1ffed; }}}
+    }
+}
+
+.navbar-brand{
+		background-color: #000;
+	}
+#logo {
+    margin: -30px 0px 0px 0px;
+    width: 100px;
+    height: 75px;
+}
+
+
+
+.glyphicon-home{
+	font-size:2em;
+=======
+    /*background-color: #036E2C;
+  border-color: #036E2C;*/
+    .navbar-nav {
+        > li {
+            > a {
+                color: #ecf0f1;
+                &:hover,
+                &:focus {
+                    color: #d1ffed;
+                }
+            }
+        }
+    }
+}
+
+
+>>>>>>> fb3a3d2723f47aa254a179f24a65818d393e2b7d
+}
+.glyphicon-home {
+    font-size: 2em;
+}
+.navbar-brand {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #ffffff;
+}
+.glyphicon-user {
+    font-size: 25px;
+}
+.logout {
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    /*background: #37ba17;*/
+    
+    background: #04DE14;
+    padding: 10px 20px 10px 20px;
+    margin: 5px 5px 5px 5px;
+    text-decoration: none;
+    border-style: none;
+}
+.logout:hover {
+    /*background: #19a819;*/
+    
+    background-color: #000000;
+    text-decoration: none;
+}
+.nav>li>a:hover,
+.nav>li>a:focus,
+.nav .open>a,
+.nav .open>a:hover,
+.nav .open>a:focus {
+    background: #000;
+}
+.dropdown {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+}
+.dropdown-menu>li>a {
+    color: #428bca;
+}
+.dropdown ul.dropdown-menu {
+    border-radius: 4px;
+    box-shadow: none;
+    margin-top: 20px;
+    width: 300px;
+}
+.dropdown ul.dropdown-menu:before {
+    content: "";
+    border-bottom: 10px solid #fff;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    z-index: 10;
+}
+.dropdown ul.dropdown-menu:after {
+    content: "";
+    border-bottom: 12px solid #ccc;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    position: absolute;
+    top: -12px;
+    right: 14px;
+    z-index: 9;
+}
+#user_dropdown {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.dropdown-toggle {
+    font-size: 20px;
+    font-style: bold;
+}
+
+/*--------------- home ----------------*/
+img.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#content {
+    padding: 60px 60px 60px 60px;
+    margin: 50px 50px 50px 50px;
+    background: #036E2C;
+}
+#start_btn {
+    width: 30%;
+    height: ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+}
+
+/*-------------- Property --------------*/
+h4 {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+.add_btn {
+    color: #ffffff;
+    font-size: 20px;
+    background: #333333;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border-style: none;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    font-size: 20px;
+}
+.add_btn:hover {
+    background: #707070;
+    text-decoration: none;
+}
+#calendar_btn {
+    color: #ffffff;
+    font-size: 20px;
+    background: #333333;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border-style: none;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    font-size: 20px;
+}
+#calendar_btn:hover {
+    background: #707070;
+    text-decoration: none;
+}
+#items {
+    border-color: #CCEBCE;
+    background-color: #036E2C;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    margin: 10px 10px 10px 10px;
+    width: 30%;
+    color: #ffffff;
+}
+#items:hover {
+    cursor: hand;
+    cursor: pointer;
+    opacity: .9;
+    background-color: #339E3A;
+}
+a.divLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    /* Makes sure the link doesn't get underlined */
+    
+    z-index: 10;
+    /* raises anchor tag above everything else in div */
+    
+    background-color: white;
+    /*workaround to make clickable in IE */
+    
+    opacity: 0;
+    /*workaround to make clickable in IE */
+    
+    filter: alpha(opacity=0);
+    /*workaround to make clickable in IE */
+}
+.form-group {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*---------- property_detail.php -------------*/
+#detail_row {
+    display: inline;
+}
+#detail_col_1 {
+    display: inline;
+}
+#detail_col_2 {
+    display: inline;
+}
+.tabpage {
+    padding-left: 40px;
+    padding-top: 30px;
+    padding-right: 40px;
+}
+.tabpage a {
+    margin: 10px;
+}
+#tabContainer {
+    width: 70%;
+    padding: 15px;
+    /*background-color:#2e2e2e;*/
+    
+    background-color: #036E2C;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#tabs {
+    height: 30px;
+    overflow: hidden;
+}
+#tabs > ul {
+    font: 1em;
+    list-style: none;
+}
+#tabs > ul > li {
+    margin: 0 2px 0 0;
+    padding: 7px 10px;
+    display: block;
+    float: left;
+    color: #FFF;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background: #C9C9C9;
+    /* old browsers */
+    
+    background: -moz-linear-gradient(top, #0C91EC 0%, #257AB6 100%);
+    /* firefox */
+    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #D3D4CF), color-stop(100%, #8C8C8C));
+    /* webkit */
+}
+#tabs > ul > li:hover {
+    background: #FFFFFF;
+    /* old browsers */
+    
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #F3F3F3 10%, #F3F3F3 50%, #FFFFFF 100%);
+    /* firefox */
+    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFFFFF), color-stop(10%, #F3F3F3), color-stop(50%, #F3F3F3), color-stop(100%, #FFFFFF));
+    /* webkit */
+    
+    cursor: pointer;
+    color: #333;
+}
+#tabs > ul > li.tabActiveHeader {
+    background: #FFFFFF;
+    /* old browsers */
+    
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #F3F3F3 10%, #F3F3F3 50%, #FFFFFF 100%);
+    /* firefox */
+    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFFFFF), color-stop(10%, #F3F3F3), color-stop(50%, #F3F3F3), color-stop(100%, #FFFFFF));
+    /* webkit */
+    
+    cursor: pointer;
+    color: #333;
+}
+#tabscontent {
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 10px 10px 25px;
+    background: #FFFFFF;
+    /* old browsers */
+    
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #FFFFFF 90%, #e4e9ed 100%);
+    /* firefox */
+    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFFFFF), color-stop(90%, #FFFFFF), color-stop(100%, #e4e9ed));
+    /* webkit */
+    
+    margin: 0;
+    color: #333;
+}
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-top: 50px;
+}
+.tg td {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px 5px;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    word-break: normal;
+}
+.tg th {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 5px;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    word-break: normal;
+}
+.tg .tg-0yxs {
+    font-weight: bold;
+    font-size: 24px;
+    font-family: Verdana, Geneva, sans-serif !important;
+    background-color: #9b9b9b;
+    text-align: center;
+}
+#his_update_btn {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#pay_rent {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#requester_form td {
+    padding: 0 10px;
+}
+#property_buttons {
+    margin: 10px;
+}
+#back {
+    margin-left: 80%;
+}
+#back_calendar {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#update_payment {
+    width: 70%;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+#update_payment td {
+    padding: 5px 10px;
+}
+#dateField {
+    width: 60%
+}
+#tenantId_input_payment {
+    width: 50%
+}
+#tenantName_input_payment {
+    width: 50%;
+    display: inline-block;
+}
+#amout_input_payment {
+    width: 40%;
+    display: inline-block;
+}
+#inspection_update_btn {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*---------- chat.html -----------*/
+#chat {
+    outline: none;
+    width: 550px;
+    height: 550px;
+}
+
+/* CSS used here will be applied after bootstrap.css */
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body{
+   padding-top: 50px;
+}
+#alert {
+    width: 40px;
+    border: none;
+    background-color: #036E2C;
+    margin-top: 20px;
+    margin-right: 15px;
+    float: right;
+}
+.glyphicon-bell {
+    font-size: 2.5rem;
+    color: white;
+}
+.notifications {
+    min-width: 420px;
+}
+.notifications-wrapper {
+    overflow: auto;
+    max-height: 250px;
+}
+.menu-title {
+    color: black;
+    font-size: 1.5rem;
+    margin-left: 10px;
+    display: inline-block;
+}
+.glyphicon-circle-arrow-left {
+    /*margin-left:10px;   */
+}
+.item-title {
+    font-size: 1.3rem;
+    color: #000;
+}
+.notifications a.content {
+    text-decoration: none;
+    background: #ccc;
+}
+.notification-item {
+    padding: 10px;
+    margin: 5px;
+    background: #ccc;
+    border-radius: 4px;
+}
+.banner {
+    background-image: url("../img/view.jpg");
+    background-size: cover;
+    /* <------ */
+    
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* optionally, center the image */
+    
+    height: 100vh;
+    position: relative;
+}
+.banner .text {
+    position: absolute;
+    top: 10%;
+    /* in conjunction with left property, decides the text position */
+    
+    left: 15%;
+    width: 600px;
+    /* optional, though better have one */
+}
+.text p {
+    color: #ffffff;
+    font-size: 2em;
+}
+#banner img {
+    /*position: relative;
+  width: 100%;
+  height:95vh;*/
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align: center;
+}
+.col-centered {
+    display: inline-block;
+    float: none;
+    /* reset the text-align */
+    
+    text-align: left;
+    /* inline-block space fix */
+    
+    margin-right: -4px;
+}
+#controlbuttons {
+    text-align: center;
+}
+#login {
+    margin-top: 5%;
+}
+hr {
+    color: #727B7F;
+    background-color: #727B7F;
+    height: 1px;
+}
+.icon {
+    text-align: center;
+}
+#sectiondisplay {
+    margin-top: 200px;
+    margin-bottom: 150px;
+}
+#loginwrapper {
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-bottom: 1%;
+    position: absolute;
+    /*it can be fixed too*/
+    
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 50vh;
+}
+.error {
+    color: red;
+}
+#signup_form label.error {
+    color: red;
+}
+#signup_form input.error {
+    border: 1px solid red;
+}
+
+#learnmore{
+
+    
+   
+    position: absolute;
+    /*it can be fixed too*/
+    
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 80vh;
+
+}
+
+.description p{
+
+  padding-top: 100px;
+}
+=======
+/*----------- login_page --------------*/
+
+.col-md-12 {
+    text-align: center;
+}
+
+.row-centered {
+    text-align: center;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.custom {
+    width: 200px;
+}
+
+.btn-custom {
+    border: 2px solid #727B7F;
+    padding: 12px 22px;
+    color: #727B7F;
+}
+
+.btn-custom:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    border: 2px solid #419641;
+    padding: 12px 22px;
+}
+
+.btn-custom:active,
+.btn-custom.active {
+    background: #419641;
+    box-shadow: none;
+}
+
+#signup_form {
+    margin: 20px;
+}
+
+#signup_form table {
+    margin-bottom: 20px;
+}
+
+
+/*------------------ nav ----------------*/
+
+
+/* Green
+$bgDefault      : #2ecc71;
+$bgHighlight    : #27ae60;
+$colDefault     : #ecf0f1;
+$colHover       : #d1ffed;
+*/
+
+.container-fluid {
+    background-color: #2C3539;
+}
+
+.container-fluid2 {
+    border-radius: 25px;
+    background-color: #036E2C;
+}
+
+.navbar-default {
+    background-color: #2C3539;
+    border-color: #2C3539;
+    margin-bottom: 0px;
+    /*background-color: #036E2C;
+  border-color: #036E2C;*/
+    .navbar-nav {
+        > li {
+            > a {
+                color: #ecf0f1;
+                &:hover,
+                &:focus {
+                    color: #d1ffed;
+                }
+            }
+        }
+    }
+}
+
+.navbar-brand {
+    color: #ffffff;
+}
+
+
+}
+.glyphicon-home {
+    font-size: 2em;
+}
+.navbar-brand {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Arial;
+    color: #ffffff;
+}
+.glyphicon-user {
+    font-size: 25px;
+}
+.logout {
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    /*background: #37ba17;*/
+    
+    background: #04DE14;
+    padding: 10px 20px 10px 20px;
+    margin: 5px 5px 5px 5px;
+    text-decoration: none;
+    border-style: none;
+}
+.logout:hover {
+    /*background: #19a819;*/
+    
+    background-color: #000000;
+    text-decoration: none;
+}
+.nav>li>a:hover,
+.nav>li>a:focus,
+.nav .open>a,
+.nav .open>a:hover,
+.nav .open>a:focus {
+    background: #fff;
+}
+.dropdown {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+}
+.dropdown-menu>li>a {
+    color: #428bca;
+}
+.dropdown ul.dropdown-menu {
+    border-radius: 4px;
+    box-shadow: none;
+    margin-top: 20px;
+    width: 300px;
+}
+.dropdown ul.dropdown-menu:before {
+    content: "";
+    border-bottom: 10px solid #fff;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    z-index: 10;
+}
+.dropdown ul.dropdown-menu:after {
+    content: "";
+    border-bottom: 12px solid #ccc;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    position: absolute;
+    top: -12px;
+    right: 14px;
+    z-index: 9;
+}
+#user_dropdown {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.dropdown-toggle {
+    font-size: 20px;
+    font-style: bold;
+}
+
+/*--------------- home ----------------*/
+img.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#content {
+    padding: 60px 60px 60px 60px;
+    margin: 50px 50px 50px 50px;
+    background: #036E2C;
+}
+#start_btn {
+    width: 30%;
+    height: ;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+}
+
+/*-------------- Property --------------*/
+h4 {
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+.add_btn {
+    color: #ffffff;
+    font-size: 20px;
+    background: #333333;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border-style: none;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    font-size: 20px;
+}
+.add_btn:hover {
+    background: #707070;
+    text-decoration: none;
+}
+#calendar_btn {
+    color: #ffffff;
+    font-size: 20px;
+    background: #333333;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border-style: none;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    font-size: 20px;
+}
+#calendar_btn:hover {
+    background: #707070;
+    text-decoration: none;
+}
+#items {
+    border-color: #CCEBCE;
+    background-color: #036E2C;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    margin: 10px 10px 10px 10px;
+    width: 30%;
+    color: #ffffff;
+}
+#items:hover {
+    cursor: hand;
+    cursor: pointer;
+    opacity: .9;
+    background-color: #339E3A;
+}
+a.divLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none;
+    /* Makes sure the link doesn't get underlined */
+    
+    z-index: 10;
+    /* raises anchor tag above everything else in div */
+    
+    background-color: white;
+    /*workaround to make clickable in IE */
+    
+    opacity: 0;
+    /*workaround to make clickable in IE */
+    
+    filter: alpha(opacity=0);
+    /*workaround to make clickable in IE */
+}
+.form-group {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*---------- property_detail.php -------------*/
+#detail_row {
+    display: inline;
+}
+#detail_col_1 {
+    display: inline;
+}
+#detail_col_2 {
+    display: inline;
+}
+.tabpage {
+    padding-left: 40px;
+    padding-top: 30px;
+    padding-right: 40px;
+}
+.tabpage a {
+    margin: 10px;
+}
+#tabContainer {
+    width: 70%;
+    padding: 15px;
+    /*background-color:#2e2e2e;*/
+    
+    background-color: #036E2C;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#tabs {
+    height: 30px;
+    overflow: hidden;
+}
+#tabs > ul {
+    font: 1em;
+    list-style: none;
+}
+#tabs > ul > li {
+    margin: 0 2px 0 0;
+    padding: 7px 10px;
+    display: block;
+    float: left;
+    color: #FFF;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -moz-border-radius-topleft: 4px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    background: #C9C9C9;
+    /* old browsers */
+    
+    background: -moz-linear-gradient(top, #0C91EC 0%, #257AB6 100%);
+    /* firefox */
+    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #D3D4CF), color-stop(100%, #8C8C8C));
+    /* webkit */
+}
+#tabs > ul > li:hover {
+    background: #FFFFFF;
+    /* old browsers */
+    
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #F3F3F3 10%, #F3F3F3 50%, #FFFFFF 100%);
+    /* firefox */
+    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFFFFF), color-stop(10%, #F3F3F3), color-stop(50%, #F3F3F3), color-stop(100%, #FFFFFF));
+    /* webkit */
+    
+    cursor: pointer;
+    color: #333;
+}
+#tabs > ul > li.tabActiveHeader {
+    background: #FFFFFF;
+    /* old browsers */
+    
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #F3F3F3 10%, #F3F3F3 50%, #FFFFFF 100%);
+    /* firefox */
+    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFFFFF), color-stop(10%, #F3F3F3), color-stop(50%, #F3F3F3), color-stop(100%, #FFFFFF));
+    /* webkit */
+    
+    cursor: pointer;
+    color: #333;
+}
+#tabscontent {
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 4px;
+    -moz-border-radius-bottomright: 4px;
+    -moz-border-radius-bottomleft: 4px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding: 10px 10px 25px;
+    background: #FFFFFF;
+    /* old browsers */
+    
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #FFFFFF 90%, #e4e9ed 100%);
+    /* firefox */
+    
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFFFFF), color-stop(90%, #FFFFFF), color-stop(100%, #e4e9ed));
+    /* webkit */
+    
+    margin: 0;
+    color: #333;
+}
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-top: 50px;
+}
+.tg td {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px 5px;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    word-break: normal;
+}
+.tg th {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    padding: 10px 5px;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    word-break: normal;
+}
+.tg .tg-0yxs {
+    font-weight: bold;
+    font-size: 24px;
+    font-family: Verdana, Geneva, sans-serif !important;
+    background-color: #9b9b9b;
+    text-align: center;
+}
+#his_update_btn {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#pay_rent {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#requester_form td {
+    padding: 0 10px;
+}
+#property_buttons {
+    margin: 10px;
+}
+#back {
+    margin-left: 80%;
+}
+#back_calendar {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#update_payment {
+    width: 70%;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+#update_payment td {
+    padding: 5px 10px;
+}
+#dateField {
+    width: 60%
+}
+#tenantId_input_payment {
+    width: 50%
+}
+#tenantName_input_payment {
+    width: 50%;
+    display: inline-block;
+}
+#amout_input_payment {
+    width: 40%;
+    display: inline-block;
+}
+#inspection_update_btn {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*---------- chat.html -----------*/
+#chat {
+    outline: none;
+    width: 550px;
+    height: 550px;
+}
+
+/* CSS used here will be applied after bootstrap.css */
+
+body {
+    width: 100%;
+    height: 100%;   
+	padding-top: 50px;
+}
+
+#alert {
+    width: 40px;
+    border: none;
+    background-color: #036E2C;
+    margin-top: 20px;
+    margin-right: 15px;
+    float: right;
+}
+.glyphicon-bell {
+    font-size: 2.5rem;
+    color: white;
+}
+.notifications {
+    min-width: 420px;
+}
+.notifications-wrapper {
+    overflow: auto;
+    max-height: 250px;
+}
+.menu-title {
+    color: black;
+    font-size: 1.5rem;
+    margin-left: 10px;
+    display: inline-block;
+}
+.glyphicon-circle-arrow-left {
+    /*margin-left:10px;   */
+}
+.item-title {
+    font-size: 1.3rem;
+    color: #000;
+}
+.notifications a.content {
+    text-decoration: none;
+    background: #ccc;
+}
+.notification-item {
+    padding: 10px;
+    margin: 5px;
+    background: #ccc;
+    border-radius: 4px;
+}
+.banner {
+    background-image: url("../img/view.jpg");
+    background-size: cover;
+    /* <------ */
+    
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* optionally, center the image */
+    
+    height: 100vh;
+    position: relative;
+}
+.banner .text {
+    position: absolute;
+    top: 5%;
+    /* in conjunction with left property, decides the text position */
+    
+    left: 15%;
+    width: 600px;
+    /* optional, though better have one */
+}
+.text p {
+    color: #ffffff;
+    font-size: 2em;
+}
+#banner img {
+    /*position: relative;
+  width: 100%;
+  height:95vh;*/
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align: center;
+}
+.col-centered {
+    display: inline-block;
+    float: none;
+    /* reset the text-align */
+    
+    text-align: left;
+    /* inline-block space fix */
+    
+    margin-right: -4px;
+}
+#controlbuttons {
+    text-align: center;
+}
+#login {
+    margin-top: 5%;
+}
+hr {
+    color: #727B7F;
+    background-color: #727B7F;
+    height: 1px;
+	margin:0px;
+}
+.icon {
+    text-align: center;
+}
+#sectiondisplay {
+    margin-top: 200px;
+    margin-bottom: 150px;
+}
+#loginwrapper {
+    
+    background-color: rgba(0, 0, 0, 0.7);
+    padding-bottom: 1%;
+    position: absolute;
+    /*it can be fixed too*/
+    
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 40vh;
+}
+.error {
+    color: red;
+}
+#signup_form label.error {
+    color: red;
+}
+#signup_form input.error {
+    border: 1px solid red;
+}
+
+#learnmore{
+
+    
+   
+    position: absolute;
+    /*it can be fixed too*/
+    
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 80vh;
+
+}
+
+.description p{
+
+  padding-top: 100px;
+}
+
+>>>>>>> af0542d195bc482715fee8a34df305a63ee90903
