@@ -208,15 +208,11 @@
 
 
 
-<<<<<<< HEAD
-=======
-    <?php
+<?php
 
-        $signupuser = new SignUpValidUser();
-        $signupuser->enterNewUser($validform,$username,$password,$usertype,$email,$first_name,$last_name);
-    ?>
-
->>>>>>> 1dfa04c8ee3e7380db8c760b0d287725db7c16af
+    $signupuser = new SignUpValidUser();
+    $signupuser->enterNewUser($validform,$username,$password,$usertype,$email,$first_name,$last_name);
+?>
  
 
 </body>
