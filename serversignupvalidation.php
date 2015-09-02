@@ -105,7 +105,7 @@
     */
     class SignUpValiduser
     {
-        private $valid = "";
+       private $valid = "";
        public function enterNewUser($validform,$username,$password,$usertype,$email,$first_name,$last_name){
         $this->valid = $validform;
         if($this->valid == false) {
