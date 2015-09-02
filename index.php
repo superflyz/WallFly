@@ -5,6 +5,13 @@
     session_start();
     require_once(__DIR__.'/classes/Database.php');
     require_once(__DIR__.'/classes/serversignupvalidation.php');
+    if(!isset($_SESSION['loginError'])){
+
+         $_SESSION['loginError'] = "";
+    }
+
+       
+    
 
     
 	$validform=true;
@@ -78,6 +85,10 @@
                                 <!--</div>-->
                                 <!--<div class="input-group">-->
                                 <input name="password" type="password" id="password" class="form-control " placeholder="Password">
+                                 <span class="error"><?php echo $_SESSION['loginError']; ?></span>
+                                 <br/>
+                                 <br/>
+
                                 <!--</div>-->
                                 <div id="controlbuttons">
                                     <!--  <input class="btn btn-warning" type="reset" class="button" value="Reset"> -->
