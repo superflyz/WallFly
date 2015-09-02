@@ -13,7 +13,7 @@
 
     
 	$validform=true;
-    $returnedvalidation = ["","","","","","","","","","",""]; 
+    $returnedvalidation = ["","","","","","","","","","","",""]; 
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") { 
 	$validate = new Validator;
@@ -26,7 +26,7 @@
 	$email = $returnedvalidation[11];
 	$usertype = $returnedvalidation[12];
 	$validform = $returnedvalidation[0];
-	
+
 	}
 	
 
@@ -200,36 +200,36 @@
                 </div>
                 
                 <div class="modal-body">
-                    <form id="signup_form" name="signup_form" method="post" action="<?php echo htmlspecialchars($_SERVER[" PHP_SELF "]);?">       
+                    <form id="signup_form" name="signup_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">       
 
                         <div class="form-field">
                             <label for="username">Username</label> 
-                            <input class="form-control" type="text" size="12" name="username" value="<?php echo $username ?>" id="usrname" />
-                            <span class="error"><?php echo $usernameErr;?></span>
+                            <input class="form-control" type="text" size="12" name="username" value="<?php echo $returnedvalidation[7]; ?>" id="usrname" />
+                            <span class="error"><?php echo $returnedvalidation[1];?></span>
                         </div>
                         
                          <div class="form-field">
                              <label for="password">Password</label> 
-                            <input class="form-control" type="password" size="12" name="password" value="<?php echo $password ?>" id="psswrd" />
-                            <span class="error"><?php echo $passwordErr;?></span>
+                            <input class="form-control" type="password" size="12" name="password" value="<?php echo $returnedvalidation[8]; ?>" id="psswrd" />
+                            <span class="error"><?php echo $returnedvalidation[2];?></span>
                          </div>
                         
                          <div class="form-field">
                              <label for="first_name">First Name</label> 
-                            <input class="form-control" type='text' name='first_name' maxlength='50' size='30'  value="<?php echo $first_name ?>" id="fname" />
-                            <span class="error"><?php echo $first_nameErr;?></span>
+                            <input class="form-control" type='text' name='first_name' maxlength='50' size='30'  value="<?php echo $returnedvalidation[9]; ?>" id="fname" />
+                            <span class="error"><?php echo $returnedvalidation[3];?></span>
                           </div>
                         
                           <div class="form-field">  
                             <label for="last_name">Last Name</label> 
-                            <input class="form-control" type='text' name='last_name' maxlength='50' size='30'  value="<?php echo $last_name ?>" id="lname" />
-                            <span class="error"><?php echo $last_nameErr;?></span>
+                            <input class="form-control" type='text' name='last_name' maxlength='50' size='30'  value="<?php echo $returnedvalidation[10]; ?>" id="lname" />
+                            <span class="error"><?php echo $returnedvalidation[4];?></span>
                           </div>
                         
                           <div class="form-field">
                              <label for="email">Email Address</label> 
-                            <input class="form-control" type="text" name="email" maxlength="50" size="12" value="<?php echo $email ?>" id="email" />
-                            <span class="error"><?php echo $emailErr;?></span>
+                            <input class="form-control" type="text" name="email" maxlength="50" size="12" value="<?php echo $returnedvalidation[11]; ?>" id="email" />
+                            <span class="error"><?php echo $returnedvalidation[5];?></span>
                            </div>
                         
                            <div class="form-field"> 
@@ -242,9 +242,9 @@
                                     <option value="TENANT">Tenant</option>
                                 </select>
                                
-                                <span class="error"><?php echo $usertypeErr;?></span>
                                  
                             </div>
+                        <span class="error"><?php echo $returnedvalidation[6];?></span>
                             <div class="form-field">
                                 <button type="submit" name="btnAdd" class="btn btn-default btn-block submit">Sign Up</button>
                             </div>
@@ -298,12 +298,15 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/wallfly.js"></script>
 
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js
+"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
+<script src="js/index.js"></script>
 
-<?php
-
-    $signupuser = new SignUpValidUser();
-    $signupuser->enterNewUser($validform,$username,$password,$usertype,$email,$first_name,$last_name);
-?>
+      <?php     
+        $signupuser = new SignUpValidUser();
+        $signupuser->enterNewUser($validform,$username,$password,$usertype,$email,$first_name,$last_name);
+    ?>
  
 
 </body>

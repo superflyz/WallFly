@@ -6,6 +6,16 @@ References:
 - http://startbootstrap.com/template-overviews/agency/
 */
 
+@font-face {
+    font-family: "Diavlo Light";
+    src: url(../fonts/Diavlo_LIGHT_II_37.otf) format("opentype");
+}
+
+@font-face {
+    font-family: Diavlo;
+    src: url(../fonts/Diavlo_MEDIUM_II_37.otf) format("opentype");
+}
+
 /*------ Global ALL screen ------*/
 body {
     overflow-x: hidden;
@@ -313,6 +323,7 @@ h6 {
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
+        margin: -12.5px 0px 0px 0px;
     }
 
     .navbar-default .navbar-nav>.active>a {
@@ -325,7 +336,7 @@ h6 {
     }
 
     .navbar-default.navbar-shrink .navbar-brand img {
-        margin: -6.5px 0px 0px 0px;
+        
     }
 }
 
@@ -524,4 +535,14 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #9fdd5e;
+}
+
+.error {
+    color: red;
+}
+#signup_form label.error {
+    color: red;
+}
+#signup_form input.error {
+    border: 1px solid red;
 }
