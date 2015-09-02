@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php 
     ob_start();
     session_start();
@@ -35,7 +33,6 @@
 
  ?>
 
->>>>>>> 1dfa04c8ee3e7380db8c760b0d287725db7c16af
 <!DOCTYPE html>
 <html>
 
