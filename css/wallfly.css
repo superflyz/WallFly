@@ -6,21 +6,27 @@ References:
 - http://startbootstrap.com/template-overviews/agency/
 */
 
+/* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
 @font-face {
     font-family: "Diavlo Light";
     src: url(../fonts/Diavlo_LIGHT_II_37.otf) format("opentype");
 }
 
 @font-face {
-    font-family: Diavlo;
+    font-family: "Diavlo Medium";
     src: url(../fonts/Diavlo_MEDIUM_II_37.otf) format("opentype");
+}
+
+@font-face {
+    font-family: "Diavlo Bold";
+    src: url(../fonts/Diavlo_BOLD_II_37.otf) format("opentype");
 }
 
 /*------ Global ALL screen ------*/
 body {
     overflow-x: hidden;
     background-color: #222222;
-    font-family: Diavlo, "Helvetica Neue",Helvetica,        Arial,sans-serif;
+    font-family: "Diavlo Medium", "Helvetica Neue",Helvetica,        Arial,sans-serif;
 }
 
 .text-muted {
@@ -34,6 +40,7 @@ body {
 p {
     font-size: 14px;
     line-height: 1.75;
+    font-family: "Diavlo Light", "Helvetica Neue",Helvetica,        Arial,sans-serif;
 }
 
 a,
@@ -62,7 +69,6 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-weight: 700;
 }
 
 .img-centered {
@@ -72,17 +78,18 @@ h6 {
 /*------ Login & Sign Up forms ALL screen ------*/
 .modal-header {
     color: #ffffff;
-    background-color: #9fdd5e;
-    box-shadow: 0px 1px 5px #222222;
-    padding: 12px;
+    background-color: #222222;
     border-top-left-radius: 4px;  
     border-top-right-radius: 4px; 
-    border: 0px;
+    margin: 2px 2px 0px 2px;
+/*    border-bottom: 2px solid #9fdd5e;*/
 }
 
 .modal-title {
     font-size: 20px;
     font-weight: 600;
+    font-family: "Diavlo Medium", "Helvetica Neue", Helvetica,        Arial,sans-serif;
+    margin: 2px 0px 0px 3px;
 }  
 
 .modal-body {
@@ -95,22 +102,35 @@ h6 {
 }
 
 .close {
-    padding: 18px 28px;
-    font-size: 35px; 
-    line-height: normal;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
+    color: #ffffff;
+    opacity: 0.4;
+    box-shadow: none;
+    font-size: 35px;
+    border: none;
+
+}
+
+.close:hover,
+.close:active {
+    color: #ffffff;
+    opacity: 0.8;
+    -webkit-transition: background .2s ease-in-out;
+    -moz-transition: background .2s ease-in-out;
+    transition: background .2s ease-in-out;
+}
+
+.form-field {
+    margin: 16px 0px 0px 0px;
+}
+
+.ff1 {
+    margin: 6px 0px 0px 0px;
 }
 
 .form-field label {
     color: #222222;
     font-size: 16px;
     font-weight: 400;
-}
-
-.form-field {
-    margin: 16px 0px 0px 0px;
 }
 
 .form-field input {
@@ -170,6 +190,20 @@ h6 {
     color: #9fdd5e;
     border: 2px solid #9fdd5e;
     background-color: transparent; 
+}
+
+.error {
+    color: #ef3719;
+}
+
+#signup_form label.error {
+    color: #ef3719;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+#signup_form input.error {
+    border: 2px solid #ef3719;
 }
 
 /*-- Extra small devices (phones, less than 768px) --*/
@@ -273,6 +307,10 @@ h6 {
     color: #ffffff;
     font-size: 16px;
 }
+
+.text p {
+    font-family: "Diavlo Medium", "Helvetica Neue", Helvetica,        Arial,sans-serif;
+}
     
 .text .s-link {
     text-decoration: none;
@@ -361,17 +399,17 @@ header .intro {
 
 header .intro .intro-text-1 {
     margin-bottom: 30px;
-    font-weight: 500;
     font-size: 45px;
     color: #9fdd5e;
+    font-family: "Diavlo Medium", "Helvetica Neue",Helvetica,        Arial,sans-serif;
 }
 
 header .intro .intro-text-2 {
     margin-bottom: 65px;
     text-transform: uppercase;
     font-size: 30px;
-    font-weight: 300;
     color: #ffffff;
+    font-family: "Diavlo Light", "Helvetica Neue",Helvetica,        Arial,sans-serif;
 }
 
 /*-- Small devices (tablets, 768px and up) --*/
@@ -535,14 +573,4 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #9fdd5e;
-}
-
-.error {
-    color: red;
-}
-#signup_form label.error {
-    color: red;
-}
-#signup_form input.error {
-    border: 1px solid red;
 }
