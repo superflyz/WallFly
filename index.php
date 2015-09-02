@@ -12,23 +12,23 @@
     
 
     
-	$validform=true;
+    $validform=true;
     $returnedvalidation = ["","","","","","","","","","","",""]; 
-	
-	if ($_SERVER["REQUEST_METHOD"] == "POST") { 
-	$validate = new Validator;
-	
-	$returnedvalidation = $validate->validform($_POST["username"],$_POST["password"],$_POST["first_name"],$_POST["last_name"],$_POST["email"],$_POST["usertype"]);
-	$username = $returnedvalidation[7];
-	$password = $returnedvalidation[8];
-	$first_name = $returnedvalidation[9];
-	$last_name = $returnedvalidation[10];
-	$email = $returnedvalidation[11];
-	$usertype = $returnedvalidation[12];
-	$validform = $returnedvalidation[0];
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    $validate = new Validator;
+    
+    $returnedvalidation = $validate->validform($_POST["username"],$_POST["password"],$_POST["first_name"],$_POST["last_name"],$_POST["email"],$_POST["usertype"]);
+    $username = $returnedvalidation[7];
+    $password = $returnedvalidation[8];
+    $first_name = $returnedvalidation[9];
+    $last_name = $returnedvalidation[10];
+    $email = $returnedvalidation[11];
+    $usertype = $returnedvalidation[12];
+    $validform = $returnedvalidation[0];
 
-	}
-	
+    }
+    
 
 
  ?>
@@ -306,10 +306,9 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/wallfly.js"></script>
 
-    <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js
-"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
-<script src="js/index.js"></script>
+    <script src="js/index.js"></script>
 
       <?php     
         $signupuser = new SignUpValidUser();
