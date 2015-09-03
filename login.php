@@ -43,6 +43,7 @@ try{
   // var_dump($STH->rowCount()); // 0
 	if($STH->rowCount() == 1) {
 		$row = $STH->fetch();
+    var_dump($row);
     // var_dump($row->password);
     // var_dump($check_password);
 		$comparehash = $securepass->validate_password($check_password, $row->password);
