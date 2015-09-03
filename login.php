@@ -2,7 +2,7 @@
 
 session_start();
 require_once(__DIR__.'/classes/Database.php');
-include ("/classes/securepassword.php");
+include (__DIR__ . "/classes/securepassword.php");
 
 $check_user = $_POST['username'];
 $check_password = $_POST['password'];
@@ -40,9 +40,12 @@ try{
 	//$count = mysql_num_rows($result);
 
 	//If result matched $check_user and $check_password, table row must be 1 row
+  // var_dump($STH->rowCount()); // 0
 	if($STH->rowCount() == 1) {
 		$row = $STH->fetch();
-		$comparehash = $securepass-> validate_password($check_password, $row->password);
+    // var_dump($row->password);
+    // var_dump($check_password);
+		$comparehash = $securepass->validate_password($check_password, $row->password);
 		if($comparehash){
 			//session expire setup
 			$_SESSION["expiration"] = time() + 1800;
@@ -54,7 +57,7 @@ try{
 			exit();
 		}else{
 
-			$_SESSION['loginError'] = "Incorrect Login Details";
+			$_SESSION['loginError'] = "Incorrect Login Details  123";
             header("Location:index.php");
             exit();
 		}
@@ -63,7 +66,7 @@ try{
 
 		
 	}else{
-		$_SESSION['loginError'] = "Incorrect Login Details";
+		$_SESSION['loginError'] = "Incorrect Login Details 456";
 		header("Location:index.php");
 		exit();
 		

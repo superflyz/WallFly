@@ -163,7 +163,7 @@
 
             $statement = $DBH->prepare("INSERT INTO user(username, password, privilege, email, first_name, last_name)
             VALUES(:username, :password, :usertype, :email, :first_name, :last_name)");
-            $statement->execute(array(
+            $result = $statement->execute(array(
             "username" => $username,
             "password" => $this->hashedpassword,
             "usertype" => $usertype,
@@ -171,12 +171,13 @@
             "first_name" => $first_name,
             "last_name" => $last_name
             ));
+            var_dump($result);
             #close db connection 
             $DBH = NULL; 
             #clear the saved form
             $_POST = array();
             $username = $password = $first_name = $last_name = $email = $usertype = "";
-            header('Location: signupmessage.php');
+            //header('Location: signupmessage.php');
             exit();
         }
 
