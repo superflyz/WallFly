@@ -3,6 +3,8 @@
   $_SESSION['propertyId']=$_GET['id'];
   $property_id = $_SESSION['propertyId'];
   $usertype = $_SESSION['usertype'];
+  $username = $_SESSION['username'];
+
 
   //connect DB
   $username = "admin";
@@ -23,5 +25,9 @@ $lastname = $_POST['last_name'];
 $subject = $_POST['subject'];
 $message = $_POST['request'];
 
-$sql = "INSERT INTO repairrequest (user_id, fname, lname, subject, msg)
-VALUES ('John', 'Doe', 'john@example.com')";
+
+$sql="SELECT user_id FROM user WHERE username = '$username'";
+$result = mysql_query($sql);
+
+$sqlnew
+

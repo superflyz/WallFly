@@ -283,7 +283,7 @@
             echo "<h2>Repair Request</h2>";
         ?>
           <form name='repair_request_form' method="post" action="repairform.php">
-            <table width="70%">
+              <table width="70%">
               <tr>
                 <td valign="top" width="20%">   
                   <label for="first_name">First Name *</label>
@@ -323,7 +323,7 @@
               <tr>
                 <td valign="top">
                   <label for="attach_img">Image File</label>
-                  <input type="file" id="attach_img">
+                  <input type="file" name="repair_image" id="attach_img">
                   <p class="help-block">Attach your image.</p>
                 </td>
                 <td valign="top">
