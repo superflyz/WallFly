@@ -226,23 +226,24 @@
                           </div>
                         
                           <div class="form-field">
-                            <label for="email">Email Address</label> 
+                             <label for="email">Email Address</label> 
                             <input class="form-control" type="text" name="email" maxlength="50" size="12" value="<?php echo $returnedvalidation[11]; ?>" id="email" />
                             <span class="error"><?php echo $returnedvalidation[5];?></span>
                            </div>
                         
                            <div class="form-field"> 
-                            <label for="usertype">User Type</label>
-                            <select class="form-control select-style" name="usertype">
-                                <option value="">Please Select</option>
-                                <option value="AGENT">Agent</option>
-                                <option value="OWNER">Owner</option>
-                                <option value="TENANT">Tenant</option>
-                            </select>
+                                <label for="usertype">User Type</label>     
+                                
+                                <select class="form-control select-style" name="usertype">
+                                    <option value="">Please Select</option>
+                                    <option value="AGENT">Agent</option>
+                                    <option value="OWNER">Owner</option>
+                                    <option value="TENANT">Tenant</option>
+                                </select>
                                
-                            <span class="error"><?php echo $returnedvalidation[6];?></span>    
+                                 
                             </div>
-                    
+                        <span class="error"><?php echo $returnedvalidation[6];?></span>
                             <div class="form-field">
                                 <button type="submit" name="btnAdd" class="btn btn-default btn-block submit">Sign Up</button>
                             </div>
