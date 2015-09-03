@@ -1,7 +1,9 @@
  <?php
-
+    include ("securepassword.php");
     class Validator {
-  
+    
+
+
     //error vars
     private $usernameErr = "";
 	private $passwordErr ="";
@@ -104,8 +106,14 @@
     * 
     */
     class SignUpValiduser
-    {
-        private $valid = "";
+    {   
+        
+        private $valid = ""; 
+        private $hashedpassword = "";
+       
+
+
+
        public function enterNewUser($validform,$username,$password,$usertype,$email,$first_name,$last_name){
         $this->valid = $validform;
         if($this->valid == false) {
@@ -149,12 +157,15 @@
                 exit();
 
             }else{
+             $securepass = new SecurePassword;
+             $this->hashedpassword = $securepass->create_hash($password);
+            
 
             $statement = $DBH->prepare("INSERT INTO user(username, password, privilege, email, first_name, last_name)
             VALUES(:username, :password, :usertype, :email, :first_name, :last_name)");
-            $statement->execute(array(
+            $result = $statement->execute(array(
             "username" => $username,
-            "password" => $password,
+            "password" => $this->hashedpassword,
             "usertype" => $usertype,
             "email" => $email,
             "first_name" => $first_name,
@@ -174,6 +185,9 @@
 
          
         }
+
+
+       
     }
 
 ?>

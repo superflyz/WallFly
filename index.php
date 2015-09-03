@@ -12,23 +12,23 @@
     
 
     
-	$validform=true;
+    $validform=true;
     $returnedvalidation = ["","","","","","","","","","","",""]; 
-	
-	if ($_SERVER["REQUEST_METHOD"] == "POST") { 
-	$validate = new Validator;
-	
-	$returnedvalidation = $validate->validform($_POST["username"],$_POST["password"],$_POST["first_name"],$_POST["last_name"],$_POST["email"],$_POST["usertype"]);
-	$username = $returnedvalidation[7];
-	$password = $returnedvalidation[8];
-	$first_name = $returnedvalidation[9];
-	$last_name = $returnedvalidation[10];
-	$email = $returnedvalidation[11];
-	$usertype = $returnedvalidation[12];
-	$validform = $returnedvalidation[0];
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    $validate = new Validator;
+    
+    $returnedvalidation = $validate->validform($_POST["username"],$_POST["password"],$_POST["first_name"],$_POST["last_name"],$_POST["email"],$_POST["usertype"]);
+    $username = $returnedvalidation[7];
+    $password = $returnedvalidation[8];
+    $first_name = $returnedvalidation[9];
+    $last_name = $returnedvalidation[10];
+    $email = $returnedvalidation[11];
+    $usertype = $returnedvalidation[12];
+    $validform = $returnedvalidation[0];
 
-	}
-	
+    }
+    
 
 
  ?>
@@ -51,6 +51,14 @@
 
     <!-- Custom CSS -->
     <link href="css/wallfly.css" rel="stylesheet">
+    <defs>
+      <style type="text/css">
+        @font-face {
+            font-family: "Diavlo Light";
+            src: url(../fonts/Diavlo_LIGHT_II_37.otf) format("opentype");
+        }
+      </style>
+    </defs>
 
     <!-- Custom Fonts -->
     <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -194,7 +202,7 @@
     <div class="modal modal-vcenter fade sign-up-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
-                <div class="modal-header text-center">
+                <div class="modal-header text-left">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <p class="modal-title flabel">Sign Up</p>           
                 </div>
@@ -202,7 +210,7 @@
                 <div class="modal-body">
                     <form id="signup_form" name="signup_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">       
 
-                        <div class="form-field">
+                        <div class="form-field ff1">
                             <label for="username">Username</label> 
                             <input class="form-control" type="text" size="12" name="username" value="<?php echo $returnedvalidation[7]; ?>" id="usrname" />
                             <span class="error"><?php echo $returnedvalidation[1];?></span>
@@ -258,14 +266,14 @@
 <div class="modal modal-vcenter fade login-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
-                <div class="modal-header text-center">
+                <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <p class="modal-title flabel">Login</p>           
                 </div>
                 
                 <div class="modal-body">
                     <form id="login" name="login" method="post" action="login.php">
-                        <div class="form-field">  
+                        <div class="form-field ff1">  
                             <label for="username">Username</label> 
                             <input name="username" type="text" id="username" class="form-control">
                         </div>
@@ -298,10 +306,9 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/wallfly.js"></script>
 
-    <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js
-"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
-<script src="js/index.js"></script>
+    <script src="js/index.js"></script>
 
       <?php     
         $signupuser = new SignUpValidUser();
