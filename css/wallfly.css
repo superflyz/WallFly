@@ -139,6 +139,7 @@ h6 {
     padding: 14px 6px 10px 6px;
     font-size: 14px;
     box-shadow: none;
+    height: 100%;
 }
 
 .form-field input:hover {
