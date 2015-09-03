@@ -4,6 +4,9 @@ References:
 - https://fortawesome.github.io/Font-Awesome/
 - http://getbootstrap.com
 - http://startbootstrap.com/template-overviews/agency/
+- Property logo: http://www.freepik.com/free-vector/property-logo-with-house-silhouettes_804211.htm#term=property&page=1&position=5
+- Messaging iconhttp://www.flaticon.com/free-icon/chat-bubbles-with-ellipsis_61516
+- Calendar: http://www.flaticon.com/free-icon/calendar-month_13530
 */
 
 /* A font by Jos Buivenga (exljbris) -> www.exljbris.com */
@@ -21,6 +24,12 @@ References:
     font-family: "Diavlo Bold";
     src: url(../fonts/Diavlo_BOLD_II_37.otf) format("opentype");
 }
+
+
+/************************************************************/
+/************************* Homepage *************************/
+/************************************************************/
+
 
 /*------ Global ALL screen ------*/
 body {
@@ -107,7 +116,6 @@ h6 {
     box-shadow: none;
     font-size: 35px;
     border: none;
-
 }
 
 .close:hover,
@@ -539,6 +547,12 @@ header .intro .intro-text-2 {
 
 /*-- Large devices (large desktops, 1200px and up) --*/
 @media (min-width: 1200px) { ... }
+
+
+/*************************************************************/
+/************************* DASHBOARD *************************/
+/*************************************************************/
+
 
 /*--- Footer ALL screen ---*/
 footer {
