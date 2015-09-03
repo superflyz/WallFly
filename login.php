@@ -23,8 +23,8 @@ try{
 	//To protect MySQL injection
 	$check_user = stripslashes($check_user);
 	$check_password = stripcslashes($check_password);
-	$check_user = mysql_real_escape_string($check_user);
-	$check_password = mysql_real_escape_string($check_password);
+	//$check_user = mysql_real_escape_string($check_user);
+	//$check_password = mysql_real_escape_string($check_password);
 	$securepass = new SecurePassword;
 	$hashedpassword = $securepass->create_hash($check_password);
 	
