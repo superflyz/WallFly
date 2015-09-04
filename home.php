@@ -119,7 +119,7 @@
             <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>-->
             <a id="start_btn" href="property.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-home"></span> Manage Properties</a>&nbsp;&nbsp;
             <a id="start_btn" href="calendar.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-calendar"></span> Calendar</a>&nbsp;&nbsp;
-            <a id="start_btn" href="chatsys/chat.html" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-comment"></span> Messages</a>
+            <a id="start_btn" href="chatsys/chat.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-comment"></span> Messages</a>
           </div>
         </div>
       </div>
