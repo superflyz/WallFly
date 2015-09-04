@@ -6,6 +6,7 @@ require_once(__DIR__.'/../logincheck.php');
 $username = $_SESSION["username"];
 $usertype = $_SESSION["usertype"];
 $properties = [];
+$propertyID="";
 
 ?>
 <!DOCTYPE html>
@@ -20,33 +21,28 @@ $properties = [];
       <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
       <script src="../js/chat.js"></script>
       <script type="text/javascript">
+         // assign current username to jquery var and use it in SendMessage function
          var user = <?php echo "'".$_SESSION['username']."'";?>;
-        $(document).ready(function() {
-          $("#btn-send").click(function()  {
-
-            SendMessage(user);
-          });
-
+         $(document).ready(function() {
+            var propz="ultra";
+            $("#btn-send").click(function(){
+                SendMessage(user);
+            });
         });
-
-      
-
-
-
       </script>
-
-
 </head>
 <body> 
+ <!-- create address dropdown list only if agent or owner usertype -->
 <?php if (($usertype == 'AGENT') || ($usertype == 'OWNER')){
 
    $properties = Chat::GetProperties($username,$usertype);
 
 
+
    echo '<div class="container">
             <div class="btn-group">
                 <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Select a Property<span class="caret"></span></a>
-                    <ul class="dropdown-menu">';
+                    <ul id="propertieslist"class="dropdown-menu">';
                     foreach ($properties as $propertyAddress) {
                      echo '<li><a href="#">'.$propertyAddress.'</a></li>';
                     }
@@ -57,7 +53,7 @@ $properties = [];
         }
         ?>
 
-    
+        <!-- Chat box -->
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
@@ -137,7 +133,21 @@ $properties = [];
         </div>
     </div>
 </div>
+<!-- End Chatbox -->
+    <script type="text/javascript">
+    //$propertyID = Chat::GetPropertyID($username,$usertype,$address)
+    $('#propertieslist li').on('click', function(){
+     var propz=$(this).text();
     
+    
+    });
+     <?php $propz='<script>propz</script>';
+    echo $propz;
+    ?>
+
+    </script>
+    
+     
     </body>
 </html>
 

@@ -40,7 +40,7 @@ class Chat {
     	}
     }
 
-    public static function GetPropertyID($username,$address,$usertype) {
+    public static function GetPropertyID($username,$usertype,$address) {
     	$propertyID = "";
     	try{
 	        $DBH = Database::getInstance();
@@ -65,21 +65,15 @@ class Chat {
 	       	$STH->setFetchMode(PDO::FETCH_OBJ); 
 	       	$row = $STH->fetch();
 	        $propertyID = $row->property_id; 
-			      
-			}
-
 			return $propertyID;
 
 			$DBH = NULL;
-			exit();
+			exit();      
 		}catch(PDOException $e) {
         	echo "Could not access property database";
         	file_put_contents(__DIR__.'/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
         	exit();
     	}
-
-
-
     }
-}
+}         
 
