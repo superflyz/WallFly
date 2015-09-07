@@ -6,7 +6,15 @@ require_once(__DIR__.'/../logincheck.php');
 $username = $_SESSION["username"];
 $usertype = $_SESSION["usertype"];
 $properties = [];
-$propertyID="";
+$selectedproperty="";
+$pID = '';
+
+//set the propertyID from the $_SESSION['selectedChatProperty'] if set
+if(isset($_SESSION['selectedChatProperty'])) {
+   $selectedproperty = $_SESSION['selectedChatProperty'];
+   $pID = Chat::GetPropertyID($username,$usertype,$selectedproperty);
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -19,14 +27,16 @@ $propertyID="";
        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
       <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
       <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="../css/chat.css">
       <script src="../js/chat.js"></script>
       <script type="text/javascript">
          // assign current username to jquery var and use it in SendMessage function
          var user = <?php echo "'".$_SESSION['username']."'";?>;
+         var pID =  <?php echo "'".$pID."'";?>;
          $(document).ready(function() {
-            var propz="ultra";
+        
             $("#btn-send").click(function(){
-                SendMessage(user);
+               SendMessage(user,pID);
             });
         });
       </script>
@@ -38,7 +48,7 @@ $propertyID="";
    $properties = Chat::GetProperties($username,$usertype);
 
 
-
+   //dropdown for property list
    echo '<div class="container">
             <div class="btn-group">
                 <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Select a Property<span class="caret"></span></a>
@@ -51,74 +61,28 @@ $propertyID="";
           
         </div>';
         }
-        ?>
 
-        <!-- Chat box -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                        Chat
-                        </div>
-                        <div class="panel-body">
-                    <ul class="chat">
-                        <li class="left clearfix"><span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&text=T" alt="User Avatar" class="img-circle" />
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                        <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="right clearfix"><span class="chat-img pull-right">
-                            <img src="http://placehold.it/50/FA6F57/fff&text=A" alt="User Avatar" class="img-circle" />
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
-                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="left clearfix"><span class="chat-img pull-left">
-                            <img src="http://placehold.it/50/55C1E7/fff&text=O" alt="User Avatar" class="img-circle" />
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-                                        <span class="glyphicon glyphicon-time"></span>14 mins ago</small>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
-                        <li class="right clearfix"><span class="chat-img pull-right">
-                            <img src="http://placehold.it/50/FA6F57/fff&text=A" alt="User Avatar" class="img-circle" />
-                        </span>
-                            <div class="chat-body clearfix">
-                                <div class="header">
-                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>15 mins ago</small>
-                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare
-                                    dolor, quis ullamcorper ligula sodales.
-                                </p>
-                            </div>
-                        </li>
+    //load the chatbox if propertyID is set
+    if($pID != ""){
+        $name =  $_SESSION['username'];
+        echo "<script type='text/javascript'>";
+        echo "LoadChatBox('".$pID."', '".$name."')";
+        echo "</script>";
+    }
+
+?>
+
+    <!-- Chat box -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    Chat <?php if($selectedproperty != ""){echo ' for '.$selectedproperty;};?>
+                    </div>
+                    <div id="chatbox"class="panel-body">
+                    <ul id="chatlist" class="chat">
+                        
                     </ul>
                 </div>
                 <div class="panel-footer">
@@ -134,21 +98,24 @@ $propertyID="";
     </div>
 </div>
 <!-- End Chatbox -->
+    <!-- set $_SESSION['selectedChatProperty'] from dropdown then refresh page -->
     <script type="text/javascript">
-    //$propertyID = Chat::GetPropertyID($username,$usertype,$address)
     $('#propertieslist li').on('click', function(){
-     var propz=$(this).text();
-    
-    
+         var propertyAdd=$(this).text();
+          jQuery.ajax({
+            url:'setselectedchatpropery.php',
+            type: "POST",
+            data: {
+                selected:propertyAdd
+                },
+           success: function(result){
+              
+            window.location.reload();
+            } 
+        });
     });
-     <?php $propz='<script>propz</script>';
-    echo $propz;
-    ?>
-
     </script>
-    
-     
-    </body>
+</body>
 </html>
 
 

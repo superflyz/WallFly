@@ -24,12 +24,7 @@ require_once(__DIR__.'/../classes/Database.php');
 $date = date("Y-m-d H:i:s");
 $user = $_POST['user'];
 $message = $_POST['message'];
-
-
- if ($message == ""){
-
-   exit();
- }else{
+$pID = $_POST['pID'];
     
     try{
         $DBH = Database::getInstance();
@@ -43,9 +38,10 @@ $message = $_POST['message'];
 
     try{
 
-        $statement = $DBH->prepare("INSERT INTO chat(username, chatdate, msg)
-            VALUES(:username, :chatdate, :message)");
+        $statement = $DBH->prepare("INSERT INTO chat(propertyID, username, chatdate, msg)
+            VALUES(:propertyID, :username, :chatdate, :message)");
             $result = $statement->execute(array(
+            "propertyID" => $pID,
             "username" => $user,
             "chatdate" => $date,
             "message" => $message
@@ -60,5 +56,4 @@ $message = $_POST['message'];
         file_put_contents(__DIR__.'/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
         exit();
 }
- }
 

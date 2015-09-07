@@ -41,38 +41,44 @@ class Chat {
     }
 
     public static function GetPropertyID($username,$usertype,$address) {
-    	$propertyID = "";
-    	try{
-	        $DBH = Database::getInstance();
-	        $DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    	}catch(PDOException $e) {
-	        echo "Unable to connect";
-	        file_put_contents(__DIR__.'/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
-	        exit();
+    	if ($address ==""){
+
+    		exit();
     	}
+    	else{
+	    	$propertyID = "";
+	    	try{
+		        $DBH = Database::getInstance();
+		        $DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
+	    	}catch(PDOException $e) {
+		        echo "Unable to connect";
+		        file_put_contents(__DIR__.'/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
+		        exit();
+	    	}
 
-    	try{  
+	    	try{  
 
-			switch ($usertype) {
-    		case "AGENT":
-	        	$STH = $DBH->query("SELECT property_id FROM property WHERE agent_id = '$username' and  property_street = '$address' LIMIT 1");
-	        	break;
-	    	case "OWNER":
-	        	$STH = $DBH->query("SELECT property_id FROM property WHERE owner_id = '$username' and  property_street = '$address' LIMIT 1");
-	       		break;
-	       	}
+				switch ($usertype) {
+	    		case "AGENT":
+		        	$STH = $DBH->query("SELECT property_id FROM property WHERE agent_id = '$username' and  property_street = '$address' LIMIT 1");
+		        	break;
+		    	case "OWNER":
+		        	$STH = $DBH->query("SELECT property_id FROM property WHERE owner_id = '$username' and  property_street = '$address' LIMIT 1");
+		       		break;
+		       	}
 
-	       	$STH->setFetchMode(PDO::FETCH_OBJ); 
-	       	$row = $STH->fetch();
-	        $propertyID = $row->property_id; 
-			return $propertyID;
+		       	$STH->setFetchMode(PDO::FETCH_OBJ); 
+		       	$row = $STH->fetch();
+		        $propertyID = $row->property_id; 
+				return $propertyID;
 
-			$DBH = NULL;
-			exit();      
-		}catch(PDOException $e) {
-        	echo "Could not access property database";
-        	file_put_contents(__DIR__.'/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
-        	exit();
+				$DBH = NULL;
+				exit();      
+			}catch(PDOException $e) {
+	        	echo "Could not access property database";
+	        	file_put_contents(__DIR__.'/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
+	        	exit();
+	    	}
     	}
     }
 }         
