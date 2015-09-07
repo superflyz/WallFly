@@ -7,14 +7,14 @@
   //connect DB
   $username = "admin";
   $password = "password";
-  $hostname = "localhost"; 
-  
+  $hostname = "localhost";
+
   //connection to the database
   $dbhandle = mysql_connect($hostname, $username, $password)
    or die("Unable to connect to MySQL");
-  
+
   //select a database to work with
-  $selected = mysql_select_db("admin",$dbhandle)
+  $selected = mysql_select_db("wallflydb",$dbhandle)
     or die("Could not select database");
 
     
@@ -229,9 +229,6 @@
             if($usertype != "TENANT"){
               echo "<button id='his_update_btn' class=\"btn btn-success btn-lg btn-block\" onclick=\"javascript:void window.open('his_update_popup.php','1428456850982','width=500,height=360,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0');return false;\">Update</button>";
             }
-            else{
-              echo "<button id='pay_rent' class='btn btn-success btn-lg btn-block' href='#'>Pay Rent</button>";
-            }
           ?>
 
 
@@ -241,7 +238,7 @@
           <!--Test payment function-->
           <!--Test payment function-->
           <!--Test payment function-->
-          <?php 
+          <?php
             require_once('braintree-php-3.3.0/lib/braintree.php');
             Braintree_Configuration::environment('sandbox');
             Braintree_Configuration::merchantId('7cb3t9x7mf6n38rz');
@@ -252,24 +249,28 @@
              
             $clientToken = Braintree_ClientToken::generate();
           ?>
-          <form id="checkout" method="post" action="<?php echo $pathToPayment; ?>">
-            <input type="hidden" name="propertyId" value="<?php echo($_SESSION['propertyId']); ?>" />
-            <input type="email" name="userEmail" placeholder="Insert your email" value=""/>
-            <input type="text" name="cardholderName" placeholder="Insert your Full Name" value=""/>
-            <input type="text" name="amount" placeholder="$0.00" value=""/>
-            <div id="payment-form"></div>
-            <input type="submit" name="braintreeSubmit" value="Buy">
-          </form>
+            <?php
+                if ($usertype == $privilege1) {
+                    ?>
+                    <form id="checkout" method="post" action="<?php echo $pathToPayment; ?>">
+                        <input type="text" name="amount" placeholder="$0.00" value=""/>
 
-          <!-- Including the braintree script to encrypt the card data -->
-          <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
-          <script>
-            var clientToken = "<?php echo $clientToken; ?>";
+                        <div id="payment-form"></div>
+                        <input type="submit" name="braintreeSubmit" value="Buy">
+                    </form>
 
-            braintree.setup(clientToken, "dropin", {
-              container: "payment-form"
-            });
-          </script>
+                    <!-- Including the braintree script to encrypt the card data -->
+                    <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+                    <script>
+                        var clientToken = "<?php echo $clientToken; ?>";
+
+                        braintree.setup(clientToken, "dropin", {
+                            container: "payment-form"
+                        });
+                    </script>
+                    <?php
+                }
+            ?>
           <!--End payment function-->
           <!--End payment function-->
           <!--End payment function-->

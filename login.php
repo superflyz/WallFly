@@ -23,8 +23,8 @@ try{
 	//To protect MySQL injection
 	$check_user = stripslashes($check_user);
 	$check_password = stripcslashes($check_password);
-	$check_user = mysql_real_escape_string($check_user);
-	$check_password = mysql_real_escape_string($check_password);
+	//$check_user = mysql_real_escape_string($check_user);
+	//$check_password = mysql_real_escape_string($check_password);
 	$securepass = new SecurePassword;
 	$hashedpassword = $securepass->create_hash($check_password);
 	
@@ -54,6 +54,10 @@ try{
 			//session user setup
 			$_SESSION["usertype"] = $row->privilege;
 			$_SESSION["username"] = $row->username;
+			$_SESSION['userId'] = $row->username;
+			$_SESSION['userFirstName'] = $row->first_name;
+			$_SESSION['userLastName'] = $row->last_name;
+			$_SESSION['userEmail'] = $row->email;
 			header("location:home.php");
 			exit();
 		}else{
