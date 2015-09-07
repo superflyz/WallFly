@@ -238,20 +238,29 @@ try {
                 }
                 ?>
             </table>
-            <br><br>
+
+            <!---Owner and agent payment update-->
             <?php
             if ($usertype != "TENANT") {
-                echo "<button id='his_update_btn' class=\"btn btn-success btn-lg btn-block\" onclick=\"javascript:void window.open('his_update_popup.php','1428456850982','width=500,height=360,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0');return false;\">Update</button>";
+                ?>
+                <h3>Add Payment</h3>
+                <form id="addPayment" method="post" action="update_payment.php">
+                    <label>Date</label><br /><input type="text" name="date" placeholder="dd/mm/yyyy" value=""/><br />
+                    <label>Amount</label><br /><input type="text" name="amount" placeholder="$0.00" value=""/><br />
+                    <input type="submit" name="addPaymentButton" value="add">
+                </form>
+                <?php
             }
             ?>
 
 
-            <!--Test payment function-->
-            <!--Test payment function-->
-            <!--Test payment function-->
-            <!--Test payment function-->
-            <!--Test payment function-->
-            <!--Test payment function-->
+            <!--Tenant payment-->
+            <!--Test payment function DO NOT MODIFY-->
+            <!--Test payment function DO NOT MODIFY-->
+            <!--Test payment function DO NOT MODIFY-->
+            <!--Test payment function DO NOT MODIFY-->
+            <!--Test payment function DO NOT MODIFY-->
+            <!--Test payment function DO NOT MODIFY-->
             <?php
             require_once('braintree-php-3.3.0/lib/braintree.php');
             Braintree_Configuration::environment('sandbox');
