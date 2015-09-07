@@ -275,11 +275,12 @@ try {
             <?php
             if ($usertype == $privilege1) {
                 ?>
+                <h3>Make Payment</h3>
                 <form id="checkout" method="post" action="<?php echo $pathToPayment; ?>">
                     <input type="text" name="amount" placeholder="$0.00" value=""/>
 
                     <div id="payment-form"></div>
-                    <input type="submit" name="braintreeSubmit" value="Buy">
+                    <input type="submit" name="braintreeSubmit" value="Pay Now">
                 </form>
 
                 <!-- Including the braintree script to encrypt the card data -->
