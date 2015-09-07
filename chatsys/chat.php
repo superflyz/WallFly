@@ -39,6 +39,14 @@ if(isset($_SESSION['selectedChatProperty'])) {
                SendMessage(user,pID);
             });
         });
+
+        setInterval(function(){ 
+            if(<?php echo $pID?> != ""){
+
+                LoadChatBox(<?php echo $pID?>,<?php echo $username?>);
+
+            }    
+        }, 2000);
       </script>
 </head>
 <body> 
