@@ -8,6 +8,14 @@ $usertype = $_SESSION['usertype'];
 try {
     $DBH = Database::getInstance();
     $DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $statement = $DBH->prepare("SELECT * FROM property WHERE property_id=:propertyId");
+    $statement->bindParam(':propertyId', $property_id);
+    $statement->execute();
+    while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        if (!($row['owner_id'] == $_SESSION['username'] || $row['agent_id'] == $_SESSION['username'] || $row['tenant_id'] == $_SESSION['username'])) {
+            header("Location: index.php");
+        }
+    }
 } catch (PDOException $e) {
     echo "Unable to connect to database";
     file_put_contents('Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
