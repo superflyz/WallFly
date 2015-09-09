@@ -307,7 +307,7 @@ try {
             echo "<div class='tabpage' id='tabpage_3'>";
             echo "<h2>Repair Request</h2>";
         ?>
-          <form name='repair_request_form' method="post" action="repairform.php">
+          <form name='repair_request_form' enctype="multipart/form-data" method="post" action="repairform.php">
               <table width="70%">
               <tr>
                 <td valign="top" width="20%">   
@@ -348,7 +348,7 @@ try {
               <tr>
                 <td valign="top">
                   <label for="attach_img">Image File</label>
-                  <input type="file" name="repair_image" id="attach_img">
+                  <input type="file" name="repair_image" size="2000000" accept="image/gif, image/jpeg, image/x-ms-bmp, image/x-png" id="attach_img">
                   <p class="help-block">Attach your image.</p>
                 </td>
                 <td valign="top">
