@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include (__DIR__ . "/../classes/chatfunctions.php");
 require_once(__DIR__.'/../logincheck.php');
@@ -13,6 +13,14 @@ $pID = '';
 if(isset($_SESSION['selectedChatProperty'])) {
    $selectedproperty = $_SESSION['selectedChatProperty'];
    $pID = Chat::GetPropertyID($username,$usertype,$selectedproperty);
+
+}
+
+if($usertype == 'TENANT'){
+  $tenantArray=[];
+  $tenantArray = Chat::GetProperties($username,$usertype);
+  $selectedproperty = $tenantArray[0];
+  $pID = Chat::GetPropertyID($username,$usertype,$selectedproperty);
 
 }
 
@@ -34,22 +42,22 @@ if(isset($_SESSION['selectedChatProperty'])) {
          var user = <?php echo "'".$_SESSION['username']."'";?>;
          var pID =  <?php echo "'".$pID."'";?>;
          $(document).ready(function() {
-        
+
             $("#btn-send").click(function(){
                SendMessage(user,pID);
             });
         });
 
-        setInterval(function(){ 
+        setInterval(function(){
             if(<?php echo $pID?> != ""){
 
-                LoadChatBox(<?php echo $pID?>,<?php echo $username?>);
+                LoadChatBox(<?php echo $pID?>,'<?php echo $username?>');
 
-            }    
+            }
         }, 2000);
       </script>
 </head>
-<body> 
+<body>
  <!-- create address dropdown list only if agent or owner usertype -->
 <?php if (($usertype == 'AGENT') || ($usertype == 'OWNER')){
 
@@ -66,7 +74,7 @@ if(isset($_SESSION['selectedChatProperty'])) {
                     }
             echo '</ul>
             </div>
-          
+
         </div>';
         }
 
@@ -90,7 +98,7 @@ if(isset($_SESSION['selectedChatProperty'])) {
                     </div>
                     <div id="chatbox"class="panel-body">
                     <ul id="chatlist" class="chat">
-                        
+
                     </ul>
                 </div>
                 <div class="panel-footer">
@@ -117,14 +125,11 @@ if(isset($_SESSION['selectedChatProperty'])) {
                 selected:propertyAdd
                 },
            success: function(result){
-              
+
             window.location.reload();
-            } 
+            }
         });
     });
     </script>
 </body>
 </html>
-
-
-

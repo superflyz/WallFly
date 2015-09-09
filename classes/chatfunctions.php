@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once(__DIR__.'/Database.php');
 
 class Chat {
@@ -14,7 +14,7 @@ class Chat {
 	        exit();
     	}
 
-		try{  
+		try{
 
 			switch ($usertype) {
     		case "AGENT":
@@ -23,12 +23,15 @@ class Chat {
 	    	case "OWNER":
 	        	$STH = $DBH->query("SELECT * FROM property WHERE owner_id = '$username' ");
 	       		break;
+        case "TENANT":
+            $STH = $DBH->query("SELECT * FROM property WHERE tenant_id = '$username' ");
+            break;
 	       	}
 
-	       	$STH->setFetchMode(PDO::FETCH_OBJ); 
+	       	$STH->setFetchMode(PDO::FETCH_OBJ);
 	       	while($row = $STH->fetch()) {
-	       		$propertyArray[] = $row->property_street; 
-			      
+	       		$propertyArray[] = $row->property_street;
+
 			}
 
 			return $propertyArray;
@@ -56,7 +59,7 @@ class Chat {
 		        exit();
 	    	}
 
-	    	try{  
+	    	try{
 
 				switch ($usertype) {
 	    		case "AGENT":
@@ -65,15 +68,18 @@ class Chat {
 		    	case "OWNER":
 		        	$STH = $DBH->query("SELECT property_id FROM property WHERE owner_id = '$username' and  property_street = '$address' LIMIT 1");
 		       		break;
+          case "TENANT":
+              $STH = $DBH->query("SELECT property_id FROM property WHERE tenant_id = '$username' and  property_street = '$address' LIMIT 1");
+              break;
 		       	}
 
-		       	$STH->setFetchMode(PDO::FETCH_OBJ); 
+		       	$STH->setFetchMode(PDO::FETCH_OBJ);
 		       	$row = $STH->fetch();
-		        $propertyID = $row->property_id; 
+		        $propertyID = $row->property_id;
 				return $propertyID;
 
 				$DBH = NULL;
-				exit();      
+				exit();
 			}catch(PDOException $e) {
 	        	echo "Could not access property database";
 	        	file_put_contents(__DIR__.'/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
@@ -81,5 +87,4 @@ class Chat {
 	    	}
     	}
     }
-}         
-
+}

@@ -27,9 +27,9 @@ try{
 	//$check_password = mysql_real_escape_string($check_password);
 	$securepass = new SecurePassword;
 	$hashedpassword = $securepass->create_hash($check_password);
-	
 
-	
+
+
 
 
 	//execute the SQL query and return records
@@ -43,14 +43,14 @@ try{
   // var_dump($STH->rowCount()); // 0
 	if($STH->rowCount() == 1) {
 		$row = $STH->fetch();
-    var_dump($row);
+    // var_dump($row);
     // var_dump($row->password);
     // var_dump($check_password);
 		$comparehash = $securepass->validate_password($check_password, $row->password);
 		if($comparehash){
 			//session expire setup
 			$_SESSION["expiration"] = time() + 1800;
-			
+
 			//session user setup
 			$_SESSION["usertype"] = $row->privilege;
 			$_SESSION["username"] = $row->username;
@@ -66,15 +66,15 @@ try{
             header("Location:index.php");
             exit();
 		}
-		
 
 
-		
+
+
 	}else{
 		$_SESSION['loginError'] = "Incorrect Login Details 456";
 		header("Location:index.php");
 		exit();
-		
+
 	}
 
 	//close database
