@@ -1,7 +1,7 @@
 <?php
 
 if(!isset($_SESSION['username'])){
-		header("location:index.php");
+		header('Location: /wallfly/index.php');
 		exit();
 	}
 ?>

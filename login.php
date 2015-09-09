@@ -54,6 +54,10 @@ try{
 			//session user setup
 			$_SESSION["usertype"] = $row->privilege;
 			$_SESSION["username"] = $row->username;
+			$_SESSION['userId'] = $row->username;
+			$_SESSION['userFirstName'] = $row->first_name;
+			$_SESSION['userLastName'] = $row->last_name;
+			$_SESSION['userEmail'] = $row->email;
 			header("location:home.php");
 			exit();
 		}else{

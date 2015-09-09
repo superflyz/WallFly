@@ -37,7 +37,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,14 +50,6 @@
 
     <!-- Custom CSS -->
     <link href="css/wallfly.css" rel="stylesheet">
-    <defs>
-      <style type="text/css">
-        @font-face {
-            font-family: "Diavlo Light";
-            src: url(../fonts/Diavlo_LIGHT_II_37.otf) format("opentype");
-        }
-      </style>
-    </defs>
 
     <!-- Custom Fonts -->
     <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

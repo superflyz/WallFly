@@ -1,35 +1,32 @@
 <?php
 	session_start();
+	require_once(__DIR__."/classes/Database.php");
 	$propertyID = $_SESSION['propertyId'];
 
-	//connect DB
- 	$username = "admin";
- 	$password = "password";
- 	$hostname = "localhost"; 
- 	
- 	//connection to the database
- 	$dbhandle = mysql_connect($hostname, $username, $password)
- 	 or die("Unable to connect to MySQL");
- 	
- 	//select a database to work with
- 	$selected = mysql_select_db("admin",$dbhandle)
- 	  or die("Could not select database");
+    try {
+        $DBH = Database::getInstance();
+        $DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        echo "Unable to connect to database";
+        file_put_contents('Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
+        die();
+    }
 
- 	$date = $_POST['date'];
- 	$tenant_id = $_POST['tenant_id'];
- 	$tenant_fname = $_POST['tenant_fname'];
- 	$tenant_lname = $_POST['tenant_lname'];
- 	$amount = $_POST['amount'];
+    $amount = $_POST["amount"];
+    $userId = $_SESSION['userId'];
+    $email = $_SESSION['userEmail'];
+    $firstName = $_SESSION['userFirstName'];
+    $lastName = $_SESSION['userLastName'];
+    $propertyId = $_SESSION["propertyId"];
 
- 	$sql = "INSERT INTO payment(property, payment_date, tenant_id, tenant_fname, tenant_lname, amount)
- 				VALUES ('$propertyID', '$date', '$tenant_id', '$tenant_fname', '$tenant_lname', '$amount')";
- 	$result = mysql_query($sql);
- 	
- 	mysql_close();
- 	echo "<script type='text/javascript'>";
-	echo "alert('You have updated the payment history successfully');";
-	echo "window.close();";
-	echo "window.opener.location.reload();";
-	echo "</script>";
+    try {
+        $statement = $DBH->prepare("INSERT INTO payment(property, payment_date, tenant_id, tenant_fname, tenant_lname, amount)
+                        VALUES(?, ?, ?, ?, ?, ?)");
+        $statement->execute(array($propertyId, $_POST['date'], $userId, $firstName, $lastName, $amount));
+    } catch (PDOException $e) {
+        echo "oh no";
+    }
+
+    header("Location: property_detail.php?id=" . $propertyId);
 
 ?>
