@@ -16,7 +16,7 @@ $pID = $_POST['pID'];
 
     try{
         $chatArray= [];
-        $STH = $DBH->query("SELECT * FROM chat WHERE propertyID = '$pID' ORDER BY chat_id DESC ");
+        $STH = $DBH->query("SELECT * FROM chat WHERE propertyID = '$pID' ORDER BY chat_id ASC ");
 
         $STH->setFetchMode(PDO::FETCH_OBJ);
         while($row = $STH->fetch()) {
