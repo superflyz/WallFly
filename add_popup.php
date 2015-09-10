@@ -8,7 +8,7 @@ $dbhandle = mysql_connect($hostname, $username, $password)
  or die("Unable to connect to MySQL");
 
 //select a database to work with
-$selected = mysql_select_db("admin",$dbhandle)
+$selected = mysql_select_db("wallflydb",$dbhandle)
   or die("Could not select database");
 
 session_start();

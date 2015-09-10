@@ -3,6 +3,7 @@ session_start();
 include (__DIR__ . "/../classes/chatfunctions.php");
 require_once(__DIR__.'/../logincheck.php');
 
+$_SESSION['propertyId'] = "";
 $username = $_SESSION["username"];
 $usertype = $_SESSION["usertype"];
 $properties = [];
@@ -13,6 +14,7 @@ $pID = '';
 if(isset($_SESSION['selectedChatProperty'])) {
    $selectedproperty = $_SESSION['selectedChatProperty'];
    $pID = Chat::GetPropertyID($username,$usertype,$selectedproperty);
+    unset($_SESSION['selectedChatProperty']);
 
 }
 
@@ -42,19 +44,11 @@ if($usertype == 'TENANT'){
          var user = <?php echo "'".$_SESSION['username']."'";?>;
          var pID =  <?php echo "'".$pID."'";?>;
          $(document).ready(function() {
-
+            bar(pID, user);
             $("#btn-send").click(function(){
                SendMessage(user,pID);
             });
-        });
-
-        setInterval(function(){
-            if(<?php echo $pID?> != ""){
-
-                LoadChatBox(<?php echo $pID?>,'<?php echo $username?>');
-
-            }
-        }, 2000);
+         });
       </script>
 </head>
 <body>
@@ -96,10 +90,11 @@ if($usertype == 'TENANT'){
                     <div class="panel-heading">
                     Chat <?php if($selectedproperty != ""){echo ' for '.$selectedproperty;};?>
                     </div>
-                    <div id="chatbox"class="panel-body">
-                    <ul id="chatlist" class="chat">
+                    <div id="chatbox" class="panel-body">
+                        <ul id="chatlist" class="chat">
 
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
                 <div class="panel-footer">
                     <div class="input-group">
