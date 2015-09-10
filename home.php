@@ -89,7 +89,7 @@
                     <li class="divider"></li>
                     <li><a href="property.php">Property <span class="glyphicon glyphicon-home pull-right"></span></a></li>
                     <li class="divider"></li>
-                    <li><a href="calendar.php">Calendar <span class="glyphicon glyphicon-calendar pull-right"></span></a></li>
+                    <li><a href="calender/calendar.php">Calendar <span class="glyphicon glyphicon-calendar pull-right"></span></a></li>
                     <li class="divider"></li>
                     <li><a href="chatsys/chat.html">Messages <span class="glyphicon glyphicon-comment pull-right"></span></a></li>
                     <li class="divider"></li>
@@ -118,7 +118,7 @@
             We provide owners with more visibility of properties, tenants easier communication to owners and agents and agents easier management of properties.</p>
             <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>-->
             <a id="start_btn" href="property.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-home"></span> Manage Properties</a>&nbsp;&nbsp;
-            <a id="start_btn" href="calendar.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-calendar"></span> Calendar</a>&nbsp;&nbsp;
+            <a id="start_btn" href="calendar/calendar.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-calendar"></span> Calendar</a>&nbsp;&nbsp;
             <a id="start_btn" href="chatsys/chat.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-comment"></span> Messages</a>
           </div>
         </div>
