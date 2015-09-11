@@ -14,6 +14,16 @@ try {
     die();
 }
 
+    require_once('repairretrieve.php');
+
+    $result = RepairDetailsRetrieval::retrieve();
+
+
+//  calling reapir request approval/deny file
+    require_once('repair_request_approve');
+//  creating variables for calling functions approve or deny with 2 input parameters
+    $date_of_request = $_GET['date_of_request'];
+    $subject = $_GET['repairReuestDisplaysubject'];
 
 ?>
 <!DOCTYPE HTML>
@@ -652,70 +662,45 @@ try {
                     <th class="tg-0yxs">Image</th>
                     <th class="tg-0yxs">Status</th>
                 </tr>
+                
+                <?php for ($i = 0; $i < count($result); $i++): ?>
+                    
+                    <tr>
+                        <td>
+                            <p id="repairReuestDisplayDate">
+                                <?=$result[$i]['date_of_request']?>
+                            </p>
+                        </td>
 
-                <tr>
-                    <td>
-                        05/05/2015
-                    </td>
+                        <td >
+                            <p><?=$result[$i]['first_name']?><br /><?=$result[$i]['last_name']?></p>
+                        </td>
 
-                    <td>
-                        Ben Park
-                    </td>
+                        <td>
+                            <p id="repairReuestDisplaysubject">
+                                <?=$result[$i]['subject']?>
+                            </p>
+                        </td>
 
-                    <td>
-                        Leaking water tank.
-                    </td>
+                        <td>
+                            <p><?=$result[$i]['request']?></p>
+                        </td>
 
-                    <td>
-                        Hi, can you fix up the water tank? The water tank is leaking since yesterday. Thank you.
-                    </td>
+                        <td>
+                            <img src="<?=$result[$i]['img_path']?>" width="320px" height="240px">
+                        </td>
 
-                    <td>
-                        <img src="img/repair/leaking_watertank.jpg" width="320" height="240">
-                    </td>
-
-                    <td>
-                        <button type="button" class="btn btn-success btn-xs" style="width:100%; margin-top:80px;">
-                            Approve
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs"
-                                style="width:100%; margin-button:80px; margin-top:10px;">Deny
-                        </button>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        01/06/2015
-                    </td>
-
-                    <td>
-                        Ben Park
-                    </td>
-
-                    <td>
-                        A door handle is broken.
-                    </td>
-
-                    <td>
-                        Hi, one of room's door handle has been broken. Can you fix it up please? Thank you.
-                    </td>
-
-                    <td>
-                        <img src="img/repair/broken_doorhandle.jpg" width="320" height="240">
-                    </td>
-
-                    <td>
-                        <button type="button" class="btn btn-success btn-xs" style="width:100%; margin-top:80px;">
-                            Approve
-                        </button>
-                        <button type="button" class="btn btn-danger btn-xs"
-                                style="width:100%; margin-button:80px; margin-top:10px;">Deny
-                        </button>
-                    </td>
-                </tr>
-
-
+                        <td>
+                            <button type="button" class="btn btn-success btn-xs" style="width:100%; margin-top:80px;">
+                                Approve
+                            </button>
+                            <button type="button" class="btn btn-danger btn-xs"
+                                    style="width:100%; margin-button:80px; margin-top:10px;">Deny
+                            </button>
+                        </td>
+                    </tr>
+                <?php endfor ?>
+                
             </table>
             <?php
             echo "</div>";
