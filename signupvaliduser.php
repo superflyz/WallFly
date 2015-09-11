@@ -1,6 +1,6 @@
  <?php
 
-        if($validform == false) {
+        if($validForm == false) {
              echo "<script type='text/javascript'> openModal(); </script>";
              exit();
         }

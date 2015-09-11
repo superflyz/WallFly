@@ -1,7 +1,5 @@
+$(document).ready(function () {
 
-
-$(document).ready(function() {
-      
     $('#usrname').val('');
     $('#psswrd').val('');
 
@@ -26,10 +24,7 @@ $(document).ready(function() {
     $('#reset').click();
     openTimeoutModal();
 
-    
-   
-   
-    
+
 });
 
 
@@ -42,8 +37,8 @@ function clearForm() {
     $('#psswrd').val('');
 }
 
-function logout(){
+function logout() {
 
-  window.location.replace("logout.php");
+    window.location.replace("logout.php");
 
 }

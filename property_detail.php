@@ -81,7 +81,7 @@ try {
                         </div>
                         <li class="divider"></li>
                         <div class="notifications-wrapper">
-                            <a class="content" href="calendar.php">
+                            <a class="content" href="calendar/calendar.php">
                                 <div class="notification-item">
                                     <h4 class="item-title">An Event has been updated (1 hour ago)</h4>
                                 </div>
@@ -99,7 +99,7 @@ try {
                                 </div>
                             </a>
 
-                            <a class="content" href="calendar.php">
+                            <a class="content" href="calendar/calendar.php">
                                 <div class="notification-item">
                                     <h4 class="item-title">An event has been updated (4 hour ago)</h4>
                                 </div>
@@ -120,9 +120,9 @@ try {
                             <li class="divider"></li>
                             <li><a href="property.php">Property <span class="glyphicon glyphicon-home pull-right"></span></a></li>
                             <li class="divider"></li>
-                            <li><a href="calendar.php">Calendar <span class="glyphicon glyphicon-calendar pull-right"></span></a></li>
+                            <li><a href="calendar/calendar.php">Calendar <span class="glyphicon glyphicon-calendar pull-right"></span></a></li>
                             <li class="divider"></li>
-                            <li><a href="chatsys/chat.html">Messages <span class="glyphicon glyphicon-comment pull-right"></span></a></li>
+                            <li><a href="chatsys/chat.php">Messages <span class="glyphicon glyphicon-comment pull-right"></span></a></li>
                             <li class="divider"></li>
                             <li><a href="login_page.html">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
                         </ul>

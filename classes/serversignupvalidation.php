@@ -1,154 +1,152 @@
- <?php
-    include ("securepassword.php");
-    class Validator {
-    
+<?php
+include("securepassword.php");
+
+class Validator
+{
 
 
     //error vars
-    private $usernameErr = "";
-	private $passwordErr ="";
-	private $first_nameErr = "";
-	private $last_nameErr = "";
-	private $emailErr = "";
-	private $typeErr = "";
-	
+    private $userNameErr = "";
+    private $passwordErr = "";
+    private $firstNameErr = "";
+    private $lastNameErr = "";
+    private $emailErr = "";
+    private $typeErr = "";
+
     //form vars
-    private $username = "";
-	private $password = "";
-	private $first_name = "";
-	private $last_name = "";
-	private $email = "";
-	private $usertype = "";
-    private $validform = true;
+    private $userName = "";
+    private $password = "";
+    private $firstName = "";
+    private $lastName = "";
+    private $email = "";
+    private $userType = "";
+    private $validForm = true;
     private $pattern = '#^[a-z0-9\x20]+$#i';
 
 
-    public function test_input($data) {
-       $data = trim($data);
-       $data = stripslashes($data);
-       $data = htmlspecialchars($data);
-       return $data;
+    public function testInput($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
 
 
-    public function validform($user,$pass,$first,$last,$mail,$usertype){
+    public function validForm($user, $pass, $first, $last, $mail, $userType)
+    {
 
-        $this->username = $user;
+        $this->userName = $user;
         $this->password = $pass;
-        $this->first_name = $first;
-        $this->last_name = $last;
+        $this->firstName = $first;
+        $this->lastName = $last;
         $this->email = $mail;
-        $this->usertype = $usertype;
+        $this->userType = $userType;
 
         // process the form
-        if ( (empty($this->username)) || (!preg_match($this->pattern,$this->username)) || (strlen($this->username) < 5) ) {
-            $this->usernameErr = "Must Enter a Valid Username";
-            $this->validform = false;
-        }
-        else {
-            $this->username = $this->test_input($this->username);
+        if ((empty($this->userName)) || (!preg_match($this->pattern, $this->userName)) || (strlen($this->userName) < 5)) {
+            $this->userNameErr = "Must Enter a Valid Username";
+            $this->validForm = false;
+        } else {
+            $this->userName = $this->testInput($this->userName);
         }
 
-        if ( (empty($this->password)) || (!ctype_alnum($this->password)) || (strlen($this->password) < 6) ) {
+        if ((empty($this->password)) || (!ctype_alnum($this->password)) || (strlen($this->password) < 6)) {
             $this->passwordErr = "Must Enter a Valid Password";
-            $this->validform = false;
-        }
-        else {
-            $this->password = $this->test_input($this->password);
-        }
-
-        if ( (empty($this->first_name))|| (strlen($this->first_name) < 3)) {
-            $this->first_nameErr = "Must Enter a Valid First Name";
-            $this->validform = false;
-        }
-        else {
-            $this->first_name = $this->test_input($this->first_name);
+            $this->validForm = false;
+        } else {
+            $this->password = $this->testInput($this->password);
         }
 
-        if ( (empty($this->last_name)) || (strlen($this->last_name) < 3) ) {
-            $this->last_nameErr = "Must Enter a Valid Last Name";
-            $this->validform = false;
-        }
-        else {
-            $this->last_name = $this->test_input($this->last_name);
+        if ((empty($this->firstName)) || (strlen($this->firstName) < 3)) {
+            $this->firstNameErr = "Must Enter a Valid First Name";
+            $this->validForm = false;
+        } else {
+            $this->firstName = $this->testInput($this->firstName);
         }
 
-        if ( (empty($this->email)) || (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) ) {
+        if ((empty($this->lastName)) || (strlen($this->lastName) < 3)) {
+            $this->lastNameErr = "Must Enter a Valid Last Name";
+            $this->validForm = false;
+        } else {
+            $this->lastName = $this->testInput($this->lastName);
+        }
+
+        if ((empty($this->email)) || (!filter_var($this->email, FILTER_VALIDATE_EMAIL))) {
             $this->emailErr = "Correct Email is Required";
-            $this->validform = false;
-        }
-        else {
-            $this->email = $this->test_input($this->email);
+            $this->validForm = false;
+        } else {
+            $this->email = $this->testInput($this->email);
         }
 
-        if (empty($usertype)) {
+        if (empty($userType)) {
             $this->typeErr = "Correct User Type is Required";
-            $this->validform = false;
+            $this->validForm = false;
+        } else {
+            $this->userType = $this->testInput($this->userType);
         }
-        else {
-            $this->usertype = $this->test_input($this->usertype);
-        } 
 
-        if($this->validform == true) {
+        if ($this->validForm == true) {
             $_SESSION['signedUp'] = "true";
         } else {
             $_SESSION['signedUp'] = "false";
         }
-		
-		return $array = array($this->validform,$this->usernameErr,$this->passwordErr,$this->first_nameErr,$this->last_nameErr,$this->emailErr,$this->typeErr,$this->username,
-        $this->password,$this->first_name,$this->last_name,$this->email,$this->usertype);
-		
-        }
+
+        return $array = array($this->validForm, $this->userNameErr, $this->passwordErr, $this->firstNameErr, $this->lastNameErr, $this->emailErr, $this->typeErr, $this->userName,
+            $this->password, $this->firstName, $this->lastName, $this->email, $this->userType);
+
     }
+}
 
 
-    /**
-    * 
-    */
-    class SignUpValiduser
-    {   
-        
-        private $valid = ""; 
-        private $hashedpassword = "";
-       
+/**
+ *
+ */
+class SignUpValidUser
+{
+
+    private $valid = "";
+    private $hashedPassword = "";
 
 
-
-       public function enterNewUser($validform,$username,$password,$usertype,$email,$first_name,$last_name){
-        $this->valid = $validform;
-        if($this->valid == false) {
-             echo "<script type='text/javascript'> openModal(); </script>";
-             exit();
+    public function enterNewUser($validForm, $userName, $password, $userType, $email, $firstName, $lastName)
+    {
+        $this->valid = $validForm;
+        if ($this->valid == false) {
+            echo "<script type='text/javascript'> openModal(); </script>";
+            exit();
         }
-        if(isset($_SESSION["signedUp"]) && $_SESSION["signedUp"] == "true") {
+        if (isset($_SESSION["signedUp"]) && $_SESSION["signedUp"] == "true") {
             $_SESSION["signedUp"] = "";
             //database adding
-             try{
+            try {
                 $DBH = Database::getInstance();
-                $DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-            } catch(PDOException $e) {
+                $DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
                 echo "Unable to connect";
                 file_put_contents('Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
             }
 
             # query db for username
-            $STH = $DBH->query("SELECT username FROM user WHERE username='$username'");
-            $STH2 = $DBH->query("SELECT email FROM user WHERE email='$email'");
- 
-           
+            $statement = $DBH->prepare("SELECT username FROM user WHERE username=:userName");
+            $statement->bindParam(':userName', $userName);
+            $statement2 = $DBH->prepare("SELECT email FROM user WHERE email=:email");
+            $statement2->bindParam(':email', $email);
+
+
             # setting the fetch mode
-            $STH->setFetchMode(PDO::FETCH_OBJ);
-            $STH2->setFetchMode(PDO::FETCH_OBJ);
-             
+            $statement->setFetchMode(PDO::FETCH_OBJ);
+            $statement2->setFetchMode(PDO::FETCH_OBJ);
+
             # handling the results
-            if($STH->rowCount() > 0) {
-            
+            if ($statement->rowCount() > 0) {
+
                 echo "<script type='text/javascript'>";
                 echo "alert('Sorry that username already exists');";
                 echo "openModal()";
                 echo "</script>";
                 exit();
-            }elseif($STH2->rowCount() > 0){
+            } elseif ($statement2->rowCount() > 0) {
 
                 echo "<script type='text/javascript'>";
                 echo "alert('Sorry that email is already registered');";
@@ -156,38 +154,37 @@
                 echo "</script>";
                 exit();
 
-            }else{
-             $securepass = new SecurePassword;
-             $this->hashedpassword = $securepass->create_hash($password);
-            
+            } else {
+                $securePass = new SecurePassword;
+                $this->hashedPassword = $securePass->create_hash($password);
 
-            $statement = $DBH->prepare("INSERT INTO user(username, password, privilege, email, first_name, last_name)
+
+                $statement3 = $DBH->prepare("INSERT INTO user(username, password, privilege, email, first_name, last_name)
             VALUES(:username, :password, :usertype, :email, :first_name, :last_name)");
-            $result = $statement->execute(array(
-            "username" => $username,
-            "password" => $this->hashedpassword,
-            "usertype" => $usertype,
-            "email" => $email,
-            "first_name" => $first_name,
-            "last_name" => $last_name
-            ));
-            #close db connection 
-            $DBH = NULL; 
-            #clear the saved form
-            $_POST = array();
-            $username = $password = $first_name = $last_name = $email = $usertype = "";
-            header('Location: signupmessage.php');
-            exit();
-        }
+                $result = $statement3->execute(array(
+                    "username" => $userName,
+                    "password" => $this->hashedPassword,
+                    "usertype" => $userType,
+                    "email" => $email,
+                    "first_name" => $firstName,
+                    "last_name" => $lastName
+                ));
+                #close db connection
+                $DBH = NULL;
+                #clear the saved form
+                $_POST = array();
+                $userName = $password = $firstName = $lastName = $email = $userType = "";
+                header('Location: signupmessage.php');
+                exit();
+            }
 
-            
-        }
 
-         
         }
 
 
-       
     }
+
+
+}
 
 ?>

@@ -1,38 +1,40 @@
-function bar(propertyID,username) {
-    jQuery.ajax({
-        url:'loadChatBox.php',
-        type: "POST",
-        data: {
-            pID:propertyID
-        },
+function chatLoad(propertyID,username) {
+    if(propertyID !== "") {
+        jQuery.ajax({
+            url: 'loadChatBox.php',
+            type: "POST",
+            data: {
+                pID: propertyID
+            },
 
-        success: function(response) {
-            $('#chatlist').empty();
-            var obj = eval("(" + response + ')');
-            for(var i = 0; i < obj.length; i++) {
-                var parseobj = obj[i];
-                if(parseobj.username == username){$("#chatbox ul").append("<li class='left clearfix'>"+
-                    "<span class='chat-img pull-left'><img src='../img/me.png' alt='User Avatar' class='img-circle' /></span>"+
-                    "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>"+username+"</strong> <small class='pull-right text-muted'>"+
-                    "<span class='glyphicon glyphicon-time'></span>"+parseobj.chatdate+"</small></div><p>"+parseobj.msg+"</p></div></li>");
+            success: function (response) {
+                $('#chatlist').empty();
+                var obj = eval("(" + response + ')');
+                for (var i = 0; i < obj.length; i++) {
+                    var parseobj = obj[i];
+                    if (parseobj.username == username) {
+                        $("#chatbox ul").append("<li class='left clearfix'>" +
+                            "<span class='chat-img pull-left'><img src='../img/me.png' alt='User Avatar' class='img-circle' /></span>" +
+                            "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + username + "</strong> <small class='pull-right text-muted'>" +
+                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + parseobj.msg + "</p></div></li>");
 
 
+                    } else {
+                        $("#chatbox ul").append("<li class='right clearfix'>" +
+                            "<span class='chat-img pull-right'><img src='../img/you.png' alt='User Avatar' class='img-circle' /></span>" +
+                            "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + parseobj.username + "</strong> <small class='pull-right text-muted'>" +
+                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + parseobj.msg + "</p></div></li>");
 
-                }else{
-                    $("#chatbox ul").append("<li class='right clearfix'>"+
-                        "<span class='chat-img pull-right'><img src='../img/you.png' alt='User Avatar' class='img-circle' /></span>"+
-                        "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>"+parseobj.username+"</strong> <small class='pull-right text-muted'>"+
-                        "<span class='glyphicon glyphicon-time'></span>"+parseobj.chatdate+"</small></div><p>"+parseobj.msg+"</p></div></li>");
 
+                    }
 
                 }
-
             }
-        }
 
-    });
+        });
+    }
 
-    function foo() {
+    function chatRefresh() {
         if (propertyID == "") {
             return;
         }
@@ -70,7 +72,7 @@ function bar(propertyID,username) {
 
         });
     }
-    setInterval(foo, 2000);
+    setInterval(chatRefresh, 2000);
     setTimeout(function(){
         $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
     }, 10);
@@ -99,7 +101,10 @@ function SendMessage(username,propertyID){
             	},
             success: function(result){
             $("#btn-input").val('');
-            LoadChatBox(propertyID,username);
+            //LoadChatBox(propertyID,username);
+            setTimeout(function(){
+                $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+                }, 1000);
 
             }
 

@@ -71,25 +71,28 @@ $colHover       : #d1ffed;
     margin-bottom: 0px;
     /*background-color: #036E2C;
   border-color: #036E2C;*/
-    .navbar-nav {
-        > li {
-            > a {
-                color: #ecf0f1;
-                &:hover,
-                &:focus {
-                    color: #d1ffed;
-                }
-            }
-        }
-    }
 }
+
+
+/*.navbar-nav {*/
+        /*> li {*/
+            /*> a {*/
+                /*color: #ecf0f1;*/
+                /*&:hover,*/
+                /*&:focus {*/
+                    /*color: #d1ffed;*/
+                /*}*/
+            /*}*/
+        /*}*/
+    /*}*/
+/*}*/
 
 .navbar-brand {
     color: #ffffff;
 }
 
 
-}
+
 .glyphicon-home {
     font-size: 2em;
 }
@@ -168,7 +171,7 @@ $colHover       : #d1ffed;
 }
 .dropdown-toggle {
     font-size: 20px;
-    font-style: bold;
+    font-weight: bold;
 }
 
 /*--------------- home ----------------*/
@@ -184,7 +187,6 @@ img.logo {
 }
 #start_btn {
     width: 30%;
-    height: ;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -312,7 +314,7 @@ a.divLink {
     overflow: hidden;
 }
 #tabs > ul {
-    font: 1em;
+    font-size: 1em;
     list-style: none;
 }
 #tabs > ul > li {
@@ -476,12 +478,6 @@ a.divLink {
     margin-right: auto;
 }
 
-/*---------- chat.html -----------*/
-#chat {
-    outline: none;
-    width: 550px;
-    height: 550px;
-}
 
 /* CSS used here will be applied after bootstrap.css */
 
