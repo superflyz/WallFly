@@ -19,8 +19,8 @@ try {
     $chatArray = [];
     $statement = $DBH->prepare("SELECT * FROM chat WHERE propertyID = :pID ORDER BY chat_id ASC ");
     $statement->bindParam(':pID', $pID);
-    $statement->setFetchMode(PDO::FETCH_OBJ);
-    while ($row = $statement->fetch()) {
+    $statement->execute();
+    while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
         $chatArray[] = $row;
     }
 
