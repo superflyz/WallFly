@@ -58,7 +58,6 @@ if ($userType == 'TENANT') {
 <body>
 <!-- create address dropdown list only if agent or owner usertype -->
 <?php if (($userType == 'AGENT') || ($userType == 'OWNER')) {
-
     $properties = Chat::GetProperties($userName, $userType);
 
 

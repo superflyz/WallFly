@@ -22,23 +22,29 @@ class Chat
             switch ($userType) {
                 case "AGENT":
                     $statement = $DBH->prepare("SELECT * FROM property WHERE agent_id = :userName ");
-                    $statement->bindParam(':userName', $userName);
+
                     break;
                 case "OWNER":
                     $statement = $DBH->prepare("SELECT * FROM property WHERE owner_id = :userName ");
-                    $statement->bindParam(':userName', $userName);
+
+
                     break;
                 case "TENANT":
                     $statement = $DBH->prepare("SELECT * FROM property WHERE tenant_id = :userName ");
-                    $statement->bindParam(':userName', $userName);
+
                     break;
             }
+            $statement->execute(array(':userName' => $userName));
+            $result = $statement->fetchAll(PDO::FETCH_OBJ);
+            for ($i = 0; $i < count($result); $i++) {
 
-            $statement->setFetchMode(PDO::FETCH_OBJ);
-            while ($row = $statement->fetch()) {
-                $propertyArray[] = $row->property_street;
-
+                $propertyArray[] = $result[$i]->property_street;
             }
+
+
+               // var_dump($result[0]->property_street);
+               // $propertyArray[] = $result->property_street;
+
 
             return $propertyArray;
 
@@ -69,7 +75,7 @@ class Chat
 
                 switch ($userType) {
                     case "AGENT":
-                        $statement = $DBH->prepare("SELECT property_id FROM property WHERE agent_id = :userName and  property_street = :address: LIMIT 1");
+                        $statement = $DBH->prepare("SELECT property_id FROM property WHERE agent_id = :userName and  property_street = :address LIMIT 1");
                         $statement->bindParam(':userName', $userName);
                         $statement->bindParam(':address', $address);
                         break;
@@ -85,9 +91,9 @@ class Chat
                         break;
                 }
 
-                $statement->setFetchMode(PDO::FETCH_OBJ);
-                $row = $statement->fetch();
-                $propertyID = $row->property_id;
+                $statement->execute();
+                $result = $statement->fetch(PDO::FETCH_OBJ);
+                $propertyID = $result->property_id;
                 return $propertyID;
 
                 $DBH = NULL;
