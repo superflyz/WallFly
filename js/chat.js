@@ -33,6 +33,9 @@ function chatLoad(propertyID,username) {
 
         });
         setInterval(chatRefresh, 2000);
+        setTimeout(function(){
+            $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+        }, 50);
     }
 
     function chatRefresh() {
@@ -73,10 +76,8 @@ function chatLoad(propertyID,username) {
 
         });
     }
-    //setInterval(chatRefresh, 2000);
-    setTimeout(function(){
-        $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
-    }, 10);
+
+
 }
 
 
