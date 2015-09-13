@@ -38,7 +38,7 @@
                 <div class="container-fluid">
                     <div class="row text-center">
                         <div class="col-md-4 col-sm-6">
-                            <a href="properties.php">
+                            <a href="calendar/calendar.php">
                                 <div class="dash-link">
                                     <span class="icons">
                                         <i class="fa fa-calendar fa-inverse"></i>
@@ -49,7 +49,7 @@
                             </div>
                         </a>
                         <div class="col-md-4 col-sm-6">
-                            <a href="calendar/calendar.php">
+                            <a href="properties.php">
                                 <div class="dash-link">
                                     <span class="icons">
                                         <i class="fa fa-home fa-inverse"></i>
