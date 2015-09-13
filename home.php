@@ -16,51 +16,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="WallFly - Property Mangement System">
     <meta name="author" content="The SuperFlyz">
-
-    <title>Welcome To WallFly</title>
-
+    <title>Dashboard - WallFly</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="style/style.css">
     <link href="css/wallfly.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
-
-<body>
-    <!-- contents -->
-    <div class="container-fluid1">
-      <div class="row">
+<body class="gbody">
+<div class="container">
+    <div class="row">
         <div class="col-md-12">
-          <img class="logo" src="img/logo.jpg">
+            <h1 class="wlcm-h1">Welcome <span class="user-color"> User !</span></h1>
         </div>
-      </div>
-      <div class="row">
-          <div class="container">
-            <h1>Hello, Welcome to WallFly!</h1>
-            <p>We are a web service that is committed to making the rental process easier for everyone, tenants, owners and agents!
-            We provide owners with more visibility of properties, tenants easier communication to owners and agents and agents easier management of properties.</p>
-            <!--<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>-->
-            <a id="start_btn" href="properties.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-home"></span> Manage Properties</a>&nbsp;&nbsp;
-            <a id="start_btn" href="calendar/calendar.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-calendar"></span> Calendar</a>&nbsp;&nbsp;
-            <a id="start_btn" href="chatsys/chat.php" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-comment"></span> Messages</a>
-          </div>
-      </div>
     </div>
-	<br>
-	<br>
-	<div>
-		<ul style="list-style-type: none; text-align: center; text-decoration: none;">
-			<li style="display:inline; padding:25px;"><a href="#">About Us</li>
-			<li style="display:inline; padding:25px;"><a href="#">Contact Us</li>
-			<li style="display:inline; padding:25px;"><a href="#">RTA Website</li>
-			<li style="display:inline; padding:25px;"><a href="#">Report an Issue</li>
-		</ul>
-	</div>
-	
-  
-	</body>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Features Section -->
+            <section id="dash-links">
+                <div class="container-fluid">
+                    <div class="row text-center">
+                        <div class="col-md-4 col-sm-6">
+                            <a href=""><div class="dash-link">
+                            <span class="icons">
+                                <i class="fa fa-calendar fa-inverse"></i>
+                            </span>
+                                    <h4 class="link-heading">Calendar</h4>
+                                    <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
+                                </div></div></a>
+                        <div class="col-md-4 col-sm-6">
+                            <a href=""><div class="dash-link">
+                            <span class="icons">
+                                <i class="fa fa-home fa-inverse"></i>
+                            </span>
+                                    <h4 class="link-heading">Manage Properties</h4>
+                                    <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
+                                </div></div></a>
+                        <div class="col-md-4 col-sm-6">
+                            <a href=""><div class="dash-link">
+                            <span class="icons">
+                                <i class="fa fa-comments-o fa-inverse"></i>
+                            </span>
+                                    <h4 class="link-heading">Messages</h4>
+                                    <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
+                                </div></a>
+                        </div>
+                    </div>
+            </section>
+        </div>
+    </div>
+</div>
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/cbpAnimatedHeader.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="js/wallfly.js"></script>
+<script src="js/offcanvas.js"></script>
+</body>
 </html>
