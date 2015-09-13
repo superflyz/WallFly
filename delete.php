@@ -30,7 +30,7 @@
     if(!$result_delete_payment){
       die('Could not delete data: ' . mysql_error());
     }
-    header('Location: property.php');
+    header('Location: properties.php');
   }
 
 ?>

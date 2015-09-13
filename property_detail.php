@@ -118,7 +118,7 @@ try {
                         <ul class="dropdown-menu">
                             <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
                             <li class="divider"></li>
-                            <li><a href="property.php">Property <span class="glyphicon glyphicon-home pull-right"></span></a></li>
+                            <li><a href="properties.php">Property <span class="glyphicon glyphicon-home pull-right"></span></a></li>
                             <li class="divider"></li>
                             <li><a href="calendar/calendar.php">Calendar <span class="glyphicon glyphicon-calendar pull-right"></span></a></li>
                             <li class="divider"></li>
@@ -820,7 +820,7 @@ try {
 
     //back button
     document.getElementById("back").onclick = function () {
-        location.href = "property.php";
+        location.href = "properties.php";
     };
 
 
@@ -853,7 +853,7 @@ try {
 
     //back button
     document.getElementById("back_calendar").onclick = function () {
-        location.href = "property.php";
+        location.href = "properties.php";
     };
 
 </script>
