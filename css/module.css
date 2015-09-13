@@ -15,7 +15,6 @@ textarea {
     resize: none;
 }
 
-
 .btn-sm, .btn-group-sm > .btn {
     padding: 23.5px 10px;
     font-size: 12px;
@@ -26,7 +25,6 @@ textarea {
 .panel-primary {
     border-color: #333;
 }
-
 
 ul {
     list-style-type: none;
@@ -128,9 +126,98 @@ ul, ol {
 #box {
 
     width: 100%;
-
+    z-index: 5;
 }
 
 #chatlist {
     width: 75%;
 }
+
+.left {
+    float: left;
+    width: 50%;
+
+}
+
+.right {
+    float: right;
+
+}
+
+/*start modal styling*/
+.modal-header {
+    color: #FFF;
+    background-color: #333;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin: 2px 2px 0px;
+}
+
+*::-moz-selection {
+    text-shadow: none;
+    background: #5AD663 none repeat scroll 0% 0%;
+}
+
+.form-field input {
+    border: 1px solid #333;
+    outline: 0px none;
+    padding: 14px 6px 10px;
+    font-size: 14px;
+    box-shadow: none;
+    height: 100%;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.form-field input:focus {
+    border: 2px solid #5AD663;
+    outline: 0px none;
+    box-shadow: none;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Diavlo Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 2px 0px 0px 3px;
+    line-height: 1.42857;
+}
+
+
+
+.close {
+    color: #FFF;
+    opacity: 0.4;
+    box-shadow: none;
+    font-size: 35px;
+    border: medium none;
+}
+
+.submit {
+    color: #FFF;
+    margin: 30px 0px 0px;
+    background-color: #5AD663;
+    border: 2px solid transparent;
+    padding: 12px 6px 8px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 20%;
+    min-width: 100px;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #FFF;
+    font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.close:focus, .close:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 1;
+}
+/*end modal styling*/
+

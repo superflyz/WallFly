@@ -69,20 +69,20 @@ if ($userType == 'TENANT') {
 </head>
 
 <body>
-
 <?php if (($userType == 'AGENT') || ($userType == 'OWNER')) {
+
     $properties = Chat::GetProperties($userName, $userType);
 
 
     //dropdown for property list
-    echo '<div class="container">
+    echo '<div class="container">';
+    echo '<div class="btn-group left">';
+    echo '<a class="btn btn-primary dropdown-toggle show-properties" data-toggle="dropdown" href="#">Select a Property<span class="caret"></span></a>';
 
-            <div class="btn-group">
-                <a class="btn btn-primary dropdown-toggle show-properties" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property<span class="caret"></span></a>';
 }
 
 ?>
-<div id="reducedPadding" class="container">
+<div id="reducedPadding" >
     <div id="propertyHolder">
         <input placeholder="   type to search..." id="box" type="text"/>
         <ul class="navList ">
@@ -94,12 +94,23 @@ if ($userType == 'TENANT') {
     </div>
 </div>
 
+<?php if (($userType == 'AGENT') || ($userType == 'OWNER')) {
+    echo '</div>';
+    echo '<div class="btn-group right">';
+    echo '<a class="btn btn-primary dropdown-toggle add-event" data-toggle="modal" data-target=".event-modal-lg" href="#">Add Calander Event<span class="caret"></span></a>';
+    echo '</div></div>';
+} ?>
+
 <script>
 
     $(document).ready(function () {
         $("#propertyHolder").hide();
         $(".show-properties").click(function () {
             $("#propertyHolder").toggle();
+        });
+
+        $(".add-event").click(function () {
+            openAddEventModal();
         });
 
         $('.navList li a').on('click', function () {
@@ -169,6 +180,72 @@ if ($userType == 'TENANT') {
     </div>
 </section>
 <!--end calendar-->
+
+
+<section class="mcon-otherdemos">
+    <!--
+    <div class="pat-bg">
+        <div class="pat-bg-inner">
+
+        </div>
+    </div>
+    -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Calendar API</h2>
+
+                <div class="separator-short m20">
+                    <figure class="the-graphic"></figure>
+                </div>
+                <p>You can use it as a datepicker via the integrated API.</p>
+                <pre class="event-receiver">waiting event...</pre>
+            </div>
+            <div class="col-md-6">
+                <div class="dzscalendar skin-aurora" id="trauroradatepicker" style="">
+                    <div class="events">
+                        <div class="event-tobe" data-repeat="everymonth" data-day="09"></div>
+                        <div class="event-tobe" data-repeat="everymonth" data-day="10"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--add event modal-->
+<div class="modal modal-vcenter fade event-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <p class="modal-title flabel">Login</p>
+            </div>
+
+            <div class="modal-body">
+                <form id="login" name="login" method="post" action="login.php">
+                    <div class="form-field ff1">
+                        <label for="username">Username</label>
+                        <input name="username" type="text" id="username" class="form-control">
+                    </div>
+                    <div class="form-field">
+                        <label for="password">Password</label>
+                        <input name="password" type="password" id="password" class="form-control">
+                    </div>
+                    <span class="error"><?php echo $_SESSION['loginError']; ?></span>
+
+                    <div class="form-field">
+                        <button type="submit" name="Submit" value="Login" id="login_btn"
+                                class="btn btn-default btn-sm btn-block submit">Add event
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end add event modal-->
 <script>
     jQuery(document).ready(function ($) {
         // cover pictures for calendar jan->dec in order
@@ -178,10 +255,41 @@ if ($userType == 'TENANT') {
         dzscal_init("#cal-responsive-galileo2", {
             design_month_covers: design_month_covers
         });
+
+        dzscal_init("#trauroradatepicker", {
+            design_transitionDesc: 'tooltipDef'
+            , mode: 'datepicker'
+            , header_weekdayStyle: 'three'
+            , design_transition: 'fade'
+        });
+
+        dzscal_init("#calendar_datepicker", {
+            design_transitionDesc: 'tooltipDef'
+            , mode: 'datepicker'
+            , date_format: 'j-F-Y'
+            , header_weekdayStyle: 'three'
+            , design_transition: 'fade'
+            , mode_datepicker_setTodayAsDefault: 'on'
+        });
+
+
+        function dp1_event(arg) {
+            //console.log(arg);
+            $('.event-receiver').html('clicked day: ' + arg);
+
+        }
+
+        var dp1 = document.getElementById('trauroradatepicker');
+        if (dp1) {
+            dp1.arr_datepicker_events.push(dp1_event);
+
+        }
     });
 </script>
 
 <link rel="stylesheet" href="fontawesome/font-awesome.min.css"/>
+
+
 </body>
 
 </html>
