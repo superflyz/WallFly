@@ -76,7 +76,7 @@ if ($userType == 'TENANT') {
 
     //dropdown for property list
     echo '<div class="container">';
-    echo '<div class="btn-group left">';
+    echo '<div class="btn-group divLeft">';
     echo '<a class="btn btn-primary dropdown-toggle show-properties" data-toggle="dropdown" href="#">Select a Property<span class="caret"></span></a>';
 
 }
@@ -96,7 +96,7 @@ if ($userType == 'TENANT') {
 
 <?php if (($userType == 'AGENT') || ($userType == 'OWNER')) {
     echo '</div>';
-    echo '<div class="btn-group right">';
+    echo '<div class="btn-group divRight">';
     echo '<a class="btn btn-primary dropdown-toggle add-event" data-toggle="modal" data-target=".event-modal-lg" href="#">Add Calander Event<span class="caret"></span></a>';
     echo '</div></div>';
 } ?>
