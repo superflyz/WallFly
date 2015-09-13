@@ -38,29 +38,37 @@
                 <div class="container-fluid">
                     <div class="row text-center">
                         <div class="col-md-4 col-sm-6">
-                            <a href=""><div class="dash-link">
-                            <span class="icons">
-                                <i class="fa fa-calendar fa-inverse"></i>
-                            </span>
+                            <a href="properties.php">
+                                <div class="dash-link">
+                                    <span class="icons">
+                                        <i class="fa fa-calendar fa-inverse"></i>
+                                    </span>
                                     <h4 class="link-heading">Calendar</h4>
                                     <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
-                                </div></div></a>
+                                </div>
+                            </div>
+                        </a>
                         <div class="col-md-4 col-sm-6">
-                            <a href=""><div class="dash-link">
-                            <span class="icons">
-                                <i class="fa fa-home fa-inverse"></i>
-                            </span>
+                            <a href="calendar/calendar.php">
+                                <div class="dash-link">
+                                    <span class="icons">
+                                        <i class="fa fa-home fa-inverse"></i>
+                                    </span>
                                     <h4 class="link-heading">Manage Properties</h4>
                                     <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
-                                </div></div></a>
+                                </div>
+                            </a>
+                        </div>
                         <div class="col-md-4 col-sm-6">
-                            <a href=""><div class="dash-link">
-                            <span class="icons">
-                                <i class="fa fa-comments-o fa-inverse"></i>
-                            </span>
+                            <a href="chatsys/chat.php">
+                                <div class="dash-link">
+                                    <span class="icons">
+                                        <i class="fa fa-comments-o fa-inverse"></i>
+                                    </span>
                                     <h4 class="link-heading">Messages</h4>
                                     <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
-                                </div></a>
+                                </div>
+                            </a>
                         </div>
                     </div>
             </section>

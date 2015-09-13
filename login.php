@@ -39,7 +39,7 @@ try {
             $_SESSION['userFirstName'] = $result->first_name;
             $_SESSION['userLastName'] = $result->last_name;
             $_SESSION['userEmail'] = $result->email;
-            header("location:home.php");
+            header("location:dashboard.php");
             exit();
         } else {
             $_SESSION['loginError'] = "Incorrect Login Details 123";
