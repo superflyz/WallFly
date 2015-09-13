@@ -7,6 +7,7 @@ References:
 - Property logo: http://www.freepik.com/free-vector/property-logo-with-house-silhouettes_804211.htm#term=property&page=1&position=5
 - Messaging iconhttp://www.flaticon.com/free-icon/chat-bubbles-with-ellipsis_61516
 - Calendar: http://www.flaticon.com/free-icon/calendar-month_13530
+- https://www.google.com/fonts
 */
 
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,600,300,200,700);
@@ -818,8 +819,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 .iiframe {
     width: 100%; 
     border: 0px;
-    min-height: 100%;
-    height: 100%;
+    height: 100vh;
     padding: 0px 0px 45px 0px;    
 }
 
@@ -1076,6 +1076,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
   .row-offcanvas-right
   .sidebar-offcanvas {
     right: -50%; /* 6 columns */
+
   }
 
   .row-offcanvas-left
@@ -1097,11 +1098,6 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
     width: 50%; /* 6 columns */
   }
 }
-
-
-
-
-
 
 /*--- Footer ALL screen ---*/
 #dfooter {

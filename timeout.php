@@ -2,6 +2,7 @@
 session_start();
 require_once(__DIR__ . '/logincheck.php');
 require_once(__DIR__ . '/classes/Database.php');
+include(__DIR__ . "/classes/securepassword.php");
 $checkUser = $_POST['username'];
 $checkPassword = $_POST['password'];
 

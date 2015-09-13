@@ -31,7 +31,7 @@ if ($userType == 'TENANT') {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Chat</title>
@@ -40,16 +40,54 @@ if ($userType == 'TENANT') {
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/chat.css">
+    <link rel="stylesheet" type="text/css" href="../css/module.css">
+
     <script src="../js/chat.js"></script>
     <script type="text/javascript">
         // assign current username to jquery var and use it in SendMessage function
         var user = <?php echo "'".$_SESSION['username']."'";?>;
         var pID =  <?php echo "'".$pID."'";?>;
+
         $(document).ready(function () {
             chatLoad(pID, user);
             $("#btn-send").click(function () {
                 SendMessage(user, pID);
+
+            });
+
+            $("#propertyHolder").hide();
+            $(".show-properties").click(function () {
+                $("#propertyHolder").toggle();
+            });
+
+            $('.navList li a').on('click', function () {
+
+                var propertyAdd = $(this).text();
+
+                jQuery.ajax({
+                    url: '../chatsys/setselectedchatpropery.php',
+                    type: "POST",
+                    data: {
+                        selected: propertyAdd
+                    },
+                    success: function (result) {
+
+                        $("#propertyHolder").hide();
+                        window.location.reload();
+                    }
+                });
+            });
+
+            $('#box').keyup(function () {
+                var valThis = this.value.toLowerCase(),
+                    lenght = this.value.length;
+
+                $('.navList>li>a').each(function () {
+                    var text = $(this).text(),
+                        textL = text.toLowerCase(),
+                        htmlR = '<b>' + text.substr(0, lenght) + '</b>' + text.substr(lenght);
+                    (textL.indexOf(valThis) == 0) ? $(this).html(htmlR).show() : $(this).hide();
+                });
 
             });
         });
@@ -63,19 +101,24 @@ if ($userType == 'TENANT') {
 
     //dropdown for property list
     echo '<div class="container">
-            <div class="btn-group">
-                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Select a Property<span class="caret"></span></a>
-                    <ul id="propertieslist"class="dropdown-menu">';
-    foreach ($properties as $propertyAddress) {
-        echo '<li><a href="#">' . $propertyAddress . '</a></li>';
-    }
-    echo '</ul>
-            </div>
 
-        </div>';
+            <div class="btn-group">
+                <a class="btn btn-primary dropdown-toggle show-properties" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property<span class="caret"></span></a>';
 }
 
 ?>
+<div id="reducedPadding" class="container">
+    <div id="propertyHolder">
+        <input placeholder="   type to search..." id="box" type="text"/>
+        <ul class="navList ">
+            <?php
+            foreach ($properties as $propertyAddress) {
+                echo '<li><a href="#">' . $propertyAddress . '</a></li>';
+            } ?>
+        </ul>
+    </div>
+</div>
+
 
 <!-- Chat box -->
 <div class="container">
@@ -88,18 +131,20 @@ if ($userType == 'TENANT') {
                     }; ?>
                 </div>
                 <div id="chatbox" class="panel-body">
-                    <ul id="chatlist" class="chat">
+                    <ul id="chatlist" class="chat" style="text-align:left">
 
                     </ul>
                 </div>
             </div>
             <div class="panel-footer">
                 <div class="input-group">
-                    <input id="btn-input" type="text" class="form-control input-sm"
-                           placeholder="Type your message here..."/>
+                    <textarea id="btn-input" type="text" class="form-control input-sm"
+                              placeholder="Type your message here..."/>
+                    </textarea>
                         <span class="input-group-btn">
-                            <button class="btn btn-warning btn-sm" id="btn-send">Send</button>
+                            <button class="btn btn-success btn-sm" id="btn-send">Send</button>
                         </span>
+
                 </div>
             </div>
         </div>
