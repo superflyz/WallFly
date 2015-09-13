@@ -58,7 +58,7 @@ if (isset($_POST["payment_method_nonce"]) && $_POST["payment_method_nonce"] != "
         }
         echo "Succesful";
         echo $transactionID;
-        header("Location: property_detail.php?id=" . $propertyId);
+        header("Location: property_details.php?id=" . $propertyId);
     } else {
         //If the processing was not successful, show a message
         echo "Unsuccessful, here is why:";

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once(__DIR__."/classes/Database.php");
+require_once(__DIR__ . "/classes/Database.php");
 $_SESSION['propertyId'] = $_GET['id'];
 $property_id = $_SESSION['propertyId'];
 $usertype = $_SESSION['usertype'];
@@ -61,84 +61,6 @@ try {
 </head>
 
 <body>
-<!-- Navigator-->
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a style="color: #ffffff;" class="navbar-brand" href="home.php"><span style="color: #ffffff;" class="glyphicon glyphicon-home"></span>&nbsp;WalFly</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <!-- notification test -->
-            <li>
-                <div class="dropdown" id="alert">
-                    <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#" style="background-color: #036E2C;">
-                        <i class="glyphicon glyphicon-bell"></i>
-                    </a>
-
-                    <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
-
-                        <div class="notification-heading"><h4 class="menu-title"><b>Notifications</b></h4>
-                        </div>
-                        <li class="divider"></li>
-                        <div class="notifications-wrapper">
-                            <a class="content" href="calendar/calendar.php">
-                                <div class="notification-item">
-                                    <h4 class="item-title">An Event has been updated (1 hour ago)</h4>
-                                </div>
-                            </a>
-
-                            <a class="content" href="#">
-                                <div class="notification-item">
-                                    <h4 class="item-title">You have got a message (1 hour ago)</h4>
-                                </div>
-                            </a>
-
-                            <a class="content" href="#">
-                                <div class="notification-item">
-                                    <h4 class="item-title">You have got a message (2 hour ago)</h4>
-                                </div>
-                            </a>
-
-                            <a class="content" href="calendar/calendar.php">
-                                <div class="notification-item">
-                                    <h4 class="item-title">An event has been updated (4 hour ago)</h4>
-                                </div>
-                            </a>
-                        </div>
-                        <li class="divider"></li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <ul class="nav navbar-nav" id="user_dropdown">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION["username"]; ?>
-                            (<?php echo $_SESSION["usertype"]; ?>) <span
-                                class="glyphicon glyphicon-user pull-right"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a></li>
-                            <li class="divider"></li>
-                            <li><a href="properties.php">Property <span class="glyphicon glyphicon-home pull-right"></span></a></li>
-                            <li class="divider"></li>
-                            <li><a href="calendar/calendar.php">Calendar <span class="glyphicon glyphicon-calendar pull-right"></span></a></li>
-                            <li class="divider"></li>
-                            <li><a href="chatsys/chat.php">Messages <span class="glyphicon glyphicon-comment pull-right"></span></a></li>
-                            <li class="divider"></li>
-                            <li><a href="login_page.html">Sign Out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <button type="button" class="logout" onclick="window.location.href='index.php'"><span
-                        class="glyphicon glyphicon-log-out"></span>&nbsp;Logout
-                </button>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<!-- Contents -->
 <div id="tabContainer">
     <div id="tabs">
         <ul>
@@ -158,7 +80,6 @@ try {
             ?>
             <li id="tabHeader_6">Inspection Report</li>
             <li id="tabHeader_4">RTA Form</li>
-            <li id="tabHeader_7">Calendar</li>
         </ul>
     </div>
     <div id="tabscontent">
@@ -253,14 +174,13 @@ try {
                 ?>
                 <h3>Add Payment</h3>
                 <form id="addPayment" method="post" action="update_payment.php">
-                    <label>Date</label><br /><input type="text" name="date" placeholder="dd/mm/yyyy" value=""/><br />
-                    <label>Amount</label><br /><input type="text" name="amount" placeholder="$0.00" value=""/><br />
+                    <label>Date</label><br/><input type="text" name="date" placeholder="dd/mm/yyyy" value=""/><br/>
+                    <label>Amount</label><br/><input type="text" name="amount" placeholder="$0.00" value=""/><br/>
                     <input type="submit" name="addPaymentButton" value="add">
                 </form>
                 <?php
             }
             ?>
-
 
             <!--Tenant payment-->
             <!--Test payment function DO NOT MODIFY-->
@@ -322,7 +242,8 @@ try {
                             <label for="first_name">First Name *</label>
                         </td>
                         <td valign="top" width="50%">
-                            <input class="form-control" type="text" name="first_name" maxlength="50" size="30" placeholder="First Name">
+                            <input class="form-control" type="text" name="first_name" maxlength="50" size="30"
+                                   placeholder="First Name">
                         </td>
                     </tr>
 
@@ -331,7 +252,8 @@ try {
                             <label for="last_name">Last Name *</label>
                         </td>
                         <td valign="top">
-                            <input class="form-control" type="text" name="last_name" maxlength="50" size="30" placeholder="Last Name">
+                            <input class="form-control" type="text" name="last_name" maxlength="50" size="30"
+                                   placeholder="Last Name">
                         </td>
                     </tr>
 
@@ -340,7 +262,8 @@ try {
                             <label for="subject">Subject </label>
                         </td>
                         <td valign="top">
-                            <input class="form-control" type="text" name="subject" maxlength="30" size="30" placeholder="subject">
+                            <input class="form-control" type="text" name="subject" maxlength="30" size="30"
+                                   placeholder="subject">
                         </td>
                     </tr>
 
@@ -349,7 +272,8 @@ try {
                             <label for="request">Request *</label>
                         </td>
                         <td valign="top">
-                            <textarea class="form-control" name="request" rows="4" placeholder="Please write your requests"></textarea>
+                            <textarea class="form-control" name="request" rows="4"
+                                      placeholder="Please write your requests"></textarea>
                         </td>
                     </tr>
 
@@ -367,7 +291,8 @@ try {
 
                     <tr style="margin-top: 20px;">
                         <td style="text-align:right" colspan="2">
-                            <button class="btn btn-success btn-sm" type="submit" name="send_email">Request</button>&nbsp;
+                            <button class="btn btn-success btn-sm" type="submit" name="send_email">Request</button>
+                            &nbsp;
                             <input class="btn btn-default btn-sm" type="reset" value="Reset">
                         </td>
                     </tr>
@@ -398,12 +323,23 @@ try {
                         hearing on a set date. When the case is heard a decision will be made by the adjudicator or
                         magistrate and you must follow the order given.<br><br></td>
                     <td></td>
-                    <td><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-prevent-disputes">Preventing Disputes</a> <br>
-                        <br><br> <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-prevent-disputes/Preventing-bond-disputes">Preventing Bond Disputes</a> <br>
-                        <br><br> <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-resolve-tenancy-issues">Resolving Tenancy Issues:</a> <br>
-                        <br><br><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution">Dispute Resolution by RTA</a> <br>
-                        <br><br><a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution/Matters-unsuitable-for-conciliation">Matters unsuitable for conciliation</a> <br>
-                        <br><br> <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-to-QCAT">Queensland Civil and Administrative Tribunal</a> <br>
+                    <td>
+                        <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-prevent-disputes">Preventing Disputes</a> <br>
+                        <br>
+                        <br>
+                        <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-prevent-disputes/Preventing-bond-disputes">Preventing Bond Disputes</a> <br>
+                        <br>
+                        <br>
+                        <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/How-to-resolve-tenancy-issues">Resolving Tenancy Issues:</a> <br>
+                        <br>
+                        <br>
+                        <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution">Dispute Resolution by RTA</a> <br>
+                        <br>
+                        <br>
+                        <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-for-dispute-resolution/Matters-unsuitable-for-conciliation">Matters unsuitable for conciliation</a> <br>
+                        <br>
+                        <br>
+                        <a href="https://www.rta.qld.gov.au/Disputes/Dispute-resolution/Applying-to-QCAT">Queensland Civil and Administrative Tribunal</a> <br>
                     </td>
                 </tr>
             </table>
@@ -513,7 +449,8 @@ try {
                     <td>
                         <input type="checkbox" name="wrh" value="wrh">Writing/reading help&nbsp;&nbsp;
                         <input type="checkbox" name="aoe" value="aoe">Ausian or signed English&nbsp;&nbsp;
-                        <input type="checkbox" name="interpreter" value="interpreter">Interpreter service, specify language&nbsp;<input type="text" size="10" id="language">
+                        <input type="checkbox" name="interpreter" value="interpreter">Interpreter service, specify
+                        language&nbsp;<input type="text" size="10" id="language">
                     </td>
                 </tr>
             </table>
@@ -523,7 +460,8 @@ try {
                 <tr>
                     <td>
                         <input type="checkbox" name="no" value="no">No&nbsp;&nbsp;
-                        <input type="checkbox" name="yes" value="yes">Yes&nbsp;<input type="text" size="10" placeholder="DD/MM/YYYY">
+                        <input type="checkbox" name="yes" value="yes">Yes&nbsp;<input type="text" size="10"
+                                                                                      placeholder="DD/MM/YYYY">
                     </td>
                 </tr>
             </table>
@@ -768,37 +706,8 @@ try {
 
             ?>
         </div>
-
-        <!-- Calendar tab-->
-        <div class="tabpage" id="tabpage_7">
-            <!-- Responsive calendar - START -->
-            <div class="responsive-calendar">
-                <div class="controls">
-                    <a class="pull-left" data-go="prev">
-                        <div class="btn btn-primary">Prev</div>
-                    </a>
-                    <h4><span data-head-year></span> <span data-head-month></span></h4>
-                    <a class="pull-right" data-go="next">
-                        <div class="btn btn-primary">Next</div>
-                    </a>
-                </div>
-                <hr/>
-                <div class="day-headers">
-                    <div class="day header">Mon</div>
-                    <div class="day header">Tue</div>
-                    <div class="day header">Wed</div>
-                    <div class="day header">Thu</div>
-                    <div class="day header">Fri</div>
-                    <div class="day header">Sat</div>
-                    <div class="day header">Sun</div>
-                </div>
-                <div class="days" data-group="days">
-
-                </div>
-            </div>
-            <!-- Responsive calendar - END -->
-        </div>
     </div>
+</div>
 </div>
 
 <script src="js/tabs_old.js"></script>
@@ -835,27 +744,6 @@ try {
         window.location.reload();
         alert('Your repair request has been submitted.');
     }
-</script>
-
-<script>
-    //calendar
-    $(document).ready(function () {
-        $(".responsive-calendar").responsiveCalendar({
-            time: '2015-05',
-            events: {
-                "2015-04-30": {"number": 1, "url": ""},
-                "2015-04-26": {"number": 1, "url": ""},
-                "2015-05-03": {"number": 1},
-                "2015-06-12": {}
-            }
-        });
-    });
-
-    //back button
-    document.getElementById("back_calendar").onclick = function () {
-        location.href = "properties.php";
-    };
-
 </script>
 
 <br>

@@ -51,7 +51,7 @@ try {
             echo "<h4>Owner: " . $row['owner_fname'] . " " . $row['owner_lname'] . " (ID: " . $row['owner_id'] . ")</h3>";
             echo "<h4>Agent: " . $row['property_agent'] . " (ID: " . $row['agent_id'] . ")</h3>";
             echo "<h4>Tenant: " . $row['tenant_fname'] . " " . $row['tenant_lname'] . " (ID: " . $row['tenant_id'] . ")</h3>";
-            echo "<h3><a class='divLink' href='property_detail.php?id=" . $row['property_id'] . "'>Click</a></h3>";
+            echo "<h3><a class='divLink' href='property_details.php?id=" . $row['property_id'] . "'>Click</a></h3>";
             echo "</div>";
         }
         ?>
@@ -82,10 +82,5 @@ try {
         <li style="display:inline; padding:25px;"><a href="#">Report an Issue</li>
     </ul>
 </div>
-<script type="text/javascript">
-    document.getElementById("calendar_btn").onclick = function () {
-        location.href = "calendar/calendar.php";
-    };
-</script>
 </body>
 </html>

@@ -358,7 +358,7 @@ mail($email, $dmailheader_dsubject, $dmsg, implode("\n", $dmailheaders));
 echo "<script type='text/javascript'>";
 echo "alert('Thank you for email us. We will contact you in short time.');";
 echo "</script>";
-echo "<META HTTP-EQUIV=\"refresh\" content=\"0;URL=\"../property_detail.php\">";
+echo "<META HTTP-EQUIV=\"refresh\" content=\"0;URL=\"../property_details.php\">";
 exit;
  
 }

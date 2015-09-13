@@ -27,6 +27,6 @@
         echo "oh no";
     }
 
-    header("Location: property_detail.php?id=" . $propertyId);
+    header("Location: property_details.php?id=" . $propertyId);
 
 ?>
