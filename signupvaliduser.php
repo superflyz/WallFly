@@ -52,4 +52,5 @@ if (isset($_SESSION["signedUp"]) && $_SESSION["signedUp"] == "true") {
         header('Location: signupmessage.php');
         exit();
     }
-    ?>
+}
+?>

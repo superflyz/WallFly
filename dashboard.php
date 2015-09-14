@@ -166,29 +166,23 @@ session_start();
 <!-- Custom Theme JavaScript -->
 <script src="js/wallfly.js"></script>
 <script src="js/offcanvas.js"></script>
-   <script type="text/javascript">
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#tab-nav li").click(function () {
+        $("object").empty();
+        var objecturl = $(this).attr('data-info');
+        $('object').attr('data', objecturl);
 
-       
-    $(document).ready(function(){
-        $("#tab-nav li").click(function(){
-            $("object").empty();
-            var objecturl = $(this).attr('data-info');
-              $('object').attr('data', objecturl);
 
-            
-     });  
-        
-//        http://jsfiddle.net/s6bP9/
-       $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
-    var target = this.href.split('#');
-    $('.nav a').filter('a[href="#'+target[1]+'"]').tab('show');
-});
-        
     });
-       
-     
-    </script>
 
+    //http://jsfiddle.net/s6bP9/
+    $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+        var target = this.href.split('#');
+        $('.nav a').filter('a[href="#' + target[1] + '"]').tab('show');
+    });
 
+});
+</script>
 </body>
 </html>

@@ -3,7 +3,6 @@ session_start();
 date_default_timezone_set("Australia/Brisbane");
 if (isset($_POST["payment_method_nonce"]) && $_POST["payment_method_nonce"] != "") {
     //Form is set and the payment_method_nocne is not empty so we can continue
-
     require_once('braintree-php-3.3.0/lib/braintree.php');
     require_once(__DIR__ . "/classes/Database.php");
     Braintree_Configuration::environment('sandbox');

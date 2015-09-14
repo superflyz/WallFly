@@ -15,18 +15,14 @@ try {
     file_put_contents('Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
 }
 
-
 try {
-
     $securePass = new SecurePassword;
     //execute the SQL query and return records
     $statement = $DBH->prepare("SELECT * FROM user WHERE username=:username");
     $statement->execute(['username' => $checkUser]);
     $result = $statement->fetch(PDO::FETCH_OBJ);
-
     if ($result) {
         $comparehash = $securePass->validate_password($checkPassword, $result->password);
-
         if ($comparehash) {
             //session expire setup
             $_SESSION["expiration"] = time() + 1800;
@@ -45,8 +41,6 @@ try {
             exit();
         }
     }
-
-
 } catch (PDOException $e) {
     //close database
     $DBH = NULL;

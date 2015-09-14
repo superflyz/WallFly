@@ -51,8 +51,6 @@ try {
         header("Location:index.php");
         exit();
     }
-
-
     //close database
     $DBH = NULL;
 
