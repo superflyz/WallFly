@@ -23,6 +23,7 @@
     <link href="css/wallfly.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
 </head>
 <body class="gbody">
 <div class="container">
@@ -38,7 +39,7 @@
                 <div class="container-fluid">
                     <div class="row text-center">
                         <div class="col-md-4 col-sm-6">
-                            <a href="properties.php">
+                            <a href="#calendar" data-toggle="pill">
                                 <div class="dash-link">
                                     <span class="icons">
                                         <i class="fa fa-calendar fa-inverse"></i>
@@ -49,7 +50,7 @@
                             </div>
                         </a>
                         <div class="col-md-4 col-sm-6">
-                            <a href="calendar/calendar.php">
+                            <a href="dashboard.php/manageProperties" data-toggle="pill">
                                 <div class="dash-link">
                                     <span class="icons">
                                         <i class="fa fa-home fa-inverse"></i>
@@ -60,7 +61,7 @@
                             </a>
                         </div>
                         <div class="col-md-4 col-sm-6">
-                            <a href="chatsys/chat.php">
+                            <a href="#messages" data-toggle="pill">
                                 <div class="dash-link">
                                     <span class="icons">
                                         <i class="fa fa-comments-o fa-inverse"></i>
@@ -75,16 +76,7 @@
         </div>
     </div>
 </div>
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-<!-- Plugin JavaScript -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="js/classie.js"></script>
-<script src="js/cbpAnimatedHeader.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="js/wallfly.js"></script>
-<script src="js/offcanvas.js"></script>
+
+
 </body>
 </html>
