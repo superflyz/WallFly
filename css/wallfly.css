@@ -617,6 +617,11 @@ body {
     min-width: 100%;
 }
 
+#navbg {
+    background-color: #333;
+    padding: 0px;
+}
+
 #logo { 
     margin: 0px 0px 50px 0px;
     height: 45px;

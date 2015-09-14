@@ -32,7 +32,7 @@ session_start();
                 <div id="logo">
                     <img src="images/wallfly_logo.svg" alt="WallFly logo">
                 </div>
-                <nav>
+                <nav id="navbg">
                     <ul id="tab-nav" class="nav nav-pills nav-stacked">
                         <li class="active"><a href="#dashboard" data-toggle="pill">Dashboard<i class="fa fa-desktop pull-right"></i></a></li>
                         <li data-info='properties.php'><a href="#properties" data-toggle="pill"><span class="wrap">Properties</span><i class="fa fa-home pull-right"></i></a></li>
