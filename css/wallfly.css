@@ -598,25 +598,34 @@ body {
 /*************************************************************/
 
 
+.d-body {
+    overflow: hidden;
+    background-color: #ffffff;
+    font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
 
 .navbar-dashboard-left {
-    background-color: #333333;
+    background-color: #555;
     height: 100vh;
-    min-height: 100vh;
-    border-right: 2px solid #5AD663;
-    padding: 0px 0px px 0px;
+    min-height: 100%;
+/*    border-right: 2px solid #5AD663;*/
+    padding: 0px 0px 100px 0px;
     margin: 0px;
     min-width: 100%;
 }
 
 #logo { 
     margin: 0px 0px 50px 0px;
-    height: 60px;
+    height: 45px;
+    background-color: #333;
 }
 
 #logo img {
-    width: 100px;
-    margin: 17.5px 0px 0px 15px;
+    width: 90px;
+    margin: 7px 0px 0px 15px;
 }
 
 .navbar-dashboard-main {
@@ -624,7 +633,7 @@ body {
     height: 45px;
     padding: 0px;
     margin: 0px;
-    background-color: #5AD663;
+    background-color: #333;
 }
 
 .smtog {
@@ -700,19 +709,21 @@ body {
 }
 
 .nav-pills li a:hover{
-    background-color: transparent;
-    box-shadow: inset 400px 0 0 0 #5AD663;
-}
+    background-color: #333333;
+      color: #5AD663;
+/*    box-shadow: inset 400px 0 0 0 #5AD663;*/
+}  
 
 .nav-pills li.active a, .nav-pills li.active a:hover {
-    box-shadow: inset 400px 0 0 0 #5AD663;
+/*    box-shadow: inset 400px 0 0 0 #5AD663;*/
     color: #333333;  
-    background-color: transparent;
+    background-color: #5AD663;
 }
-
+ 
 .nav-pills li.active a:focus {
-    box-shadow: inset 400px 0 0 0 #5AD663;
+/*    box-shadow: inset 400px 0 0 0 #5AD663;*/
     color: #333333;  
+    background-color: #5AD663;
 }
 
 .user {
@@ -821,12 +832,14 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
     width: 100%; 
     border: 0px;
     height: 100vh;
+    overflow: none;
     padding: 0px 0px 0px 0px;    
 }
 
 .fill { 
     min-height: 100%;
     height: 100%;
+        overflow: none;
 }
 
 /*home css*/
@@ -1102,7 +1115,7 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 }
 
 /*--- Footer ALL screen ---*/
-#dfooter {
+#dfooter p {
     font-size: 10px;
     height: 20px;
     font-weight: 100;
@@ -1110,13 +1123,13 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
     position: absolute;
     bottom: 0;
     color: #ffffff;
-    padding: 0px 0px 0px 15px;
+    padding: 3px 0px 0px 15px;
 }
 
-#dfooter .diff-color {
+#dfooter p .diff-color {
     color: #5AD663;
 }
 
-#dfooter .diff-font {
+#dfooter p .diff-font {
     font-family: "Diavlo Light"; 
 }

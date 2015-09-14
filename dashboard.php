@@ -33,12 +33,12 @@ session_start();
                     <img src="images/wallfly_logo.svg" alt="WallFly logo">
                 </div>
                 <nav>
-                    <ul class="nav nav-pills nav-stacked">
+                    <ul id="tab-nav" class="nav nav-pills nav-stacked">
                         <li class="active"><a href="#dashboard" data-toggle="pill">Dashboard<i class="fa fa-desktop pull-right"></i></a></li>
-                        <li id="tab-load"><a href="#manageProperties" role="tab" data-toggle="pill"><span class="wrap">Properties</span><i class="fa fa-home pull-right"></i></a></li>
-                        <li><a href="#calendar" role="tab" data-toggle="pill">Calendar<i class="fa fa-calendar pull-right"></i></a></li>
-                        <li><a href="#messages" role="tab" data-toggle="pill">Messages<i class="fa fa-comments-o pull-right"></i></a></li>
-                        <li><a href="#payment" data-toggle="pill">Payment<i class="fa fa-credit-card pull-right"></i></a></li>
+                        <li data-info='properties.php'><a href="#properties" data-toggle="pill"><span class="wrap">Properties</span><i class="fa fa-home pull-right"></i></a></li>
+                        <li data-info='calendar/calendar.php'><a href="#calendar" data-toggle="pill">Calendar<i class="fa fa-calendar pull-right"></i></a></li>
+                        <li data-info='chatsys/chat.php'><a href="#messages" data-toggle="pill">Messages<i class="fa fa-comments-o pull-right"></i></a></li>
+                        <li data-info='paymentsys/payment.php'><a href="#payment" data-toggle="pill">Payment<i class="fa fa-credit-card pull-right"></i></a></li>
                         <li><a href="#repairs" data-toggle="pill">Repairs<i class="fa fa-wrench pull-right"></i></a></li>
                     </ul>
                 </nav>
@@ -84,70 +84,74 @@ session_start();
             <div class="container-fluid fill">
                 <div class="pill-content">
                     <div class="pill-pane active" id="dashboard">
+
+
                         <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 class="wlcm-h1">Welcome <span class="user-color"> User !</span></h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-9 col-md-offset-1">
-            <!-- Features Section -->
-            <section id="dash-links">
-                <div class="container-fluid">
-                    <div class="row text-center">
-                        <div class="col-md-4 col-sm-6">
-                            <a href="#calendar" data-toggle="pill">
-                                <div class="dash-link">
-                                    <span class="icons">
-                                        <i class="fa fa-calendar fa-inverse"></i>
-                                    </span>
-                                    <h4 class="link-heading">Calendar</h4>
-                                    <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
+                            <div class="row">
+                                <div class="col-md-9 col-md-offset-1">
+                                    <h1 class="wlcm-h1">Welcome <span class="user-color"> User !</span></h1>
                                 </div>
                             </div>
-                        </a>
-                        <div class="col-md-4 col-sm-6">
-                            <a href="#manageProperties" data-toggle="pill">
-                                <div class="dash-link">
-                                    <span class="icons">
-                                        <i class="fa fa-home fa-inverse"></i>
-                                    </span>
-                                    <h4 class="link-heading">Properties</h4>
-                                    <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
+                            <div class="row">
+                                <div class="col-md-9 col-md-offset-1">
+                                    <!-- Features Section -->
+                                    <section id="dash-links">
+                                        <div class="container-fluid">
+                                            <div class="row text-center">
+                                                <div class="col-md-4 col-sm-6">
+                                                    <a href="#calendar" data-toggle="pill">
+                                                        <div class="dash-link">
+                                                            <span class="icons">
+                                                                <i class="fa fa-calendar fa-inverse"></i>
+                                                            </span>
+                                                            <h4 class="link-heading">Calendar</h4>
+                                                            <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <a href="#properties" data-toggle="pill">
+                                                        <div class="dash-link">
+                                                            <span class="icons">
+                                                                <i class="fa fa-home fa-inverse"></i>
+                                                            </span>
+                                                            <h4 class="link-heading">Manage Properties</h4>
+                                                            <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-4 col-sm-6">
+                                                    <a href="#messages" data-toggle="pill">
+                                                        <div class="dash-link">
+                                                            <span class="icons">
+                                                                <i class="fa fa-comments-o fa-inverse"></i>
+                                                            </span>
+                                                            <h4 class="link-heading">Messages</h4>
+                                                            <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                    </section>
                                 </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <a href="#messages" data-toggle="pill">
-                                <div class="dash-link">
-                                    <span class="icons">
-                                        <i class="fa fa-comments-o fa-inverse"></i>
-                                    </span>
-                                    <h4 class="link-heading">Messages</h4>
-                                    <p class="link-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur adipisicing elit.</p>
-                                </div>
-                            </a>
+                            </div>
                         </div>
                     </div>
-            </section>
-        </div>
-    </div>
-</div>
+        
+                
+                    <div class="pill-pane fade" id="properties">
+                        <object class="iiframe" data="properties.php" type="text/html"></object>
                     </div>
-                    <div class="pill-pane" id="manageProperties">
-                        <object id="manage" class="iiframe" data="properties.php" type="text/html"></object>
-                    </div>
-                    <div class="pill-pane" id="calendar">
+                    <div class="pill-pane fade" id="calendar">
                         <object class="iiframe" data="calendar/calendar.php" type="text/html"></object>
                     </div>
-                    <div class="pill-pane" id="messages">
+                    <div class="pill-pane fade" id="messages">
                         <object class="iiframe" data="chatsys/chat.php" type="text/html"></object>
                     </div>
-                    <div class="pill-pane" id="payment">
+                    <div class="pill-pane fade" id="payment">
                         <object class="iiframe" data="paymentsys/payment.php" type="text/html"></object>
                     </div>
-                    <div class="pill-pane" id="repairs">
+                    <div class="pill-pane fade" id="repairs">
                         <object class="iiframe" data="">
                         </object>
                     </div>
@@ -169,19 +173,28 @@ session_start();
 <script src="js/wallfly.js"></script>
 <script src="js/offcanvas.js"></script>
    <script type="text/javascript">
-//$('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
-//    var target = this.href.split('#');
-//    $('.nav a').filter('a[href="#'+target[1]+'"]').tab('show');
-//})
+
        
     $(document).ready(function(){
-        $("#tab-load").click(function(){
-            $("#tab-load").reload($("#manageProperties");
-       
-        });
+        $("#tab-nav li").click(function(){
+            $("object").empty();
+            var objecturl = $(this).attr('data-info');
+              $('object').attr('data', objecturl);
+
+            
+     });  
+        
+//        http://jsfiddle.net/s6bP9/
+       $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+    var target = this.href.split('#');
+    $('.nav a').filter('a[href="#'+target[1]+'"]').tab('show');
+});
         
     });
+       
+     
     </script>
+
 
 </body>
 </html>

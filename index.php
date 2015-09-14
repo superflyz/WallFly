@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top"><img id="logo" src="images/wallfly_logo.svg"
+            <a class="navbar-brand page-scroll" href="#page-top"><img src="images/wallfly_logo.svg"
                                                                       alt="WallFly logo" title="Go Top"></a>
         </div>
 

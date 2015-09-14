@@ -62,13 +62,14 @@ try {
 
 <body>
 <!-- Navigator-->
+<!--
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
             <a style="color: #ffffff;" class="navbar-brand" href="home.php"><span style="color: #ffffff;" class="glyphicon glyphicon-home"></span>&nbsp;WalFly</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <!-- notification test -->
+             notification test 
             <li>
                 <div class="dropdown" id="alert">
                     <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#" style="background-color: #036E2C;">
@@ -110,6 +111,8 @@ try {
                 </div>
             </li>
             <li>
+-->
+<!--
                 <ul class="nav navbar-nav" id="user_dropdown">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION["username"]; ?>
@@ -136,6 +139,7 @@ try {
             </li>
         </ul>
     </div>
+-->
 </nav>
 
 <!-- Contents -->
