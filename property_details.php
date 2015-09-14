@@ -83,6 +83,7 @@ try {
         </ul>
     </div>
     <div id="tabscontent">
+        <!--Property profile tab - displays information about the property-->
         <div class="tabpage" id="tabpage_1">
             <h2>Details</h2>
             <br>
@@ -134,6 +135,7 @@ try {
             <button id='back' class='btn btn-default btn-xs'>Go Back to Property Lists</button>
 
         </div>
+        <!--Payment tab - shows payment history and make a payment-->
         <div class="tabpage" id="tabpage_2">
             <h2>Payment History</h2>
             <table class="table table-hover">
@@ -175,12 +177,7 @@ try {
             ?>
 
             <!--Tenant payment-->
-            <!--Test payment function DO NOT MODIFY-->
-            <!--Test payment function DO NOT MODIFY-->
-            <!--Test payment function DO NOT MODIFY-->
-            <!--Test payment function DO NOT MODIFY-->
-            <!--Test payment function DO NOT MODIFY-->
-            <!--Test payment function DO NOT MODIFY-->
+            <!--Payment function DO NOT MODIFY-->
             <?php
             require_once('braintree-php-3.3.0/lib/braintree.php');
             Braintree_Configuration::environment('sandbox');
@@ -216,12 +213,8 @@ try {
             }
             ?>
             <!--End payment function-->
-            <!--End payment function-->
-            <!--End payment function-->
-            <!--End payment function-->
-
-
         </div>
+        <!--Repair form-->
         <?php
         if ($usertype == $privilege1 || $usertype == $privilege2) {
             echo "<div class='tabpage' id='tabpage_3'>";
@@ -295,7 +288,7 @@ try {
             echo "</div>";
         }
         ?>
-
+        <!--OCAT tab-->
         <div class="tabpage" id="tabpage_4">
             <table width="100%">
                 <tr>
@@ -577,6 +570,7 @@ try {
             <input class="btn btn-default" type="reset" value="Reset">
             <!--</form>-->
         </div>
+        <!--Agent and owner repair authorisation page-->
         <?php
         if ($usertype == $privilege3 || $usertype == $privilege4) {
             echo "<div class='tabpage' id='tabpage_5'>";
@@ -696,11 +690,8 @@ try {
     </div>
 </div>
 </div>
-
 <script src="js/tabs_old.js"></script>
-
 <script type="text/javascript">
-
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-1332079-8']);
     _gaq.push(['_trackPageview']);

@@ -1,8 +1,10 @@
+<!--This page is for Agents and owners to manually update the payment history for a property-->
 <?php
 session_start();
 require_once(__DIR__ . "/classes/Database.php");
 $propertyID = $_SESSION['propertyId'];
 
+//Connect to the database
 try {
     $DBH = Database::getInstance();
     $DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -24,7 +26,7 @@ try {
                         VALUES(?, ?, ?, ?, ?, ?)");
     $statement->execute(array($propertyId, $_POST['date'], $userId, $firstName, $lastName, $amount));
 } catch (PDOException $e) {
-    echo "oh no";
+    echo "An error occured";
 }
 
 header("Location: property_details.php?id=" . $propertyId);

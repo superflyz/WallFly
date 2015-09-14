@@ -1,3 +1,4 @@
+<!--This page allows a tenant to pay their rent online using their credit card-->
 <?php
 session_start();
 date_default_timezone_set("Australia/Brisbane");
@@ -16,7 +17,7 @@ if (isset($_POST["payment_method_nonce"]) && $_POST["payment_method_nonce"] != "
     $firstName = $_SESSION['userFirstName'];
     $lastName = $_SESSION['userLastName'];
     $propertyId = $_SESSION["propertyId"];
-
+    //Connect to the database
     try {
         $DBH = Database::getInstance();
         $DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -25,7 +26,7 @@ if (isset($_POST["payment_method_nonce"]) && $_POST["payment_method_nonce"] != "
         file_put_contents('Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
         die();
     }
-
+    //Send payment details to braintree
     $result = Braintree_Transaction::sale([
         'amount' => $amount,
         'paymentMethodNonce' => $paymentNonce,
@@ -47,13 +48,13 @@ if (isset($_POST["payment_method_nonce"]) && $_POST["payment_method_nonce"] != "
         $transaction = $result->transaction;
         //get the transaction ID
         $transactionID = $transaction->id;
-
+        //Insert into payment database
         try {
             $statement = $DBH->prepare("INSERT INTO payment(property, payment_date, tenant_id, tenant_fname, tenant_lname, amount)
                     VALUES(?, ?, ?, ?, ?, ?)");
             $statement->execute(array($propertyId, date("d/m/Y"), $userId, $firstName, $lastName, $amount));
         } catch (PDOException $e) {
-            echo "oh no";
+            echo "An error occured";
         }
         echo "Succesful";
         echo $transactionID;
