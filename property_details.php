@@ -130,17 +130,9 @@ try {
                 </div>
             </div>
             <!--end row-->
-            <?php
 
-            if ($usertype != "TENANT") {
-                echo "<form name='edit_delete' method='post' action='delete.php' enctype='multipart/form-data'>";
-                echo "<button id='property_buttons' class=\"btn btn-success\" onclick=\"javascript:void window.open('property_edit_popup.php','1428456850982','width=700,height=500,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0');return false;\">Edit</button>";
-                echo "<input type='submit' id='property_buttons' class='btn btn-danger' name='delete' value='Delete' />";
-                echo "</form>";
-            }
-            echo "<button id='back' class='btn btn-default btn-xs'>Go Back to Property Lists</button>";
+            <button id='back' class='btn btn-default btn-xs'>Go Back to Property Lists</button>
 
-            ?>
         </div>
         <div class="tabpage" id="tabpage_2">
             <h2>Payment History</h2>
@@ -699,12 +691,7 @@ try {
                 ?>
             </table>
             <br><br>
-            <?php
-            if ($usertype == $privilege3) {
-                echo "<button id='inspection_update_btn' class=\"btn btn-success btn-lg btn-block\" onclick=\"javascript:void window.open('update_inspection_popup.php','1428456850982','width=500,height=360,toolbar=0,menubar=0,location=0,status=0,scrollbars=1,resizable=1,left=0,top=0');return false;\">Update Inspection</button>";
-            }
 
-            ?>
         </div>
     </div>
 </div>

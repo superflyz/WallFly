@@ -1,11 +1,8 @@
 <?php
 session_start();
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,11 +17,8 @@ session_start();
     <link href="css/wallfly.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 </head>
-
 <body class="index d-body">
-
 <div class="container-fluid fill">
     <div class="row no-gutter row-offcanvas row-offcanvas-left">
         <div class="col-md-2 col-sm-2 sidebar-offcanvas">
@@ -47,7 +41,6 @@ session_start();
                 </div>
             </div>
         </div>
-
         <div class="col-md-10 col-sm-10">
             <div class="navbar-dashboard-main">
                 <div class="visible-xs pull-left smtog">
