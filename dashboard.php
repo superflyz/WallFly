@@ -75,9 +75,9 @@ session_start();
                         <button type="button" class="btn user-btn inc" aria-label="Left Align">
                             <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                         </button>
-                        <button type="button" class="btn user-btn-diff inc" aria-label="Left Align">
+                        <a href="logout.php"><button type="button" class="btn user-btn-diff inc" aria-label="Left Align">
                             <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                        </button>
+                        </button></a>
                     </div>
                 </div>
             </div>
