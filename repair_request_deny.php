@@ -1,12 +1,10 @@
 <?php
+
 require_once(__DIR__.'/classes/Database.php');
 session_start();
 $property_id = $_SESSION['propertyId'];
 $usertype = $_SESSION['usertype'];
 $username = $_SESSION['username'];
-$repair_id = $_POST['repair_id'];
-
-
 
 try{
     $DBH = Database::getInstance();

@@ -20,10 +20,10 @@ try {
 
 
 //  calling reapir request approval/deny file
-    require_once('repair_request_approve');
+//    require_once('repair_request_approve');
 //  creating variables for calling functions approve or deny with 2 input parameters
-    $date_of_request = $_GET['date_of_request'];
-    $subject = $_GET['repairReuestDisplaysubject'];
+//    $date_of_request = $_GET['date_of_request'];
+//    $subject = $_GET['repairReuestDisplaysubject'];
 
 ?>
 <!DOCTYPE HTML>
@@ -651,7 +651,7 @@ try {
         <?php
         if ($usertype == $privilege3 || $usertype == $privilege4) {
             echo "<div class='tabpage' id='tabpage_5'>";
-            echo "<h2>Repair Requests</h2>";
+            echo "<h2>` Requests</h2>";
             ?>
             <table class="table table-hover">
                 <tr>
@@ -665,9 +665,13 @@ try {
                 
                 <?php for ($i = 0; $i < count($result); $i++): ?>
                     
+                    <p id="repair_id" hidden>
+                        <?=$result[$i]['repair_id']?>
+                    </p>
+                
                     <tr>
                         <td>
-                            <p id="repairReuestDisplayDate">
+                            <p >
                                 <?=$result[$i]['date_of_request']?>
                             </p>
                         </td>
@@ -677,7 +681,7 @@ try {
                         </td>
 
                         <td>
-                            <p id="repairReuestDisplaysubject">
+                            <p >
                                 <?=$result[$i]['subject']?>
                             </p>
                         </td>
@@ -691,11 +695,12 @@ try {
                         </td>
 
                         <td>
-                            <button type="button" class="btn btn-success btn-xs" style="width:100%; margin-top:80px;">
+                            <button type="button" class="btn btn-success btn-xs" style="width:100%; 
+                            margin-top:80px;" method="post" action="repair_request_approve.php">
                                 Approve
                             </button>
-                            <button type="button" class="btn btn-danger btn-xs"
-                                    style="width:100%; margin-button:80px; margin-top:10px;">Deny
+                            <button type="button" class="btn btn-danger btn-xs" style="width:100%; 
+                            top:10px;" method="post" action="repair_request_deny.php">Deny
                             </button>
                         </td>
                     </tr>
