@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once(__DIR__ . "/classes/Database.php");
+require_once('repairretrieve.php');
 $_SESSION['propertyId'] = $_GET['id'];
 $property_id = $_SESSION['propertyId'];
 $usertype = $_SESSION['usertype'];
@@ -21,10 +22,7 @@ try {
     file_put_contents('Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
     die();
 }
-
-    require_once('repairretrieve.php');
-
-    $result = RepairDetailsRetrieval::retrieve();
+$result = RepairDetailsRetrieval::retrieve();
 
 
 //  calling reapir request approval/deny file
