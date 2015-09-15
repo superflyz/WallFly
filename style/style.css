@@ -62,7 +62,6 @@ $colHover       : #d1ffed;
 
 .container-fluid2 {
     border-radius: 25px;
-    background-color: #036E2C;
 }
 
 .navbar-default {
@@ -72,20 +71,6 @@ $colHover       : #d1ffed;
     /*background-color: #036E2C;
   border-color: #036E2C;*/
 }
-
-
-/*.navbar-nav {*/
-        /*> li {*/
-            /*> a {*/
-                /*color: #ecf0f1;*/
-                /*&:hover,*/
-                /*&:focus {*/
-                    /*color: #d1ffed;*/
-                /*}*/
-            /*}*/
-        /*}*/
-    /*}*/
-/*}*/
 
 .navbar-brand {
     color: #ffffff;
@@ -183,7 +168,6 @@ img.logo {
 #content {
     padding: 60px 60px 60px 60px;
     margin: 50px 50px 50px 50px;
-    background: #036E2C;
 }
 #start_btn {
     width: 30%;
@@ -279,7 +263,7 @@ a.divLink {
     margin-right: auto;
 }
 
-/*---------- property_detail.php -------------*/
+/*---------- property_details.php -------------*/
 #detail_row {
     display: inline;
 }

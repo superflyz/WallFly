@@ -160,7 +160,7 @@ class SignUpValidUser
 
 
                 $statement3 = $DBH->prepare("INSERT INTO user(username, password, privilege, email, first_name, last_name)
-            VALUES(:username, :password, :usertype, :email, :first_name, :last_name)");
+                    VALUES(:username, :password, :usertype, :email, :first_name, :last_name)");
                 $result = $statement3->execute(array(
                     "username" => $userName,
                     "password" => $this->hashedPassword,

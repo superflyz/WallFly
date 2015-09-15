@@ -1,5 +1,5 @@
 <?php
-
+//Gets a username and password and tries to log the user in if they are valid
 session_start();
 require_once(__DIR__ . '/classes/Database.php');
 include(__DIR__ . "/classes/securepassword.php");
@@ -51,8 +51,6 @@ try {
         header("Location:index.php");
         exit();
     }
-
-
     //close database
     $DBH = NULL;
 

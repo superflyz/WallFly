@@ -1,32 +1,33 @@
+<!--This page is for Agents and owners to manually update the payment history for a property-->
 <?php
-	session_start();
-	require_once(__DIR__."/classes/Database.php");
-	$propertyID = $_SESSION['propertyId'];
+session_start();
+require_once(__DIR__ . "/classes/Database.php");
+$propertyID = $_SESSION['propertyId'];
 
-    try {
-        $DBH = Database::getInstance();
-        $DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        echo "Unable to connect to database";
-        file_put_contents('Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
-        die();
-    }
+//Connect to the database
+try {
+    $DBH = Database::getInstance();
+    $DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Unable to connect to database";
+    file_put_contents('Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
+    die();
+}
 
-    $amount = $_POST["amount"];
-    $userId = $_SESSION['userId'];
-    $email = $_SESSION['userEmail'];
-    $firstName = $_SESSION['userFirstName'];
-    $lastName = $_SESSION['userLastName'];
-    $propertyId = $_SESSION["propertyId"];
+$amount = $_POST["amount"];
+$userId = $_SESSION['userId'];
+$email = $_SESSION['userEmail'];
+$firstName = $_SESSION['userFirstName'];
+$lastName = $_SESSION['userLastName'];
+$propertyId = $_SESSION["propertyId"];
 
-    try {
-        $statement = $DBH->prepare("INSERT INTO payment(property, payment_date, tenant_id, tenant_fname, tenant_lname, amount)
+try {
+    $statement = $DBH->prepare("INSERT INTO payment(property, payment_date, tenant_id, tenant_fname, tenant_lname, amount)
                         VALUES(?, ?, ?, ?, ?, ?)");
-        $statement->execute(array($propertyId, $_POST['date'], $userId, $firstName, $lastName, $amount));
-    } catch (PDOException $e) {
-        echo "oh no";
-    }
+    $statement->execute(array($propertyId, $_POST['date'], $userId, $firstName, $lastName, $amount));
+} catch (PDOException $e) {
+    echo "An error occured";
+}
 
-    header("Location: property_detail.php?id=" . $propertyId);
-
+header("Location: property_details.php?id=" . $propertyId);
 ?>

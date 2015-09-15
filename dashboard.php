@@ -1,11 +1,8 @@
 <?php
 session_start();
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,9 +17,7 @@ session_start();
     <link href="css/wallfly.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
 </head>
-
 <body class="index d-body">
     
 <div class="container-fluid fill">
@@ -47,7 +42,6 @@ session_start();
                 </div>
             </div>
         </div>
-
         <div class="col-md-10 col-sm-10">
             <div class="navbar-dashboard-main">
                 <div class="visible-xs pull-left smtog">
@@ -172,29 +166,23 @@ session_start();
 <!-- Custom Theme JavaScript -->
 <script src="js/wallfly.js"></script>
 <script src="js/offcanvas.js"></script>
-   <script type="text/javascript">
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#tab-nav li").click(function () {
+        $("object").empty();
+        var objecturl = $(this).attr('data-info');
+        $('object').attr('data', objecturl);
 
-       
-    $(document).ready(function(){
-        $("#tab-nav li").click(function(){
-            $("object").empty();
-            var objecturl = $(this).attr('data-info');
-              $('object').attr('data', objecturl);
 
-            
-     });  
-        
-//        http://jsfiddle.net/s6bP9/
-       $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
-    var target = this.href.split('#');
-    $('.nav a').filter('a[href="#'+target[1]+'"]').tab('show');
-});
-        
     });
-       
-     
-    </script>
 
+    //http://jsfiddle.net/s6bP9/
+    $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+        var target = this.href.split('#');
+        $('.nav a').filter('a[href="#' + target[1] + '"]').tab('show');
+    });
 
+});
+</script>
 </body>
 </html>

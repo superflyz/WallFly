@@ -1,10 +1,7 @@
 <?php
 	session_start();
-
-	
 	require_once(__DIR__.'/logincheck.php');
 	require_once(__DIR__.'/timeoutcheck.php');
-
 ?>
 
 <!DOCTYPE html>

@@ -8,7 +8,6 @@ if (!isset($_SESSION['loginError'])) {
     $_SESSION['loginError'] = "";
 }
 
-
 $validForm = true;
 $returnedValidation = ["", "", "", "", "", "", "", "", "", "", "", ""];
 

@@ -32,7 +32,7 @@ function chatLoad(propertyID, username) {
             }
 
         });
-        setInterval(chatRefresh, 2000);
+        //setInterval(chatRefresh, 2000);
         setTimeout(function () {
             $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
         }, 50);
