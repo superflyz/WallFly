@@ -1,0 +1,223 @@
+#chatbox {
+
+    height: 250px;
+
+    overflow: auto;
+}
+
+.panel-primary > .panel-heading {
+    color: #333;
+    background-color: #5AD663;
+    border-color: #5AD663;
+}
+
+textarea {
+    resize: none;
+}
+
+.btn-sm, .btn-group-sm > .btn {
+    padding: 23.5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+.panel-primary {
+    border-color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+
+}
+
+li {
+    margin-bottom: 10%;
+}
+
+.dzscalendar.skin-responsive-galileo .main-mon .mon-body .week-day {
+    text-align: right;
+    font-size: 1.5rem;
+}
+
+.btn-primary {
+    color: #333;
+    background-color: #FFFFFF;
+    border-color: #5AD663;
+
+}
+
+button.btn-primary, a.btn-primary {
+    color: #333;
+    background-color: #FFFFFF;
+    border-color: #5AD663;
+    box-shadow: none;
+
+}
+
+.btn-primary .caret, .btn-success .caret, .btn-warning .caret, .btn-danger .caret, .btn-info .caret {
+    border-top-color: #333;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary, button.btn-primary:hover, a.btn-primary:hover {
+    color: #5AD663;
+    background-color: #FFFFFF;
+
+    box-shadow: none;
+}
+
+.dropdown-menu > li > a:hover {
+
+    background-color: #5AD663;
+}
+
+button.btn-primary, a.btn-primary {
+
+    border: 1px solid #5AD663 !important;
+}
+
+.ui-a-text {
+
+    color: red;
+}
+
+.navList {
+    position: absolute;
+    z-index: 5;
+    border: 1px solid #5AD663;
+    padding-top: 1%;
+}
+
+.navList li a {
+
+    text-decoration: none; /* no underline */
+    display: block;
+    /*padding: 3px 20px;*/
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857;
+    color: #333;
+    white-space: nowrap;
+
+}
+
+.navList li a:hover, .navList li a:visited, .navList li a:active {
+    color: #333;
+    text-decoration: none; /* no underline */
+    background-color: #5AD663;
+
+}
+
+ul, ol {
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+
+    min-width: 150px;
+
+}
+
+#propertyHolder {
+    width: 150px;
+}
+
+#box {
+
+    width: 100%;
+    z-index: 5;
+}
+
+#chatlist {
+    width: 75%;
+}
+
+.divLeft {
+    float: left;
+    width: 50%;
+
+}
+
+.divRight {
+    float: right;
+
+}
+
+/*start modal styling*/
+.modal-header {
+    color: #FFF;
+    background-color: #333;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin: 2px 2px 0px;
+}
+
+*::-moz-selection {
+    text-shadow: none;
+    background: #5AD663 none repeat scroll 0% 0%;
+}
+
+.form-field input {
+    border: 1px solid #333;
+    outline: 0px none;
+    padding: 14px 6px 10px;
+    font-size: 14px;
+    box-shadow: none;
+    height: 100%;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.form-field input:focus {
+    border: 2px solid #5AD663;
+    outline: 0px none;
+    box-shadow: none;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Diavlo Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 2px 0px 0px 3px;
+    line-height: 1.42857;
+}
+
+
+
+.close {
+    color: #FFF;
+    opacity: 0.4;
+    box-shadow: none;
+    font-size: 35px;
+    border: medium none;
+}
+
+.submit {
+    color: #FFF;
+    margin: 30px 0px 0px;
+    background-color: #5AD663;
+    border: 2px solid transparent;
+    padding: 12px 6px 8px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 20%;
+    min-width: 100px;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #FFF;
+    font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.close:focus, .close:hover {
+    color: #FFFFFF;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 1;
+}
+/*end modal styling*/
+

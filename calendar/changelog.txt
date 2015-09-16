@@ -1,0 +1,61 @@
+
+
+ADDED ARROW LEFT SUPPORT IN CSS
+
+.with-tooltip.arrow-right span:first-child {
+  box-shadow: 0 0 0 0;
+  min-width: 100px; }
+
+.with-tooltip.arrow-right span:first-child {
+  left: auto;
+  right: 200%;
+  bottom: auto;
+  top: 0px; }
+
+.arrow-right.with-tooltip:hover span:first-child {
+  left: auto;
+  right: 150%;
+  bottom: auto;
+  top: 0px; }
+
+.with-tooltip.arrow-right span:first-child:after, .dzstooltip.arrow-right:after, .with-tooltip.arrow-right span:first-child:before, .dzstooltip.arrow-right:before {
+  top: 0%; }
+
+.with-tooltip.arrow-right span:first-child:after, .dzstooltip.arrow-right:after {
+  border-width: 5px;
+  border-color: transparent transparent transparent transparent;
+  border-left-color: transparent;
+  top: 9px;
+  margin: 0 0 0 0;
+  left: auto;
+  right: -10px;
+  margin: 0 0 0 0;
+  margin-top: -5px; }
+
+.with-tooltip.arrow-right span:first-child:before, .dzstooltip.arrow-right:before {
+  border-width: 8px;
+  border-color: transparent transparent transparent transparent;
+  border-left-color: rgba(0, 0, 0, 0.3);
+  top: 9px;
+  left: auto;
+  right: -16px;
+  margin: 0 0 0 0;
+  margin-top: -8px; }
+
+
+IF THE POPUP WIDTH EXCEEDS WINDOW WIDTH THERE IS JAVASCRIPT SUPPORT FOR OPENING THE TOOLTIP TO THE LEFT
+
+
+                var tt_w = 200;
+                var dir='arrow-left';
+
+                posX = _t.offset().left - _par.offset().left + _t.outerWidth();
+                posY = _t.offset().top - _par.offset().top + 5;
+
+                if(posX + tt_w > $(window).width()){
+                    dir='arrow-right';
+                    posX = _t.offset().left - _par.offset().left - _t.outerWidth() - tt_w;
+                }
+
+
+

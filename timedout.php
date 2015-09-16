@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once(__DIR__.'/logincheck.php');
@@ -14,7 +13,6 @@ require_once(__DIR__.'/logincheck.php');
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" type="text/css" href="style/style.css"/>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
