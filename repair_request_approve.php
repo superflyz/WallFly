@@ -1,11 +1,13 @@
 <?php
+
 require_once(__DIR__.'/classes/Database.php');
 session_start();
+
 $property_id = $_SESSION['propertyId'];
 $usertype = $_SESSION['usertype'];
 $username = $_SESSION['username'];
 $repair_id = $_POST['repair_id'];
-
+echo $repair_id;
 
 
 try{
@@ -17,6 +19,8 @@ try{
 //            file_put_contents(__DIR__.'/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
     exit();
 }
+
+
 
 try{
 
