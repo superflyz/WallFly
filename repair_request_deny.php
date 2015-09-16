@@ -2,9 +2,11 @@
 
 require_once(__DIR__.'/classes/Database.php');
 session_start();
+
 $property_id = $_SESSION['propertyId'];
 $usertype = $_SESSION['usertype'];
 $username = $_SESSION['username'];
+$repair_id = $_POST['repair_id'];
 
 try{
     $DBH = Database::getInstance();
@@ -18,7 +20,7 @@ try{
 
 try{
 
-    $STH = $DBH->prepare("UPDATE repairs SET approval = 1 WHERE repair_id=:repair_id)");
+    $STH = $DBH->prepare("UPDATE repairs SET approval = 2 WHERE repair_id=:repair_id");
     $STH->bindParam(":repair_id",$repair_id);
     $STH->execute();
 

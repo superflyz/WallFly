@@ -7,8 +7,6 @@ $property_id = $_SESSION['propertyId'];
 $usertype = $_SESSION['usertype'];
 $username = $_SESSION['username'];
 $repair_id = $_POST['repair_id'];
-echo $repair_id;
-
 
 try{
     $DBH = Database::getInstance();
@@ -20,11 +18,9 @@ try{
     exit();
 }
 
-
-
 try{
 
-    $STH = $DBH->prepare("UPDATE repairs SET approval = 1 WHERE repair_id=:repair_id)");
+    $STH = $DBH->prepare("UPDATE repairs SET approval = 1 WHERE repair_id=:repair_id");
     $STH->bindParam(":repair_id",$repair_id);
     $STH->execute();
 

@@ -626,26 +626,19 @@ $result = RepairDetailsRetrieval::retrieve();
                         </td>
 
                         <td>                    
-                
-                            <input type='hidden' id="repair_id" value="<?php echo $result[$i]['repair_id'] ?>">
-                            <button type="button" class="btn btn-success btn-xs" style="width:100%; margin-top:80px;" method="post" onclick="window.location.href='repair_request_approve.php'" method = "POST">
-                                Approv
-                            </button>
-                            <button type="button" class="btn btn-danger btn-xs" style="width:100%; 
-                            top:10px;" method="post" action="repair_request_deny.php">Deny
-                            </button>
+              
                             
-                            
-        <form class="form" method="POST" action="repair_request_approve.php" id="edit">
+        <form class="form" method="POST" action="repair_request_approve.php">
 			<input type='hidden' id="repair_id" name='repair_id' value="<?php echo $result[$i]['repair_id']; ?>">
 			<input type="submit" value="Approve"/>
-			<input type="button" id="cancel" value="Cancel" onclick="location.href='edit.php'"/>
 			<br/>
 		</form>
-                            
-                            
-                            
-                            
+        <form class="form" method="POST" action="repair_request_deny.php">
+			<input type='hidden' id="repair_id" name='repair_id' value="<?php echo $result[$i]['repair_id']; ?>">
+			<input type="submit" value="deny"/>
+			<br/>
+		</form>
+       
                         </td>
                     </tr>
                 <?php endfor ?>
