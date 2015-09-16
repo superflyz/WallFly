@@ -57,7 +57,7 @@ body {
 p {
     font-size: 14px;
     line-height: 1.75;
-    font-family: "Diavlo Light", "Helvetica Neue",Helvetica,        Arial,sans-serif;
+    font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a,
@@ -105,7 +105,7 @@ h6 {
 .modal-title {
     font-size: 20px;
     font-weight: 600;
-    font-family: "Diavlo Medium", "Helvetica Neue", Helvetica,        Arial,sans-serif;
+    font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 2px 0px 0px 3px;
 }  
 
@@ -326,7 +326,7 @@ h6 {
 }
 
 .text p {
-    font-family: "Diavlo Medium", "Helvetica Neue", Helvetica,        Arial,sans-serif;
+    font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
     
 .text .s-link {
@@ -346,7 +346,7 @@ h6 {
     color: #ffffff;
     border: 1px solid #5AD663;
     border-radius: 100%;
-    padding: 9px 11px 0px 11px;
+    padding: 3px 15px 0px 15px;
     background-color: transparent;
     -webkit-transition: background .3s ease-in-out;
     -moz-transition: background .3s ease-in-out;
@@ -416,17 +416,19 @@ header .intro {
 
 header .intro .intro-text-1 {
     margin-bottom: 30px;
-    font-size: 45px;
+    font-size: 60px;
     color: #5AD663;
-    font-family: "Diavlo Medium", "Helvetica Neue",Helvetica,        Arial,sans-serif;
+    font-weight: 600;
+    font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 header .intro .intro-text-2 {
     margin-bottom: 65px;
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: 35px;
+    font-weight: 400;
     color: #ffffff;
-    font-family: "Diavlo Light", "Helvetica Neue",Helvetica,        Arial,sans-serif;
+    font-family: "Titillium Web", Ubuntu, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 /*-- Small devices (tablets, 768px and up) --*/
