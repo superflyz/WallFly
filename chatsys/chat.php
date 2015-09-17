@@ -53,6 +53,7 @@ if ($userType == 'TENANT') {
             $("#btn-send").click(function () {
                 SendMessage(user, pID);
 
+
             });
 
             $("#propertyHolder").hide();
@@ -109,7 +110,7 @@ if ($userType == 'TENANT') {
 ?>
 <div id="reducedPadding" class="container">
     <div id="propertyHolder">
-        <input placeholder="   type to search..." id="box" type="text"/>
+        <input placeholder="type to search..." id="box" type="text"/>
         <ul class="navList ">
             <?php
             foreach ($properties as $propertyAddress) {
@@ -138,9 +139,7 @@ if ($userType == 'TENANT') {
             </div>
             <div class="panel-footer">
                 <div class="input-group">
-                    <textarea id="btn-input" type="text" class="form-control input-sm"
-                              placeholder="Type your message here..."/>
-                    </textarea>
+                    <textarea id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..."/></textarea>
                         <span class="input-group-btn">
                             <button class="btn btn-success btn-sm" id="btn-send">Send</button>
                         </span>

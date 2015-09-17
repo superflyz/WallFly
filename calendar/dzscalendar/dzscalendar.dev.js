@@ -4,7 +4,7 @@
  * Website: http://digitalzoomstudio.net/
  * Portfolio: http://codecanyon.net/user/ZoomIt/portfolio
  *
- * Version: 3.91
+ * Version: 3.92
  */
 
 
@@ -67,6 +67,10 @@ function is_ie8(){
     }
     return false;
 }
+
+
+
+var dzstlt_arr_tooltips = [];
 (function($) {
 
     $.fn.dzscalendar = function(o) {
@@ -152,6 +156,9 @@ function is_ie8(){
                 "July", "August", "September", "October", "November", "December" ];
             var arr_weekdays = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
             var inter_hidetooltips;
+
+
+            var _tooltip = null;
 
             var blogevents_orightml = 'unset';
 
@@ -278,7 +285,7 @@ function is_ie8(){
                 }
 
                 if(o.design_transitionDesc=='slide'){
-                    _theMonths.css({'overflow': 'hidden'})
+                    //_theMonths.css({'overflow': 'hidden'})
                 }
 
 
@@ -304,10 +311,6 @@ function is_ie8(){
                 $(document).delegate('.hasEventForHover', 'click', click_event);
 
                 //console.info(cthis, o.design_transitionDesc)
-                if(o.design_transitionDesc=='tooltipDef'){
-                    $(document).delegate('.hasEventForHover', 'mouseenter', click_event);
-                    $(document).delegate('.hasEventForHover', 'mouseleave', hide_tooltips);
-                }
                 if(o.mode=='datepicker' || (o.mode == 'blogevents' && o.mode_blogevents_clickNonEventTriggersDefaultContent=='on')){
                     cthis.delegate('.mon-body .week-day', 'click', datepicker_click_day);
                 }
@@ -387,9 +390,10 @@ function is_ie8(){
                     //cthis.delegate('.week-day', 'hover')
                 }
 
-                $(window).bind('click', click_window);
+                //$(window).bind('click', click_window);
                 $(window).bind('resize', handle_resize);
                 handle_resize();
+                setTimeout(function(){ handle_resize(); }, 500);
 
                 /*
 
@@ -736,13 +740,10 @@ function is_ie8(){
                     _t2.removeClass('currTooltip');
                 })
                 if(o.design_transitionDesc=='tooltipDef'){
+
                     cthis.find('.dzstooltip').each(function(){
                         var _t2 = $(this);
-                        _t2.animate({
-                            'opacity' : 0
-                            ,'left' : (posX + 25)
-                        },{queue:false, complete:complete_removeTooltips, duration:settings_dzscalendar.animation_time/2, easing:settings_dzscalendar.animation_easing});
-
+                        _t2.removeClass('active');
 
                     })
                 }
@@ -781,13 +782,11 @@ function is_ie8(){
                 //console.log(events);
 
 //                console.info(_t.hasClass('openTooltip'));
-                if(_t.hasClass('openTooltip')){
-                    hide_tooltips();
-                    return;
+                if(o.design_transitionDesc=='tooltipDef'){
+                    //hide_tooltips();
                 }
 
 //                clearTimeout(inter_hidetooltips);
-//                inter_hidetooltips = setTimeout(hide_tooltips, 5000);
 
 
                 var date = _t.attr('data-date');
@@ -862,7 +861,7 @@ function is_ie8(){
                 })
                 _t.addClass('openTooltip');
 
-                var tt_w = 200;
+                var tt_w = 320;
                 var dir='arrow-left';
 
                 posX = _t.offset().left - _par.offset().left + _t.outerWidth();
@@ -882,31 +881,6 @@ function is_ie8(){
                 //console.log(_t, _t.);
                 //console.log(_t, _par, _t.offset().top, _par.offset().top, k, date, _calendarControls.outerHeight(), posY);
 
-                if(o.design_transitionDesc=='tooltipDef'){
-                    cthis.append('<div class="dzstooltip '+dir+' currTooltip" style="left:'+(posX-10)+'px; top:'+posY+'px;"></div>');
-                    var ttip = cthis.children('.dzstooltip').last();
-                    ttip.html(cont);
-                    ttip.animate({
-                        'opacity' : 1
-                        ,'left' : posX + 10
-                    },{queue:false, duration:settings_dzscalendar.animation_time/1.5, easing:settings_dzscalendar.animation_easing})
-
-                    //console.log(ttip.height(), parseInt(ttip.css('top'), 10), cthis.height());
-
-                    //tooltipDef transition
-                    if(ttip.height() + parseInt(ttip.css('top'), 10) > cthis.height()){
-                        origH = cthis.height();
-                        //cthis.hide();
-                        var ttip_height = parseInt(ttip.height(), 10);
-                        var ttip_top = parseInt(ttip.css('top'), 10);
-                        var cthis_height = cthis.height();
-                        //cthis.hide();
-                        cthis.addClass('non-animation').css('height', cthis_height);
-                        setTimeout(function(){
-                            cthis.removeClass('non-animation').css('height', (ttip_height+ttip_top));
-                        },10);
-                    }
-                }
                 //console.log(o.design_transitionDesc);
                 if(o.design_transitionDesc=='slide'){
                     //console.log(cthis);
@@ -1065,6 +1039,8 @@ function is_ie8(){
                 // ----- past month
                 for(i=0; i<=auxDay; i++){
                     auxMout+='<span class="week-day other-months-date';
+
+
                     var auxdat = new Date(arg1, lastMonth,i+2);
 
                     if(auxdat<now){
@@ -1259,6 +1235,15 @@ function is_ie8(){
 
                     }
 
+                    if(o.design_transitionDesc=='tooltipDef' && aux_cont){
+                        auxMout+=' dzstooltip-con';
+                        if(aux_link){
+                            auxMout+=' for-hover';
+                        }else{
+                            auxMout+=' for-click';
+                        }
+                    }
+
 
                     auxMout+='"';
                     auxMout+=aux_link;
@@ -1286,6 +1271,13 @@ function is_ie8(){
                     auxMout+=(i+1);
                     auxMout+= '</span>';
                     auxMout+='<span class="the-event-content">'+aux_cont+'</span>';
+
+
+                    if(o.design_transitionDesc=='tooltipDef' && aux_cont){
+                        //console.log(o.design_transitionDesc, o.design_transitionDesc=='tooltipDef')
+                        auxMout+='<span class="dzstooltip arrow-left skin-whiteheading">'+aux_cont+'</span>';
+                    }
+
                     auxMout+= '</span>';
 
                     if(auxWeekSepInd==6 && i<daysInMonth(lastMonthYear, arg2)-1){
@@ -1423,13 +1415,17 @@ function is_ie8(){
 
                 _theMonths.append(aux);
 
+                _theMonths.find('.dzstooltip-con').dzstooltip({
+                    settings_close_other_tooltips: "on"
+                    ,settings_disable_include_in_tt_array: "off"
+                });
+
                 //console.info(_theMonths.html());
 
 
 
                 if(currNr>-1){
 //                    console.info(cthis, (cthis.find('.argTable').height()), _theMonths.css('height'), parseInt(_theMonths.css('height')));
-                    hide_tooltips();
                     if(_theMonths.css('height')=='auto' || (parseInt(_theMonths.css('height'),10)==0 || parseInt(_theMonths.css('height'),10)==1) || (_theMonths.attr('data-initheight')!=undefined && _theMonths.attr('data-initheight')=='auto')){
 
                         //console.info('ceva');
@@ -1669,6 +1665,266 @@ function is_ie8(){
         }
 
     };
+
+
+
+
+
+
+
+
+
+
+    $.fn.dzstooltip = function(o) {
+
+        var defaults = {
+            settings_slideshowTime : '5' //in seconds
+            , settings_autoHeight : 'on'
+            , settings_skin : 'skin-default'
+            ,settings_close_other_tooltips: 'off'
+            ,settings_disable_include_in_tt_array: 'off'
+        }
+
+        o = $.extend(defaults, o);
+        this.each( function(){
+            var cthis = $(this)
+                ,cchildren = cthis.children()
+                ,cclass = '';
+            ;
+            var aux
+                ,auxa
+                ,auxb
+                ;
+            var ww = 0 // -- window width
+                ;
+
+            var _tooltip = $(this).find('.dzstooltip').eq(0);
+            var currNr=-1;
+
+//            console.info(cthis);
+
+
+            if(cthis.hasClass("dzstooltip")){
+                _tooltip = cthis;
+            }
+            cclass = _tooltip.attr('class');
+
+
+            if(o.settings_disable_include_in_tt_array!='on'){
+                dzstlt_arr_tooltips.push(_tooltip);
+            }
+
+            //console.info(_tooltip);
+
+
+
+
+
+
+            init();
+
+            function init(){
+
+
+                var reg_align = new RegExp('align-(?:\\w*)',"g");
+                var reg_arrow = new RegExp('arrow-(?:\\w*)',"g");
+                auxa = reg_align.exec(cclass);
+                aux = '';
+
+                //if(_tooltip.hasClass('debug-target')){ console.log(auxa); }
+
+                if(auxa && auxa[0]){
+                    aux = auxa[0]
+                }else{
+                    aux = 'align-left';
+                }
+
+                //cthis.data('original-align', aux);
+                _tooltip.data('original-align', aux);
+
+
+
+
+                auxa = reg_arrow.exec(cclass);
+                aux = '';
+
+                //console.log(auxa);
+
+
+                if(auxa && auxa[0]){
+                    aux = auxa[0]
+                }else{
+                    aux = 'arrow-top';
+                }
+
+                //cthis.data('original-arrow', aux);
+                _tooltip.data('original-arrow', aux);
+
+                //console.log(_tooltip.data('original-arrow'));
+
+                //console.info(cthis.hasClass("for-click"));
+
+                if(cthis.hasClass('for-click')){
+                    cthis.bind('click', click_cthis);
+                }
+
+                $(window).bind('resize', handle_resize);
+                handle_resize();
+            }
+
+
+            function calculate_dims(){
+
+                var isfullwidth = false;
+
+                //(_tooltip.data('original-arrow')!='arrow-left' && _tooltip.data('original-arrow')!='arrow-right') &&
+                //if(_tooltip.hasClass('debug-target')){ console.info(_tooltip.hasClass('arrow-top') || _tooltip.hasClass('arrow-bottom')) };
+
+
+                if(  _tooltip.hasClass('arrow-top') || _tooltip.hasClass('arrow-bottom')){
+                    _tooltip.removeClass('align-right');
+                    _tooltip.addClass(_tooltip.data('original-align'));
+                    if(_tooltip.data('original-align')=='align-left' || _tooltip.data('original-align')=='align-center'){
+//                    console.info(cthis, _tooltip, _tooltip.offset().left, _tooltip.outerWidth(), ww)
+                        if(_tooltip.offset().left + _tooltip.outerWidth() > ww - 50){
+                            _tooltip.removeClass(_tooltip.data('original-align'));
+                            _tooltip.addClass('align-right');
+                        }else{
+                            if(_tooltip.hasClass('align-right')){
+                                _tooltip.removeClass('align-right');
+                                _tooltip.addClass(_tooltip.data('original-align'));
+                            }
+                        }
+                    }
+
+                    if(_tooltip.hasClass('align-right')){
+
+                    }
+                }else{
+
+                    _tooltip.removeClass('arrow-right');
+                    _tooltip.addClass(_tooltip.data('original-arrow'));
+
+                    //if(_tooltip.hasClass('debug-target')){ console.log(_tooltip.data('original-arrow')); };
+
+                    if(!_tooltip.data('original-width')){
+                        _tooltip.data('original-width', _tooltip.outerWidth());
+                        //if(_tooltip.hasClass('debug-target')){ _tooltip.data('original-width') };
+                    }else{
+                        _tooltip.outerWidth(_tooltip.data('original-width'));
+                    }
+                    if(!_tooltip.data('has-no-arrow')){
+                        _tooltip.data('has-no-arrow', _tooltip.hasClass('no-arrow'));
+                    }
+
+                    //if(_tooltip.hasClass('debug-target')){ console.info(_tooltip.data('has-no-arrow'))}
+
+
+                    //_tooltip.addClass(_tooltip.data('original-align'));
+                    if(_tooltip.hasClass('arrow-left')){
+
+
+
+
+                        //if(_tooltip.hasClass('debug-target')){ console.info(_tooltip.hasClass('arrow-left'), _tooltip.offset().left + _tooltip.outerWidth() > ww - 30) };
+
+                        if(_tooltip.offset().left + _tooltip.outerWidth() > ww - 30){
+                            _tooltip.removeClass(_tooltip.data('original-arrow'));
+                            _tooltip.addClass('arrow-right');
+
+
+                            if(_tooltip.offset().left - Number(_tooltip.data('original-width')) < 20){
+
+                                //if(_tooltip.hasClass('debug-target')){ console.info(_tooltip.data('original-width'), (_tooltip.offset().left - Number(_tooltip.data('original-width'))  ) , Number(_tooltip.data('original-width')) + (Number(_tooltip.data('original-width'))+(_tooltip.offset().left - Number(_tooltip.data('original-width')) ) - 30 ) ) };
+
+                                var aux_w = Number(_tooltip.data('original-width')) + (Number(_tooltip.data('original-width'))+(_tooltip.offset().left - Number(_tooltip.data('original-width')) ) - 30 );
+
+                                _tooltip.outerWidth(aux_w);
+
+                                if(aux_w < 50){
+
+                                    _tooltip.addClass(_tooltip.data('original-arrow'));
+                                    _tooltip.removeClass('arrow-right');
+
+                                    aux_w = ww - 100;
+                                    _tooltip.outerWidth(aux_w);
+                                }
+                                //_tooltip.removeClass('arrow-right');
+                                //_tooltip.addClass('arrow-top');
+
+                            }
+                        }
+
+
+                        //console.info(_tooltip.data('original-arrow'))
+                        //_tooltip.removeClass('align-right');
+                    }
+                }
+
+
+                if(_tooltip.hasClass('align-center')){
+                    //console.info(cthis, cthis.hasClass('arrow-left'));
+                    if(_tooltip.hasClass('arrow-left') || _tooltip.hasClass('arrow-right')){
+                        _tooltip.css('margin-top', -(_tooltip.outerHeight()/2) + ( cthis.outerHeight()/2))
+                        _tooltip.css('margin-left', '');
+
+                    }else{
+
+                        _tooltip.css('margin-left', -(_tooltip.outerWidth()/2) + ( cthis.outerWidth()/2))
+                        _tooltip.css('margin-top', '');
+                    }
+                }
+
+            }
+
+            function handle_resize(e){
+                ww=$(window).width();
+                calculate_dims();
+            }
+
+            function click_cthis(e){
+
+                var _c = cthis.find('.dzstooltip');
+                if(_tooltip.hasClass('active')){
+                    _tooltip.removeClass('active');
+
+
+
+                }else{
+
+
+                    if(o.settings_close_other_tooltips=='on'){
+                        for(i3=0;i3<dzstlt_arr_tooltips.length;i3++){
+                            if(dzstlt_arr_tooltips[i3]){
+                                dzstlt_arr_tooltips[i3].removeClass('active');
+                            }
+                        }
+                    }
+
+                    _c.addClass('active');
+
+
+                    if(parseInt(cthis.offset().left, 10) + _c.width() > parseInt($(window).width(), 10) - 50){
+                        _c.addClass('align-right');
+                    }else{
+                        _c.removeClass('align-right');
+                    }
+
+
+                }
+
+                //console.info(cthis.offset().left);
+
+
+
+
+            }
+            return this;
+        })
+    }
+    window.dzstt_init = function(arg, optargs){
+        $(arg).dzstooltip(optargs);
+    }
 
 })(jQuery);
 
