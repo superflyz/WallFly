@@ -43,6 +43,7 @@ if ($userType == 'TENANT') {
     <link rel="stylesheet" type="text/css" href="../css/module.css">
 
     <script src="../js/chat.js"></script>
+
     <script type="text/javascript">
         // assign current username to jquery var and use it in SendMessage function
         var user = <?php echo "'".$_SESSION['username']."'";?>;
@@ -53,7 +54,9 @@ if ($userType == 'TENANT') {
 
             chatLoad(pID, user);
             $("#btn-send").click(function () {
+
                 SendMessage(user, pID, type);
+
 
             });
 
@@ -97,6 +100,7 @@ if ($userType == 'TENANT') {
     </script>
 </head>
 <body>
+<audio id="audiotag1" src="../sounds/messageAlert.mp3" preload="auto"></audio>
 <!-- create address dropdown list only if agent or owner usertype -->
 <?php if (($userType == 'AGENT') || ($userType == 'OWNER')) {
     $properties = Chat::GetProperties($userName, $userType);
@@ -171,6 +175,11 @@ if ($userType == 'TENANT') {
     });
 
 
+</script>
+<script type="text/javascript">
+    function play_single_sound() {
+        document.getElementById('audiotag1').play();
+    }
 </script>
 </body>
 </html>
