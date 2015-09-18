@@ -128,7 +128,7 @@ if ($userType == 'TENANT') {
 <?php if (($userType == 'AGENT') || ($userType == 'OWNER')) {
     echo '</div>';
     echo '<div class="btn-group divRight">';
-    echo '<a class="btn btn-primary dropdown-toggle add-event" data-toggle="modal" data-target=".event-modal-lg" href="#">Add Calander Event<span class="caret"></span></a>';
+    echo '<a class="btn btn-primary dropdown-toggle add-event" data-toggle="modal" data-target=".event-modal-md" href="#">Add Calander Event<span class="caret"></span></a>';
     echo '</div></div>';
 } ?>
 
@@ -231,8 +231,8 @@ if ($userType == 'TENANT') {
 
 
 <!--add event modal-->
-<div class="modal modal-vcenter fade event-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-    <div class="modal-dialog modal-lg">
+<div class="modal modal-vcenter fade event-modal-md" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-md">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -281,8 +281,8 @@ if ($userType == 'TENANT') {
                             <div class="col-md-12">
                                 <div class="dzscalendar skin-aurora" id="trauroradatepicker" style="height:200px">
                                     <div class="events">
-                                        <div class="event-tobe" data-repeat="everymonth" data-day="09"></div>
-                                        <div class="event-tobe" data-repeat="everymonth" data-day="10"></div>
+<!--                                        <div class="event-tobe" data-repeat="everymonth" data-day="09"></div>-->
+<!--                                        <div class="event-tobe" data-repeat="everymonth" data-day="10"></div>-->
                                     </div>
                                 </div>
                             </div>
