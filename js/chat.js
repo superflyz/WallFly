@@ -1,5 +1,5 @@
 function chatLoad(propertyID, username) {
-    if (propertyID !== "") {
+    if (propertyID != "") {
         jQuery.ajax({
             url: 'loadChatBox.php',
             type: "POST",
@@ -16,14 +16,14 @@ function chatLoad(propertyID, username) {
                         $("#chatbox ul").append("<li class='left clearfix'>" +
                             "<span class='chat-img pull-left'><img src='../img/me.png' alt='User Avatar' class='img-circle' /></span>" +
                             "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + username + "</strong> <small class='pull-right text-muted'>" +
-                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + parseobj.msg + "</p></div></li>");
+                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + nl2br(parseobj.msg)  + "</p></div></li>");
 
 
                     } else {
                         $("#chatbox ul").append("<li class='left clearfix'>" +
                             "<span class='chat-img pull-left'><img src='../img/you.png' alt='User Avatar' class='img-circle' /></span>" +
                             "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + parseobj.username + "</strong> <small class='pull-right text-muted'>" +
-                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + parseobj.msg + "</p></div></li>");
+                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + nl2br(parseobj.msg) + "</p></div></li>");
 
 
                     }
@@ -32,7 +32,7 @@ function chatLoad(propertyID, username) {
             }
 
         });
-        //setInterval(chatRefresh, 2000);
+        setInterval(chatRefresh, 2000);
         setTimeout(function () {
             $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
         }, 50);
@@ -51,6 +51,11 @@ function chatLoad(propertyID, username) {
             },
 
             success: function (response) {
+
+                   var currentHeight =   $("#chatbox").scrollTop() + $("#chatbox").innerHeight()
+                   var totalHeight = $("#chatbox")[0].scrollHeight;
+
+
                 $('#chatlist').empty();
                 var obj = eval("(" + response + ')');
                 for (var i = 0; i < obj.length; i++) {
@@ -59,19 +64,26 @@ function chatLoad(propertyID, username) {
                         $("#chatbox ul").append("<li class='left clearfix'>" +
                             "<span class='chat-img pull-left'><img src='../img/me.png' alt='User Avatar' class='img-circle' /></span>" +
                             "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + username + "</strong> <small class='pull-right text-muted'>" +
-                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + parseobj.msg + "</p></div></li>");
+                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + nl2br(parseobj.msg) + "</p></div></li>");
 
 
                     } else {
                         $("#chatbox ul").append("<li class='left clearfix'>" +
                             "<span class='chat-img pull-left'><img src='../img/you.png' alt='User Avatar' class='img-circle' /></span>" +
                             "<div class='chat-body clearfix'><div class='header'><strong class='primary-font'>" + parseobj.username + "</strong> <small class='pull-right text-muted'>" +
-                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + parseobj.msg + "</p></div></li>");
+                            "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + nl2br(parseobj.msg) + "</p></div></li>");
 
 
                     }
 
                 }
+
+                if(currentHeight >= totalHeight)
+                {
+                    $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+                }
+
+
             }
 
         });
@@ -81,8 +93,8 @@ function chatLoad(propertyID, username) {
 }
 
 
-function SendMessage(username, propertyID) {
-
+function SendMessage(username, propertyID,userType) {
+    var theType = userType;
     var theMessage = $("#btn-input").val();
     var theUser = username;
     var thePID = propertyID;
@@ -98,11 +110,12 @@ function SendMessage(username, propertyID) {
             data: {
                 message: theMessage,
                 user: theUser,
-                pID: thePID
+                pID: thePID,
+                type: theType
             },
             success: function (result) {
                 $("#btn-input").val('');
-                //LoadChatBox(propertyID,username);
+                LoadChatBox(propertyID,username);
                 setTimeout(function () {
                     $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
                 }, 2000);
@@ -112,4 +125,9 @@ function SendMessage(username, propertyID) {
         });
 
     }
+}
+
+function nl2br (str, is_xhtml) {
+    var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ breakTag +'$2');
 }

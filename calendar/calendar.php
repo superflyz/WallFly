@@ -177,7 +177,7 @@ if ($userType == 'TENANT') {
 <section id="calender">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 extend">
                 <div class="dzscalendar-con  skin-responsive-galileo" style="max-width: 960px; margin: 25px auto;">
                     <div class="dzscalendar skin-responsive-galileo auto-init" style="" data-options="{
             design_month_covers : ['http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg','http://dummyimage.com/950x350/000000/3c3c3d.jpg']
@@ -281,8 +281,8 @@ if ($userType == 'TENANT') {
                             <div class="col-md-12">
                                 <div class="dzscalendar skin-aurora" id="trauroradatepicker" style="height:200px">
                                     <div class="events">
-<!--                                        <div class="event-tobe" data-repeat="everymonth" data-day="09"></div>-->
-<!--                                        <div class="event-tobe" data-repeat="everymonth" data-day="10"></div>-->
+                                        <!--                                        <div class="event-tobe" data-repeat="everymonth" data-day="09"></div>-->
+                                        <!--                                        <div class="event-tobe" data-repeat="everymonth" data-day="10"></div>-->
                                     </div>
                                 </div>
                             </div>

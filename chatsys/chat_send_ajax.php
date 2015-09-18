@@ -5,6 +5,7 @@ $date = date("Y-m-d H:i:s");
 $user = $_POST['user'];
 $message = $_POST['message'];
 $pID = $_POST['pID'];
+$type = $_POST['type'];
 
 //initialise Database Handler
 try {
@@ -20,14 +21,21 @@ try {
 //enter chat message into Database
 try {
 
-    $statement = $DBH->prepare("INSERT INTO chat(propertyID, username, chatdate, msg)
-        VALUES(:propertyID, :username, :chatdate, :message)");
+    $statement = $DBH->prepare("INSERT INTO chat(propertyID, username, chatdate, msg, usertype)
+        VALUES(:propertyID, :username, :chatdate, :message, :usertype)");
     $result = $statement->execute(array(
         "propertyID" => $pID,
         "username" => $user,
         "chatdate" => $date,
-        "message" => $message
+        "message" => $message,
+        "usertype" => $type
     ));
+//    $result = $DBH->prepare("SELECT * FROM chat WHERE propertyID = :pID");
+//    $result->bindParam(':pID', $pID);
+//    $result->execute();
+//    $rowCount = $result->rowCount();
+//    $_SESSION['chatRows'] = $rowCount;
+
     #close db connection
     $DBH = NULL;
     exit();

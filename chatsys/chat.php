@@ -47,11 +47,12 @@ if ($userType == 'TENANT') {
         // assign current username to jquery var and use it in SendMessage function
         var user = <?php echo "'".$_SESSION['username']."'";?>;
         var pID =  <?php echo "'".$pID."'";?>;
+        var type = <?php echo "'".$userType."'";?>;
 
         $(document).ready(function () {
             chatLoad(pID, user);
             $("#btn-send").click(function () {
-                SendMessage(user, pID);
+                SendMessage(user, pID, type);
 
 
             });
@@ -132,7 +133,7 @@ if ($userType == 'TENANT') {
                     }; ?>
                 </div>
                 <div id="chatbox" class="panel-body">
-                    <ul id="chatlist" class="chat" style="text-align:left">
+                    <ul id="chatlist" >
 
                     </ul>
                 </div>
@@ -162,7 +163,6 @@ if ($userType == 'TENANT') {
                 selected: propertyAdd
             },
             success: function (result) {
-
                 window.location.reload();
             }
         });

@@ -1,8 +1,17 @@
 #chatbox {
-
+    postion: relative;
     height: 250px;
-
+    width: auto;
+    word-wrap: break-word;
     overflow: auto;
+}
+
+#chatbox ul li{
+    width: 300px;
+}
+
+#chatlist{
+   text-align: left;
 }
 
 .panel-primary > .panel-heading {
@@ -137,9 +146,7 @@ ul, ol {
     z-index: 5;
 }
 
-#chatlist {
-    width: 75%;
-}
+
 
 .divLeft {
     float: left;
@@ -150,6 +157,31 @@ ul, ol {
 .divRight {
     float: right;
 
+}
+
+.extend{
+    margin-bottom: 100px;
+}
+
+ .dzscalendar .dzstooltip {
+     font-size: 0.75em;
+ }
+
+ .dzstooltip.skin-whiteheading .tooltip-heading {
+
+     font-size: 1.5em;
+ }
+
+
+
+  .dzscalendar span.label {
+
+      font-size: 1.125em;
+  }
+
+#btn-send{
+
+    padding: 14px 10px;
 }
 
 /*start modal styling*/

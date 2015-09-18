@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once(__DIR__ . '/../classes/Database.php');
 
 $pID = $_POST['pID'];
@@ -14,6 +14,7 @@ try {
     file_put_contents(__DIR__ . '/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
     exit();
 }
+
 //return rows related to the property ID in json string
 try {
     $chatArray = [];
@@ -23,7 +24,6 @@ try {
     while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
         $chatArray[] = $row;
     }
-
     echo json_encode($chatArray);
     #close db connection
     $DBH = NULL;
@@ -31,7 +31,28 @@ try {
 
 
 } catch (PDOException $e) {
-    echo "Unable to send message";
+    echo "Unable to get messages";
     file_put_contents(__DIR__ . '/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
     exit();
 }
+
+//try {
+//
+//
+//    $result = $DBH->prepare("SELECT * FROM chat WHERE propertyID = :pID");
+//    $result->bindParam(':pID', $pID);
+//    $result->execute();
+//    $rowCount = $result->rowCount();
+//    if ($rowCount > $_SESSION['chatRows']) {
+//        //return rows related to the property ID in json string
+//
+//    } else {  #close db connection
+//        $DBH = NULL;
+//        exit();
+//    }
+//} catch (PDOException $e) {
+//    echo "Unable to send message";
+//    file_put_contents(__DIR__ . '/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
+//    exit();
+//}
+
