@@ -50,12 +50,13 @@ if ($userType == 'TENANT') {
         var type = <?php echo "'".$userType."'";?>;
 
         $(document).ready(function () {
+
             chatLoad(pID, user);
             $("#btn-send").click(function () {
                 SendMessage(user, pID, type);
 
-
             });
+
 
             $("#propertyHolder").hide();
             $(".show-properties").click(function () {
@@ -133,14 +134,15 @@ if ($userType == 'TENANT') {
                     }; ?>
                 </div>
                 <div id="chatbox" class="panel-body">
-                    <ul id="chatlist" >
+                    <ul id="chatlist">
 
                     </ul>
                 </div>
             </div>
             <div class="panel-footer">
                 <div class="input-group">
-                    <textarea id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..."/></textarea>
+                    <textarea id="btn-input" type="text" class="form-control input-sm"
+                              placeholder="Type your message here..."/></textarea>
                         <span class="input-group-btn">
                             <button class="btn btn-success btn-sm" id="btn-send">Send</button>
                         </span>
@@ -167,6 +169,8 @@ if ($userType == 'TENANT') {
             }
         });
     });
+
+
 </script>
 </body>
 </html>
