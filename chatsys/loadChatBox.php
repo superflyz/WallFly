@@ -36,23 +36,4 @@ try {
     exit();
 }
 
-//try {
-//
-//
-//    $result = $DBH->prepare("SELECT * FROM chat WHERE propertyID = :pID");
-//    $result->bindParam(':pID', $pID);
-//    $result->execute();
-//    $rowCount = $result->rowCount();
-//    if ($rowCount > $_SESSION['chatRows']) {
-//        //return rows related to the property ID in json string
-//
-//    } else {  #close db connection
-//        $DBH = NULL;
-//        exit();
-//    }
-//} catch (PDOException $e) {
-//    echo "Unable to send message";
-//    file_put_contents(__DIR__ . '/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
-//    exit();
-//}
 

@@ -134,44 +134,53 @@ if ($userType == 'TENANT') {
 
 <script>
 
-    $(document).ready(function () {
-        $("#propertyHolder").hide();
-        $(".show-properties").click(function () {
-            $("#propertyHolder").toggle();
-        });
-
-
-        $('.navList li a').on('click', function () {
-
-            var propertyAdd = $(this).text();
-
-            jQuery.ajax({
-                url: '../chatsys/setselectedchatpropery.php',
-                type: "POST",
-                data: {
-                    selected: propertyAdd
-                },
-                success: function (result) {
-
-                    $("#propertyHolder").hide();
-                    window.location.reload();
-                }
-            });
-        });
-    });
-
-    $('#box').keyup(function () {
-        var valThis = this.value.toLowerCase(),
-            lenght = this.value.length;
-
-        $('.navList>li>a').each(function () {
-            var text = $(this).text(),
-                textL = text.toLowerCase(),
-                htmlR = '<b>' + text.substr(0, lenght) + '</b>' + text.substr(lenght);
-            (textL.indexOf(valThis) == 0) ? $(this).html(htmlR).show() : $(this).hide();
-        });
-
-    });
+//    $(document).ready(function () {
+//
+//        $('#hidden').bind("DOMSubtreeModified",function(){
+//            var date = $('#hidden').html();
+//            var dateArray = date.split("-")
+//            var dateString = dateArray[1]+"/"+dateArray[0]+"/"+dateArray[2];
+//            $('#date').val(dateString);
+//
+//        });
+//
+//        $("#propertyHolder").hide();
+//        $(".show-properties").click(function () {
+//            $("#propertyHolder").toggle();
+//        });
+//
+//
+//        $('.navList li a').on('click', function () {
+//
+//            var propertyAdd = $(this).text();
+//
+//            jQuery.ajax({
+//                url: '../chatsys/setselectedchatpropery.php',
+//                type: "POST",
+//                data: {
+//                    selected: propertyAdd
+//                },
+//                success: function (result) {
+//
+//                    $("#propertyHolder").hide();
+//                    window.location.reload();
+//                }
+//            });
+//        });
+//    });
+//
+//    $('#box').keyup(function () {
+//        var valThis = this.value.toLowerCase(),
+//            lenght = this.value.length;
+//
+//        $('.navList>li>a').each(function () {
+//            var text = $(this).text(),
+//                textL = text.toLowerCase(),
+//                htmlR = '<b>' + text.substr(0, lenght) + '</b>' + text.substr(lenght);
+//            (textL.indexOf(valThis) == 0) ? $(this).html(htmlR).show() : $(this).hide();
+//        });
+//
+//    });
 </script>
 <!--start calendar-->
 <section id="calender">
@@ -243,14 +252,16 @@ if ($userType == 'TENANT') {
                 <form id="setEvent" name="setEvent" method="post" action="setevent.php">
                     <div class="form-field ff1">
                         <label for="eventName">Event Name</label>
-                        <input name="eventName" type="text" id="eventName" class="form-control">
+                        <input name="eventName" type="text"  class="form-control">
+                        <span class="error"></span>
                     </div>
                     <div class="form-field">
-                        <label for="description">Time</label>
+                        <label for="timepicker1">Time</label>
 
                         <div class="inner cover indexpicker">
 
                             <input id="timepicker1" type="text" name="timepicker1"/>
+
 
                         </div>
 
@@ -258,13 +269,14 @@ if ($userType == 'TENANT') {
                     <div class="form-field">
                         </br>
                         <label for="description">Select Interval</label>
-                        <select class="form-control">
+                        <select name="description" class="form-control">
                             <option value="onetime">One Time</option>
                             <option value="weekly">Weekly</option>
                             <option value="fortnightly">Fortnightly</option>
                             <option value="monthly">Monthly</option>
                             <option value="yearly">Yearly</option>
                         </select>
+                        <span class="error"></span>
                     </div>
                     <div class="form-field">
                         </br>
@@ -276,14 +288,12 @@ if ($userType == 'TENANT') {
                     <div class="form-field">
 
                         <label for="date">Event Date</label>
-                        <pre name="date " class="event-receiver">no event date...</pre>
+                        <input name="date" id="date" type="text" class="form-control" readonly>
+                        <pre hidden id="hidden" class="event-receiver"></pre>
+                        <span class="error"></span>
                         <section style="height:200px">
                             <div class="col-md-12">
                                 <div class="dzscalendar skin-aurora" id="trauroradatepicker" style="height:200px">
-                                    <div class="events">
-                                        <!--                                        <div class="event-tobe" data-repeat="everymonth" data-day="09"></div>-->
-                                        <!--                                        <div class="event-tobe" data-repeat="everymonth" data-day="10"></div>-->
-                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -353,7 +363,12 @@ if ($userType == 'TENANT') {
 <script>
     $('#timepicker1').timepicki();
 </script>
+
+<!-- Custom Theme JavaScript -->
 <script src="clockpicker/js/bootstrap.min.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
+<script src="js/calendar.js"></script>
 
 
 </body>
