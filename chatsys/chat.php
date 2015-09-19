@@ -110,7 +110,7 @@ if ($userType == 'TENANT') {
     echo '<div class="container">
 
             <div class="btn-group">
-                <a class="btn btn-primary dropdown-toggle show-properties" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property<span class="caret"></span></a>';
+                <a class="btn btn-primary dropdown-toggle show-properties selector" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property<span class="caret"></span></a>';
 }
 
 ?>

@@ -88,13 +88,14 @@ if ($userType == 'TENANT') {
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../css/module.css">
+
     <!-- Bootstrap core CSS -->
     <link href="clockpicker/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for the timepicker template -->
     <!--    <link href="clockpicker/css/style.css" rel="stylesheet">-->
     <link href="clockpicker/css/timepicki.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/module.css">
 
 
 </head>
@@ -132,56 +133,6 @@ if ($userType == 'TENANT') {
     echo '</div></div>';
 } ?>
 
-<script>
-
-//    $(document).ready(function () {
-//
-//        $('#hidden').bind("DOMSubtreeModified",function(){
-//            var date = $('#hidden').html();
-//            var dateArray = date.split("-")
-//            var dateString = dateArray[1]+"/"+dateArray[0]+"/"+dateArray[2];
-//            $('#date').val(dateString);
-//
-//        });
-//
-//        $("#propertyHolder").hide();
-//        $(".show-properties").click(function () {
-//            $("#propertyHolder").toggle();
-//        });
-//
-//
-//        $('.navList li a').on('click', function () {
-//
-//            var propertyAdd = $(this).text();
-//
-//            jQuery.ajax({
-//                url: '../chatsys/setselectedchatpropery.php',
-//                type: "POST",
-//                data: {
-//                    selected: propertyAdd
-//                },
-//                success: function (result) {
-//
-//                    $("#propertyHolder").hide();
-//                    window.location.reload();
-//                }
-//            });
-//        });
-//    });
-//
-//    $('#box').keyup(function () {
-//        var valThis = this.value.toLowerCase(),
-//            lenght = this.value.length;
-//
-//        $('.navList>li>a').each(function () {
-//            var text = $(this).text(),
-//                textL = text.toLowerCase(),
-//                htmlR = '<b>' + text.substr(0, lenght) + '</b>' + text.substr(lenght);
-//            (textL.indexOf(valThis) == 0) ? $(this).html(htmlR).show() : $(this).hide();
-//        });
-//
-//    });
-</script>
 <!--start calendar-->
 <section id="calender">
     <div class="container">
@@ -252,7 +203,7 @@ if ($userType == 'TENANT') {
                 <form id="setEvent" name="setEvent" method="post" action="setevent.php">
                     <div class="form-field ff1">
                         <label for="eventName">Event Name</label>
-                        <input name="eventName" type="text"  class="form-control">
+                        <input name="eventName" type="text" class="form-control">
                         <span class="error"></span>
                     </div>
                     <div class="form-field">
@@ -298,15 +249,14 @@ if ($userType == 'TENANT') {
                             </div>
                         </section>
 
-
                     </div>
 
                     <!-- end date picker -->
                     <span class="error"><?php echo $_SESSION['loginError']; ?></span>
 
                     <div>
-                        <button type="submit" name="Submit" value="Login" id="login_btn"
-                                class="btn btn-primary btn-sm btn-block submit">Add event
+                        <button type="submit" name="Submit" value="submit" id="submit-btn"
+                                class="btn btn-primary submit">Add event
                         </button>
                     </div>
                 </form>

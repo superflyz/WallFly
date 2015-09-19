@@ -71,8 +71,8 @@ function chatLoad(propertyID, username) {
                                 "<span class='glyphicon glyphicon-time'></span>" + parseobj.chatdate + "</small></div><p>" + nl2br(parseobj.msg) + "</p></div></li>");
                         }
                     }
-                    if(previousChatRows != 0){
-                    play_single_sound();
+                    if (previousChatRows != 0) {
+                        play_single_sound();
                     }
                     if (currentHeight >= totalHeight) {
                         $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
@@ -109,10 +109,12 @@ function SendMessage(username, propertyID, userType) {
             },
             success: function (result) {
                 $("#btn-input").val('');
-                LoadChatBox(propertyID, username);
-                setTimeout(function () {
-                    $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
-                }, 2000);
+
+                $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+                //LoadChatBox(propertyID, username);
+                //setTimeout(function () {
+                //    $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+                //}, 500);
 
             }
 
