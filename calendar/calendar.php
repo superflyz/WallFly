@@ -75,25 +75,11 @@ if ($userType == 'TENANT') {
 
         <script src="../js/sweetalert.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
-
-        <script>
-            $(document).ready(function () {
-//            var eventAdded = <?php //echo "'".$_SESSION['eventAdded']."'";?>//;
-//            if (eventAdded == "true") {
-//                swal("Success", "You have added an event to the calendar", "success");
-//            } else if (eventAdded == "true") {
-//                sweetAlert("Oops...", "Something went wrong with adding that event", "error");
-//
-//            }
-//            <?php //unset($_SESSION['eventAdded']);?>//;
-            });
-        </script>
-
-
+        
     </head>
 
     <body>
-    <?php echo "pid is:" . $pID ?>
+
     <?php if (($userType == 'AGENT') || ($userType == 'OWNER')) {
 
         $properties = PropertyFunctions::GetProperties($userName, $userType);
@@ -356,29 +342,3 @@ if ($userType == 'TENANT') {
     </body>
 
     </html>
-
-<?php
-if (($pID == "") && ($userType != 'TENANT')) {
-    $events = CalendarEvents::getAllEvents($userName);
-
-    foreach ($events as $event) {
-        $explodeDate = explode("/", $event->eventDate);
-
-        echo '<div class="event-tobe" data-tag="blue" ';
-        if ($event->eventInterval != "onetime") {
-            echo 'data-repeat="' . $event->eventInterval . '"';
-        }
-        echo 'data-type="link" data-href="#" data-day="' . $explodeDate[0] . '" data-month="' . $explodeDate[1] . '" data-year="' . $explodeDate[2] . '" ';
-        echo '<span class="tooltip-heading">' . $event->eventName . '</span>';
-        if ($event->eventTime != "") {
-            echo '<span class="label">Time:</span>' . $event->eventTime . '<br/>';
-        }
-        echo '<br/>' . $event->description . '</div>';
-
-
-    }
-
-}
-
-
-?>
