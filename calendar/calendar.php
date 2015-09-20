@@ -99,7 +99,7 @@ if ($userType == 'TENANT') {
             <ul class="navList ">
                 <?php
                 foreach ($properties as $propertyAddress) {
-                    echo '<li><a href="#">' . $propertyAddress . '</a></li>';
+                    echo '<li><a href="">' . $propertyAddress . '</a></li>';
                 } ?>
             </ul>
         </div>
