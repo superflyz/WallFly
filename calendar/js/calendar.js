@@ -8,13 +8,18 @@ $(document).ready(function () {
     //$('#passwrd').val('');
 
 
+
     $('#setEvent').validate({ // initialize the plugin
         rules: {
             eventName: {
-                required: true
+                required: true,
+                maxlength: 20
             },
             date: {
                 required: true
+            },
+            description:{
+                maxlength: 100
             }
 
         }

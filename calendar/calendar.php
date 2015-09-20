@@ -12,6 +12,11 @@ $properties = [];
 $selectedProperty = "";
 $pID = '';
 
+if(!isset( $_SESSION['eventAdded'])){
+
+    $_SESSION['eventAdded'] = "";
+}
+
 //set the propertyID from the $_SESSION['selectedChatProperty'] if set
 if (isset($_SESSION['selectedChatProperty'])) {
     $selectedProperty = $_SESSION['selectedChatProperty'];
@@ -36,36 +41,6 @@ if ($userType == 'TENANT') {
 <html lang="en">
 
 <head>
-    <!--    <title>Wallfly Calendar</title>-->
-    <!--    <meta charset="utf-8"/>-->
-    <!--    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">-->
-    <!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-    <!--    <meta name="description" content="WallFly - Property Mangement System">-->
-    <!--    <meta name="author" content="The SuperFlyz">-->
-
-    <!--    <link rel='stylesheet' type="text/css" href="style/style.css"/>-->
-    <!--    <script src="js/jquery.js" type="text/javascript"></script>-->
-    <!--    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--    <!--[if lt IE 9]-->
-    <!--    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
-    <!--    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>-->
-    <!--    <![endif]-->
-    <!--    <link href='http://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>-->
-    <!--    <link rel='stylesheet' type="text/css" href="dzstooltip/dzstooltip.css"/>-->
-    <!--    <link rel='stylesheet' type="text/css" href="dzscalendar/dzscalendar.css"/>-->
-    <!--    <script src="dzscalendar/dzscalendar.js" type="text/javascript"></script>-->
-    <!--    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>-->
-
-    <!--    <link href="../css/bootstrap.min.css" rel="stylesheet">-->
-    <!--    <link href="./bootstrap/bootstrap.css" rel="stylesheet">-->
-
-    <!--    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
-    <!--    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>-->
-    <!--    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
-    <!--    <link rel="stylesheet" type="text/css" href="../css/module.css">-->
-
-    <!--    <link href="../css/wallfly.css" rel="stylesheet">-->
-
 
     <meta charset="utf-8"/>
     <title>Wallfly Calendar</title>
@@ -96,6 +71,22 @@ if ($userType == 'TENANT') {
     <!--    <link href="clockpicker/css/style.css" rel="stylesheet">-->
     <link href="clockpicker/css/timepicki.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/module.css">
+
+    <script src="../js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/sweetalert.css">
+
+    <script>
+        $( document ).ready(function() {
+            var eventAdded = <?php echo "'".$_SESSION['eventAdded']."'";?>;
+            if(eventAdded == "true"){
+                swal("Success", "You have added an event to the calendar","success");
+            }else if(eventAdded == "true") {
+                sweetAlert("Oops...", "Something went wrong with adding that event", "error");
+
+            }
+            <?php unset($_SESSION['eventAdded']);?>;
+        });
+    </script>
 
 
 </head>
@@ -129,10 +120,9 @@ if ($userType == 'TENANT') {
 <?php if (($userType == 'AGENT') || ($userType == 'OWNER')) {
     echo '</div>';
     echo '<div class="btn-group divRight">';
-    echo '<a class="btn btn-primary dropdown-toggle add-event" data-toggle="modal" data-target=".event-modal-md" href="#">Add Calander Event<span class="caret"></span></a>';
+    echo '<a id="add-event" class="btn btn-primary dropdown-toggle add-event no-modal" data-toggle="modal"  href="#">Add Calander Event<span class="caret"></span></a>';
     echo '</div></div>';
 } ?>
-
 <!--start calendar-->
 <section id="calender">
     <div class="container">
@@ -200,7 +190,7 @@ if ($userType == 'TENANT') {
             </div>
 
             <div class="modal-body">
-                <form id="setEvent" name="setEvent" method="post" action="setevent.php">
+                <form id="setEvent" name="addEvent" method="post" action="addevent.php">
                     <div class="form-field ff1">
                         <label for="eventName">Event Name</label>
                         <input name="eventName" type="text" class="form-control">
@@ -219,8 +209,8 @@ if ($userType == 'TENANT') {
                     </div>
                     <div class="form-field">
                         </br>
-                        <label for="description">Select Interval</label>
-                        <select name="description" class="form-control">
+                        <label for="interval">Select Interval</label>
+                        <select name="interval" class="form-control">
                             <option value="onetime">One Time</option>
                             <option value="weekly">Weekly</option>
                             <option value="fortnightly">Fortnightly</option>
@@ -233,6 +223,11 @@ if ($userType == 'TENANT') {
                         </br>
                         <label for="description">Description</label>
                         <input name="description" type="text" id="description" class="form-control">
+                        <span class="error"></span>
+                    </div>
+                    <div class="form-field">
+                        <input type="hidden"  name="propertyID"  id="propertyID" class="form-control" value="<?php echo $pID;?> ">
+                        <span class="error"></span>
                     </div>
                     <!-- date picker -->
 
@@ -319,6 +314,16 @@ if ($userType == 'TENANT') {
 <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/additional-methods.js"></script>
 <script src="js/calendar.js"></script>
+<script>
+
+    $('#add-event').click(function(){
+            var checkID = <?php echo "'".$pID."'";?>;
+            if(checkID == 0){
+                swal("Just a reminder", "To please select a property first to add an event");
+            }else{$('.event-modal-md').modal('show');}
+
+        });
+</script>
 
 
 </body>
