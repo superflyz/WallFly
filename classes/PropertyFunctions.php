@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . '/Database.php');
 
-class Chat
+class PropertyFunctions
 {
 
     public static function GetProperties($userName, $userType)

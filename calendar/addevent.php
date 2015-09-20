@@ -14,16 +14,18 @@ $eventTime = $_POST['timepicker1'];
 $eventInterval = $_POST['interval'];
 $description = $_POST['description'];
 $eventDate = $_POST['date'];
+$email = $_POST['email'];
 
 
-$addEvent = CalendarEvents::addEvent($pID,$eventName,$eventTime,$eventInterval,$description,$eventDate);
+$addEvent = CalendarEvents::addEvent($pID, $eventName, $eventTime, $eventInterval, $description, $eventDate, $email);
 
-if ($addEvent == true){
+if ($addEvent == true) {
     $_SESSION['eventAdded'] = "true";
     header('Location: calendar.php');
     exit();
 
-}else{$_SESSION['eventAdded'] = "false";
+} else {
+    $_SESSION['eventAdded'] = "false";
     header('Location: calendar.php');
     exit();
 }

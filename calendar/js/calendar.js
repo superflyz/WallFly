@@ -8,7 +8,6 @@ $(document).ready(function () {
     //$('#passwrd').val('');
 
 
-
     $('#setEvent').validate({ // initialize the plugin
         rules: {
             eventName: {
@@ -18,7 +17,7 @@ $(document).ready(function () {
             date: {
                 required: true
             },
-            description:{
+            description: {
                 maxlength: 100
             }
 
@@ -72,19 +71,3 @@ $('#box').keyup(function () {
 });
 
 
-//function openEveemtModal() {
-//    $('#setEvent').modal('show');
-//}
-//
-//function clearForm() {
-//    $('#usrname').val('');
-//    $('#psswrd').val('');
-//    $('#fname').val('');
-//    $('#lname').val('');
-//    $('#email').val('');
-//}
-//
-//function newPage() {
-//
-//    window.location = 'index.php';
-//}

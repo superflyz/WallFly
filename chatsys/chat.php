@@ -1,6 +1,6 @@
 <?php
 session_start();
-include(__DIR__ . "/../classes/chatfunctions.php");
+include(__DIR__ . "/../classes/PropertyFunctions.php");
 require_once(__DIR__ . '/../logincheck.php');
 
 //set up page variables
@@ -15,7 +15,7 @@ $pID = '';
 //set the propertyID from the $_SESSION['selectedChatProperty'] if set
 if (isset($_SESSION['selectedChatProperty'])) {
     $selectedProperty = $_SESSION['selectedChatProperty'];
-    $pID = Chat::GetPropertyID($userName, $userType, $selectedProperty);
+    $pID = PropertyFunctions::GetPropertyID($userName, $userType, $selectedProperty);
     unset($_SESSION['selectedChatProperty']);
 
 }
@@ -23,9 +23,9 @@ if (isset($_SESSION['selectedChatProperty'])) {
 //set pID if a tenant because only has one property to display
 if ($userType == 'TENANT') {
     $tenantArray = [];
-    $tenantArray = Chat::GetProperties($userName, $userType);
+    $tenantArray = PropertyFunctions::GetProperties($userName, $userType);
     $selectedProperty = $tenantArray[0];
-    $pID = Chat::GetPropertyID($userName, $userType, $selectedProperty);
+    $pID = PropertyFunctions::GetPropertyID($userName, $userType, $selectedProperty);
 
 }
 
@@ -103,14 +103,14 @@ if ($userType == 'TENANT') {
 <audio id="audiotag1" src="../sounds/messageAlert.mp3" preload="auto"></audio>
 <!-- create address dropdown list only if agent or owner usertype -->
 <?php if (($userType == 'AGENT') || ($userType == 'OWNER')) {
-    $properties = Chat::GetProperties($userName, $userType);
+    $properties = PropertyFunctions::GetProperties($userName, $userType);
 
 
     //dropdown for property list
     echo '<div class="container">
 
             <div class="btn-group">
-                <a class="btn btn-primary dropdown-toggle show-properties selector" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property<span class="caret"></span></a>';
+                <a class="btn btn-primary dropdown-toggle show-properties selector" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property</a>';
 }
 
 ?>

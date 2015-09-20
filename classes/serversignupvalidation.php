@@ -1,5 +1,5 @@
 <?php
-include("securepassword.php");
+include("SecurePassword.php");
 
 class Validator
 {
@@ -145,7 +145,7 @@ class SignUpValidUser
                 echo "<script type='text/javascript'>";
                 echo 'sweetAlert("Sorry", "That username already exists", "error");';
 //                echo "alert('Sorry that username already exists');";
-              echo "openModal()";
+                echo "openModal()";
                 echo "</script>";
                 exit();
             } elseif ($statement2->rowCount() > 0) {

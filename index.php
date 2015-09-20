@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 require_once(__DIR__ . '/classes/Database.php');
-require_once(__DIR__ . '/classes/serversignupvalidation.php');
+require_once(__DIR__ . '/classes/ServerSignUpValidation.php');
 if (!isset($_SESSION['loginError'])) {
 
     $_SESSION['loginError'] = "";
