@@ -8,6 +8,17 @@ if (!isset($_SESSION['loginError'])) {
     $_SESSION['loginError'] = "";
 }
 
+
+
+
+if (!isset($_SESSION['newSignUp'])) {
+
+        $_SESSION['newSignUp'] = "";
+}
+
+
+
+
 $validForm = true;
 $returnedValidation = ["", "", "", "", "", "", "", "", "", "", "", ""];
 
@@ -40,6 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <title>Welcome To WallFly</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -48,6 +61,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Custom Fonts -->
     <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+
+    <script>
+        $( document ).ready(function() {
+            var user = <?php echo "'".$_SESSION['newSignUp']."'"?>;
+            if(user == 'true'){
+
+                swal("Success", "You have signed up to Wallfly", "success");
+            }
+            var user = "";
+            <?php unset($_SESSION['newSignUp']);?>
+
+            var error = <?php echo "'".$_SESSION['loginError']."'"?>;
+            if(error != ""){
+                openLoginModal();
+            }
+
+        });
+    </script>
 
 </head>
 
@@ -199,7 +232,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <!-- Login & sign up forms -->
-<div class="modal modal-vcenter fade sign-up-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+<div id="signup" class="modal modal-vcenter fade sign-up-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header text-left">
@@ -270,7 +303,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 
-<div class="modal modal-vcenter fade login-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+<div id="loginmodal" class="modal modal-vcenter fade login-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
@@ -288,7 +321,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label for="password">Password</label>
                         <input name="password" type="password" id="password" class="form-control">
                     </div>
-                    <span class="error"><?php echo $_SESSION['loginError']; ?></span>
+                    <span class="error"><?php echo $_SESSION['loginError']; unset($_SESSION['loginError']);?></span>
 
                     <div class="form-field">
                         <button type="submit" name="Submit" value="Login" id="login_btn"

@@ -47,6 +47,10 @@ function openModal() {
     $('#signup').modal('show');
 }
 
+function openLoginModal() {
+    $('#loginmodal').modal('show');
+}
+
 function clearForm() {
     $('#usrname').val('');
     $('#psswrd').val('');
