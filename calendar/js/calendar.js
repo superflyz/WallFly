@@ -50,9 +50,10 @@ $(document).ready(function () {
                 selected: propertyAdd
             },
             success: function (result) {
-
-                $("#propertyHolder").hide();
-                window.location.reload();
+                setTimeout(function () {
+                    $("#propertyHolder").hide();
+                    window.location.reload();
+                }, 2000);
             }
         });
     });

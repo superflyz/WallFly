@@ -71,15 +71,17 @@ if ($userType == 'TENANT') {
                 var propertyAdd = $(this).text();
 
                 jQuery.ajax({
-                    url: '../chatsys/setselectedchatpropery.php',
+                    url: 'setselectedchatpropery.php',
                     type: "POST",
                     data: {
                         selected: propertyAdd
                     },
                     success: function (result) {
+                        setTimeout(function () {
+                            $("#propertyHolder").hide();
+                            window.location.reload();
+                        }, 2000);
 
-                        $("#propertyHolder").hide();
-                        window.location.reload();
                     }
                 });
             });
@@ -159,23 +161,7 @@ if ($userType == 'TENANT') {
 </div>
 <!-- End Chatbox -->
 <!-- set $_SESSION['selectedChatProperty'] from dropdown then refresh page -->
-<script type="text/javascript">
-    $('#propertieslist li').on('click', function () {
-        var propertyAdd = $(this).text();
-        jQuery.ajax({
-            url: 'setselectedchatpropery.php',
-            type: "POST",
-            data: {
-                selected: propertyAdd
-            },
-            success: function (result) {
-                window.location.reload();
-            }
-        });
-    });
 
-
-</script>
 <script type="text/javascript">
     function play_single_sound() {
         document.getElementById('audiotag1').play();

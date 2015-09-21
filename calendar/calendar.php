@@ -93,7 +93,6 @@ if ($userType == 'TENANT') {
     }
 
     ?>
-    <div id="reducedPadding">
         <div id="propertyHolder">
             <input placeholder="   type to search..." id="box" type="text"/>
             <ul class="navList ">
@@ -103,13 +102,18 @@ if ($userType == 'TENANT') {
                 } ?>
             </ul>
         </div>
-    </div>
+
 
     <?php if (($userType == 'AGENT') || ($userType == 'OWNER')) {
         echo '</div>';
-        echo '<div class="btn-group divRight">';
-        echo '<a id="add-event" class="btn btn-primary dropdown-toggle add-event no-modal" data-toggle="modal"  href="#">Add Calander Event</a>';
-        echo '</div></div>';
+        echo '<div class="btn-group divLeft">';
+        echo '<a id="add-event" class="btn btn-primary dropdown-toggle add-event" data-toggle="modal"  href="#">Add Calander Event</a>';
+        echo '</div>';
+
+        echo '<div class="btn-group divLeft">';
+        echo '<a id="select-event" class="btn btn-primary" data-toggle="modal"  href="#">Edit Calander Event</a>';
+        echo '</div>';
+        echo '</div>';
     } ?>
     <!--start calendar-->
     <section id="calender">
@@ -262,6 +266,31 @@ if ($userType == 'TENANT') {
         </div>
     </div>
     <!-- end add event modal-->
+
+    <!--select event modal-->
+    <div class="modal modal-vcenter fade select-modal-md" tabindex="-1" role="dialog"
+         aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <p class="modal-title flabel">Select Event</p>
+                </div>
+
+                <div id="select-modal-body" class="modal-body">
+                    <form id="selectEvent" name="addEvent" method="post" action="addevent.php">
+                        <div id="dynamic-edit" class="clearfix">
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end add event modal-->
+
+
     <script>
         jQuery(document).ready(function ($) {
 
@@ -281,6 +310,34 @@ if ($userType == 'TENANT') {
                     swal("Just a reminder", "To please select a property first to add an event");
                 } else {
                     $('.event-modal-md').modal('show');
+                }
+
+            });
+
+            $('#select-event').click(function () {
+                var checkID = <?php echo "'".$pID."'";?>;
+                if (checkID == 0) {
+                    swal("Just a reminder", "To please select a property first to add an event");
+                } else {
+
+                    jQuery.ajax({
+                        url: 'getPropertyEvents.php',
+                        type: "POST",
+                        data: {
+                            selected: checkID
+                        },
+                        success: function (result) {
+                            $("#dynamic-edit").empty();
+                            $("#dynamic-edit").append(result);
+                            $('.select-modal-md').modal('show');
+
+
+
+
+
+                        }
+                    });
+
                 }
 
             });

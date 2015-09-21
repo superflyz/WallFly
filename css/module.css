@@ -84,7 +84,7 @@ button.btn-primary, a.btn-primary {
 button.btn-primary, a.btn-primary {
 
     border: 1px solid #5AD663 !important;
-    padding: 12px 80px;
+    padding: 12px 65px;
     margin-bottom: 12px;
     border-radius: 4px;
     background-color: #5AD663;
@@ -148,8 +148,9 @@ ul, ol {
 }
 
 .divLeft {
+
     float: left;
-    width: 50%;
+    /*width: 50%;*/
 
 }
 
@@ -157,6 +158,11 @@ ul, ol {
     float: right;
 
 }
+
+
+
+
+
 
 .extend {
     margin-bottom: 100px;
@@ -181,8 +187,46 @@ ul, ol {
     padding: 14px 10px;
 }
 
+.selectStyle{
+
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+#selectInfo {
+    float:left;
+    display: inline-block;
+    width:75%;
+}
 
 
+#selectButtons{
+    margin-top: 50px;
+    display: inline-block;
+}
+
+#selectButtons .btn-sm{
+
+    padding: 15px 20px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+}
 /*start modal styling*/
 .modal-header {
     color: #FFF;
