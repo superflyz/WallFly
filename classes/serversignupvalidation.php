@@ -1,5 +1,5 @@
 <?php
-include("securepassword.php");
+include("SecurePassword.php");
 
 class Validator
 {
@@ -132,7 +132,8 @@ class SignUpValidUser
             $statement->bindParam(':userName', $userName);
             $statement2 = $DBH->prepare("SELECT email FROM user WHERE email=:email");
             $statement2->bindParam(':email', $email);
-
+            $statement->execute();
+            $statement2->execute();
 
             # setting the fetch mode
             $statement->setFetchMode(PDO::FETCH_OBJ);
@@ -142,14 +143,16 @@ class SignUpValidUser
             if ($statement->rowCount() > 0) {
 
                 echo "<script type='text/javascript'>";
-                echo "alert('Sorry that username already exists');";
+                echo 'sweetAlert("Sorry", "That username already exists", "error");';
+//                echo "alert('Sorry that username already exists');";
                 echo "openModal()";
                 echo "</script>";
                 exit();
             } elseif ($statement2->rowCount() > 0) {
 
                 echo "<script type='text/javascript'>";
-                echo "alert('Sorry that email is already registered');";
+                echo 'sweetAlert("Sorry", "That email is already registered", "error");';
+//                echo "alert('Sorry that email is already registered');";
                 echo "openModal()";
                 echo "</script>";
                 exit();
@@ -174,7 +177,8 @@ class SignUpValidUser
                 #clear the saved form
                 $_POST = array();
                 $userName = $password = $firstName = $lastName = $email = $userType = "";
-                header('Location: signupmessage.php');
+                $_SESSION[newSignUp] = 'true';
+                header('Location: index.php');
                 exit();
             }
 

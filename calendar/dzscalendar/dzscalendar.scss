@@ -9,6 +9,14 @@ box-sizing:border-box;
 -webkit-box-sizing:border-box; /* Safari */
 }
 
+/*
+ * Author: Digital Zoom Studio
+ * Website: http://digitalzoomstudio.net/
+ * Portfolio: http://codecanyon.net/user/ZoomIt/portfolio
+ *
+ * Version: 3.92
+ */
+
 
     $transition-property: margin-top;
     $transition-duration: 0.3s;
@@ -24,8 +32,6 @@ $mainclass : '.dzscalendar';
 }
 
 #{$mainclass} .calendar-controls{ position:relative;
-}
-#{$mainclass} .theMonths { position:relative;
 }
 /* --- estethic styling */
 
@@ -54,7 +60,6 @@ font-style: italic;  color:#aaa; margin-top:10px; }
   position:relative;
   width: 100%;
   height: 165px;
-  overflow-x: hidden;
   @include apply_transition($transition-property, $transition-duration, $transition-timing);
 
 
@@ -89,16 +94,20 @@ font-style: italic;  color:#aaa; margin-top:10px; }
 
   }
 
+  .week-day.tooltip-is-active{
+    z-index:55;
+  }
+
   .mon-row{
     > span{
       white-space:nowrap;
     }
   }
   .theMonths{
+    position: relative;
     width:100%;
     height:151px;
     margin-top:0;
-    overflow: hidden;
     > * {
       position:absolute; top:0; left:0; width: 100%;
     }
@@ -140,6 +149,10 @@ font-style: italic;  color:#aaa; margin-top:10px; }
   .label{
     color: #111;
   }
+}
+
+.dzscalendar.tooltip_transition-slide{
+  overflow: hidden;
 }
 
 .dzscalendar.tooltip_transition-showContent{
@@ -214,8 +227,40 @@ font-style: italic;  color:#aaa; margin-top:10px; }
     
     
     
-#{$mainclass} .slideDescription{ position:absolute; top:0; left:0; text-align:left; padding:10px;
-        @include box_sizing();
+.dzscalendar{
+  .slideDescription{
+
+
+    position:absolute; top:0; left:0; text-align:left; padding:10px;
+
+
+    opacity:0;
+    visibility: hidden;
+
+    $transition-property: opacity,visibility;
+    $transition-duration: 0.3s;
+    $transition-timing: ease-out;
+    @include apply_transition($transition-property, $transition-duration, $transition-timing);
+    @include box_sizing();
+
+    height:100%;
+    overflow: auto;
+  }
+
+
+  .slideDescription--inner{
+
+  }
+}
+.dzscalendar.description-opened{
+
+  .slideDescription{
+
+    opacity: 1;
+    visibility: visible;
+  }
+  .slideDescription--inner {
+  }
 }
 #{$mainclass} .slideDescription .desc-close-button{ position:absolute; top:10px; right:5px; text-align:center; padding:1px 7px; border:1px solid white; border-radius:20px;
 font-family: arial, serif; cursor:pointer;
@@ -228,35 +273,82 @@ $sel_tooltip : ".dzstooltip";
 
 
 
-    
-#{$mainclass} #{$sel_tooltip}{
-  position:absolute;
-  opacity:0;
-  z-index:576;
-  text-align:left;
-  @include apply_transition($transition-property, $transition-duration, $transition-timing);
 
-  .bg-div{
+.dzscalendar{
+  .dzstooltip{
 
-    background-position: center center;
-    background-size: cover;
+    position:absolute;
+    width:250px;
+    z-index:576;
+    text-align:left;
+    white-space: normal;
+    text-align: center;
+
+    .bg-div{
+
+      background-position: center center;
+      background-size: cover;
+    }
+
+    $transition-property: visibility, opacity;
+    $transition-duration: 0.3s;
+    $transition-timing: ease-out;
+    > .tooltip-close{
+      display: block;
+      text-align: center;
+      line-height: 1;
+
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      padding: 5px 8px;
+
+      text-indent: 1px;
+      font-family: "Helvetica", Courier, Arial, sans-serif;
+      font-weight: 300;
+      border-radius: 50%;
+
+      background-color: #efefef;
+      color: #777;
+
+      cursor: pointer;
+
+      visibility: hidden;
+      opacity: 0;
+      @include apply_transition($transition-property, $transition-duration, $transition-timing);
+    }
+  }
+
+  .dzstooltip:hover{
+    > .tooltip-close{
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .dzstooltip:after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  span.label{
+    font-weight:bold;
+  }
+
+
+  > div{
+    padding-bottom:10px;
   }
 }
-#{$sel_tooltip} span.label{
-    font-weight:bold;
-}
 
 
-
-#{$sel_tooltip} > div{
-    padding-bottom:10px;
-    }
 #{$sel_tooltip} > div > h5{
     font-size: 20px;
     font-weight:normal;
     margin-top:7px;
     margin-bottom:10px;
-    
+
     }
 
 #{$mainclass} .aux-transition-container{
@@ -339,7 +431,7 @@ $transition-timing: ease-out;
     }
   }
 }
-    
+
 $mainclass : '.dzscalendar.skin-other';
 #{$mainclass} .testimonial span { font-size: 1em;
     }
@@ -347,6 +439,19 @@ $mainclass : '.dzscalendar.skin-other';
 font-family: Courier New, Arial;
 font-style: italic;  color:#aaa; margin-top:0px; }
 
+
+.dzscalendar.skin-black{
+}
+
+.dzscalendar.skin-black{
+  height:auto;
+  .slideDescription{
+    span.label{
+      color: #FFFFFF;
+      font-weight: bold;
+    }
+  }
+}
 
 
 $mainclass : '.dzscalendar.skin-black';
@@ -476,7 +581,7 @@ $mainclass : '.dzscalendar.skin-aurora';
 */
 
 $mainclass : '.dzscalendar.skin-responsive';
-#{$mainclass}{ 
+#{$mainclass}{
     margin-top:15px;
     margin-bottom:20px;
     width:100%;
@@ -503,7 +608,7 @@ $mainclass : '.dzscalendar.skin-responsive';
     }
 #{$mainclass} .main-mon .other-months-date{
 }
-#{$mainclass} .past-date{ 
+#{$mainclass} .past-date{
 }
 #{$mainclass} .headerRow{
     }
@@ -511,10 +616,10 @@ $mainclass : '.dzscalendar.skin-responsive';
     }
 #{$mainclass} .mon-row{
     }
-#{$mainclass} .calendar-controls .arrow-left{ 
+#{$mainclass} .calendar-controls .arrow-left{
     left:35px;
 }
-#{$mainclass} .calendar-controls .arrow-right{ 
+#{$mainclass} .calendar-controls .arrow-right{
     right:25px;
 }
 
@@ -549,6 +654,24 @@ $mainclass : '.dzscalendar.skin-responsive-galileo';
   @include apply_transition($transition-property, $transition-duration, $transition-timing);
 
   overflow: visible;
+
+  .main-mon
+  {
+    .mon-body{
+      .week-day{
+        width: 14%;
+        width: calc(100% / 7);
+        height: 50px;
+        border-left:1px solid rgba(0,0,0,.1);
+        vertical-align: bottom;
+        text-align: right;
+        font-size: 14px;
+        font-size: 0.8rem;
+        @include box_sizing();
+        position: relative;
+      }
+    }
+  }
 }
 
 #{$mainclass} .calendar-controls{
@@ -600,19 +723,8 @@ $mainclass : '.dzscalendar.skin-responsive-galileo';
 #{$mainclass} .main-mon .mon-body .mon-row:first-child{
   border-top:0px solid rgba(0,0,0,.1);
 }
-#{$mainclass} .main-mon .mon-body .week-day{
-  width: 14%;
-  height: 50px;
-  border-left:1px solid rgba(0,0,0,.1);
-  vertical-align: bottom;
-  text-align: right;
-  font-size: 14px;
-  font-size: 0.8rem;
-  @include box_sizing();
-  position: relative;
-}
 
-#{$mainclass} .main-mon .week-day > span{
+#{$mainclass} .main-mon .week-day > span:not(.dzstooltip){
   position: absolute;
   right:4px;
   bottom:0;
@@ -680,6 +792,7 @@ $mainclass : '.dzscalendar.skin-responsive-galileo';
   background-color: #eeeeee;
   padding: 20px;
   font-family: "Lato", "Open Sans", arial;
+  height: auto;
 
   .calendar-controls{
     margin-bottom: 20px;
@@ -772,6 +885,7 @@ $mainclass : '.dzscalendar.skin-responsive-galileo';
 .dzscalendar.skin-lions-square{
   background-color: #eeeeee;
   padding: 20px;
+  height: auto;
   font-family: "Lato", "Open Sans", arial;
   .mon-head{
 

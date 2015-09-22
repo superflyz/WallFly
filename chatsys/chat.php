@@ -1,6 +1,6 @@
 <?php
 session_start();
-include(__DIR__ . "/../classes/chatfunctions.php");
+include(__DIR__ . "/../classes/PropertyFunctions.php");
 require_once(__DIR__ . '/../logincheck.php');
 
 //set up page variables
@@ -15,7 +15,7 @@ $pID = '';
 //set the propertyID from the $_SESSION['selectedChatProperty'] if set
 if (isset($_SESSION['selectedChatProperty'])) {
     $selectedProperty = $_SESSION['selectedChatProperty'];
-    $pID = Chat::GetPropertyID($userName, $userType, $selectedProperty);
+    $pID = PropertyFunctions::GetPropertyID($userName, $userType, $selectedProperty);
     unset($_SESSION['selectedChatProperty']);
 
 }
@@ -23,9 +23,9 @@ if (isset($_SESSION['selectedChatProperty'])) {
 //set pID if a tenant because only has one property to display
 if ($userType == 'TENANT') {
     $tenantArray = [];
-    $tenantArray = Chat::GetProperties($userName, $userType);
+    $tenantArray = PropertyFunctions::GetProperties($userName, $userType);
     $selectedProperty = $tenantArray[0];
-    $pID = Chat::GetPropertyID($userName, $userType, $selectedProperty);
+    $pID = PropertyFunctions::GetPropertyID($userName, $userType, $selectedProperty);
 
 }
 
@@ -43,17 +43,23 @@ if ($userType == 'TENANT') {
     <link rel="stylesheet" type="text/css" href="../css/module.css">
 
     <script src="../js/chat.js"></script>
+
     <script type="text/javascript">
         // assign current username to jquery var and use it in SendMessage function
         var user = <?php echo "'".$_SESSION['username']."'";?>;
         var pID =  <?php echo "'".$pID."'";?>;
+        var type = <?php echo "'".$userType."'";?>;
 
         $(document).ready(function () {
+
             chatLoad(pID, user);
             $("#btn-send").click(function () {
-                SendMessage(user, pID);
+
+                SendMessage(user, pID, type);
+
 
             });
+
 
             $("#propertyHolder").hide();
             $(".show-properties").click(function () {
@@ -65,15 +71,17 @@ if ($userType == 'TENANT') {
                 var propertyAdd = $(this).text();
 
                 jQuery.ajax({
-                    url: '../chatsys/setselectedchatpropery.php',
+                    url: 'setselectedchatpropery.php',
                     type: "POST",
                     data: {
                         selected: propertyAdd
                     },
                     success: function (result) {
+                        setTimeout(function () {
+                            $("#propertyHolder").hide();
+                            window.location.reload();
+                        }, 2000);
 
-                        $("#propertyHolder").hide();
-                        window.location.reload();
                     }
                 });
             });
@@ -94,26 +102,27 @@ if ($userType == 'TENANT') {
     </script>
 </head>
 <body>
+<audio id="audiotag1" src="../sounds/messageAlert.mp3" preload="auto"></audio>
 <!-- create address dropdown list only if agent or owner usertype -->
 <?php if (($userType == 'AGENT') || ($userType == 'OWNER')) {
-    $properties = Chat::GetProperties($userName, $userType);
+    $properties = PropertyFunctions::GetProperties($userName, $userType);
 
 
     //dropdown for property list
     echo '<div class="container">
 
             <div class="btn-group">
-                <a class="btn btn-primary dropdown-toggle show-properties" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property<span class="caret"></span></a>';
+                <a class="btn btn-primary dropdown-toggle show-properties selector" data-toggle="dropdown" href="#" style="margin-left: 15px;">Select a Property</a>';
 }
 
 ?>
 <div id="reducedPadding" class="container">
     <div id="propertyHolder">
-        <input placeholder="   type to search..." id="box" type="text"/>
+        <input placeholder="type to search..." id="box" type="text"/>
         <ul class="navList ">
             <?php
             foreach ($properties as $propertyAddress) {
-                echo '<li><a href="#">' . $propertyAddress . '</a></li>';
+                echo '<li><a href="">' . $propertyAddress . '</a></li>';
             } ?>
         </ul>
     </div>
@@ -131,7 +140,7 @@ if ($userType == 'TENANT') {
                     }; ?>
                 </div>
                 <div id="chatbox" class="panel-body">
-                    <ul id="chatlist" class="chat" style="text-align:left">
+                    <ul id="chatlist">
 
                     </ul>
                 </div>
@@ -139,8 +148,7 @@ if ($userType == 'TENANT') {
             <div class="panel-footer">
                 <div class="input-group">
                     <textarea id="btn-input" type="text" class="form-control input-sm"
-                              placeholder="Type your message here..."/>
-                    </textarea>
+                              placeholder="Type your message here..."/></textarea>
                         <span class="input-group-btn">
                             <button class="btn btn-success btn-sm" id="btn-send">Send</button>
                         </span>
@@ -153,21 +161,11 @@ if ($userType == 'TENANT') {
 </div>
 <!-- End Chatbox -->
 <!-- set $_SESSION['selectedChatProperty'] from dropdown then refresh page -->
-<script type="text/javascript">
-    $('#propertieslist li').on('click', function () {
-        var propertyAdd = $(this).text();
-        jQuery.ajax({
-            url: 'setselectedchatpropery.php',
-            type: "POST",
-            data: {
-                selected: propertyAdd
-            },
-            success: function (result) {
 
-                window.location.reload();
-            }
-        });
-    });
+<script type="text/javascript">
+    function play_single_sound() {
+        document.getElementById('audiotag1').play();
+    }
 </script>
 </body>
 </html>

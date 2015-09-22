@@ -1,11 +1,15 @@
+/*
+ * Author: Digital Zoom Studio
+ * Website: http://digitalzoomstudio.net/
+ * Portfolio: http://codecanyon.net/user/ZoomIt/portfolio
+ *
+ * Version: 3.92
+ */
 /* --- functional styling */
 .dzscalendar .events {
   display: none; }
 
 .dzscalendar .calendar-controls {
-  position: relative; }
-
-.dzscalendar .theMonths {
   position: relative; }
 
 /* --- estethic styling */
@@ -35,7 +39,6 @@
   position: relative;
   width: 100%;
   height: 165px;
-  overflow-x: hidden;
   transition-property: height;
   transition-duration: 0.3s;
   transition-timing-function: ease-out;
@@ -86,13 +89,15 @@
       position: relative; }
     .dzscalendar .week-day .the-event-content {
       display: none; }
+  .dzscalendar .week-day.tooltip-is-active {
+    z-index: 55; }
   .dzscalendar .mon-row > span {
     white-space: nowrap; }
   .dzscalendar .theMonths {
+    position: relative;
     width: 100%;
     height: 151px;
-    margin-top: 0;
-    overflow: hidden; }
+    margin-top: 0; }
     .dzscalendar .theMonths > * {
       position: absolute;
       top: 0;
@@ -119,6 +124,9 @@
     font-weight: bold; }
   .dzscalendar .label {
     color: #111; }
+
+.dzscalendar.tooltip_transition-slide {
+  overflow: hidden; }
 
 .dzscalendar.tooltip_transition-showContent .week-day .the-event-content {
   visibility: hidden;
@@ -208,11 +216,34 @@
   left: 0;
   text-align: left;
   padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition-property: opacity, visibility;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  -moz-transition-property: opacity, visibility;
+  -moz-transition-duration: 0.3s;
+  -moz-transition-timing-function: ease-out;
+  -webkit-transition-property: opacity, visibility;
+  -webkit-transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  -o-transition-property: opacity, visibility;
+  -o-transition-duration: 0.3s;
+  -o-transition-timing-function: ease-out;
+  -ms-transition-property: opacity, visibility;
+  -ms-transition-duration: 0.3s;
+  -ms-transition-timing-function: ease-out;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   /* Firefox */
   -webkit-box-sizing: border-box;
-  /* Safari */ }
+  /* Safari */
+  height: 100%;
+  overflow: auto; }
+
+.dzscalendar.description-opened .slideDescription {
+  opacity: 1;
+  visibility: visible; }
 
 .dzscalendar .slideDescription .desc-close-button {
   position: absolute;
@@ -229,32 +260,56 @@
 */
 .dzscalendar .dzstooltip {
   position: absolute;
-  opacity: 0;
+  width: 250px;
   z-index: 576;
   text-align: left;
-  transition-property: margin-top;
-  transition-duration: 0.3s;
-  transition-timing-function: ease-out;
-  -moz-transition-property: margin-top;
-  -moz-transition-duration: 0.3s;
-  -moz-transition-timing-function: ease-out;
-  -webkit-transition-property: margin-top;
-  -webkit-transition-duration: 0.3s;
-  -webkit-transition-timing-function: ease-out;
-  -o-transition-property: margin-top;
-  -o-transition-duration: 0.3s;
-  -o-transition-timing-function: ease-out;
-  -ms-transition-property: margin-top;
-  -ms-transition-duration: 0.3s;
-  -ms-transition-timing-function: ease-out; }
+  white-space: normal;
+  text-align: center; }
   .dzscalendar .dzstooltip .bg-div {
     background-position: center center;
     background-size: cover; }
-
-.dzstooltip span.label {
+  .dzscalendar .dzstooltip > .tooltip-close {
+    display: block;
+    text-align: center;
+    line-height: 1;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 8px;
+    text-indent: 1px;
+    font-family: "Helvetica", Courier, Arial, sans-serif;
+    font-weight: 300;
+    border-radius: 50%;
+    background-color: #efefef;
+    color: #777;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition-property: visibility, opacity;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+    -moz-transition-property: visibility, opacity;
+    -moz-transition-duration: 0.3s;
+    -moz-transition-timing-function: ease-out;
+    -webkit-transition-property: visibility, opacity;
+    -webkit-transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    -o-transition-property: visibility, opacity;
+    -o-transition-duration: 0.3s;
+    -o-transition-timing-function: ease-out;
+    -ms-transition-property: visibility, opacity;
+    -ms-transition-duration: 0.3s;
+    -ms-transition-timing-function: ease-out; }
+.dzscalendar .dzstooltip:hover > .tooltip-close {
+  opacity: 1;
+  visibility: visible; }
+.dzscalendar .dzstooltip:after {
+  content: "";
+  display: block;
+  clear: both; }
+.dzscalendar span.label {
   font-weight: bold; }
-
-.dzstooltip > div {
+.dzscalendar > div {
   padding-bottom: 10px; }
 
 .dzstooltip > div > h5 {
@@ -382,6 +437,12 @@
   font-style: italic;
   color: #aaa;
   margin-top: 0px; }
+
+.dzscalendar.skin-black {
+  height: auto; }
+  .dzscalendar.skin-black .slideDescription span.label {
+    color: #FFFFFF;
+    font-weight: bold; }
 
 .dzscalendar.skin-black .testimonial span {
   font-size: 1em; }
@@ -555,6 +616,21 @@
   -ms-transition-duration: 0.8s;
   -ms-transition-timing-function: ease-out;
   overflow: visible; }
+  .dzscalendar.skin-responsive-galileo .main-mon .mon-body .week-day {
+    width: 14%;
+    width: calc(100% / 7);
+    height: 50px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    vertical-align: bottom;
+    text-align: right;
+    font-size: 14px;
+    font-size: 0.8rem;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /* Firefox */
+    -webkit-box-sizing: border-box;
+    /* Safari */
+    position: relative; }
 
 .dzscalendar.skin-responsive-galileo .calendar-controls {
   margin-bottom: 8px; }
@@ -602,22 +678,7 @@
 .dzscalendar.skin-responsive-galileo .main-mon .mon-body .mon-row:first-child {
   border-top: 0px solid rgba(0, 0, 0, 0.1); }
 
-.dzscalendar.skin-responsive-galileo .main-mon .mon-body .week-day {
-  width: 14%;
-  height: 50px;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-  vertical-align: bottom;
-  text-align: right;
-  font-size: 14px;
-  font-size: 0.8rem;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  /* Firefox */
-  -webkit-box-sizing: border-box;
-  /* Safari */
-  position: relative; }
-
-.dzscalendar.skin-responsive-galileo .main-mon .week-day > span {
+.dzscalendar.skin-responsive-galileo .main-mon .week-day > span:not(.dzstooltip) {
   position: absolute;
   right: 4px;
   bottom: 0; }
@@ -690,7 +751,8 @@
 .dzscalendar.skin-lions {
   background-color: #eeeeee;
   padding: 20px;
-  font-family: "Lato", "Open Sans", arial; }
+  font-family: "Lato", "Open Sans", arial;
+  height: auto; }
   .dzscalendar.skin-lions .calendar-controls {
     margin-bottom: 20px; }
     .dzscalendar.skin-lions .calendar-controls .arrow-left, .dzscalendar.skin-lions .calendar-controls .arrow-right {
@@ -746,6 +808,7 @@
 .dzscalendar.skin-lions-square {
   background-color: #eeeeee;
   padding: 20px;
+  height: auto;
   font-family: "Lato", "Open Sans", arial; }
   .dzscalendar.skin-lions-square .mon-head .week-day {
     padding: 15px 0; }

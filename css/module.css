@@ -1,8 +1,17 @@
 #chatbox {
-
+    postion: relative;
     height: 250px;
-
+    width: auto;
+    word-wrap: break-word;
     overflow: auto;
+}
+
+#chatbox ul li {
+    width: 300px;
+}
+
+#chatlist {
+    text-align: left;
 }
 
 .panel-primary > .panel-heading {
@@ -60,7 +69,7 @@ button.btn-primary, a.btn-primary {
     border-top-color: #333;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary, button.btn-primary:hover, a.btn-primary:hover {
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:Visited, .btn-primary.active, .open .dropdown-toggle.btn-primary, button.btn-primary:hover, a.btn-primary:hover {
     color: #5AD663;
     background-color: #FFFFFF;
 
@@ -75,6 +84,15 @@ button.btn-primary, a.btn-primary {
 button.btn-primary, a.btn-primary {
 
     border: 1px solid #5AD663 !important;
+    padding: 12px 65px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    background-color: #5AD663;
+    border: 2px solid #5AD663;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+    width: auto;
 }
 
 .ui-a-text {
@@ -129,13 +147,10 @@ ul, ol {
     z-index: 5;
 }
 
-#chatlist {
-    width: 75%;
-}
-
 .divLeft {
+
     float: left;
-    width: 50%;
+    /*width: 50%;*/
 
 }
 
@@ -144,6 +159,74 @@ ul, ol {
 
 }
 
+
+
+
+
+
+.extend {
+    margin-bottom: 100px;
+}
+
+.dzscalendar .dzstooltip {
+    font-size: 0.75em;
+}
+
+.dzstooltip.skin-whiteheading .tooltip-heading {
+
+    font-size: 1.5em;
+}
+
+.dzscalendar span.label {
+
+    font-size: 1.125em;
+}
+
+#btn-send {
+
+    padding: 14px 10px;
+}
+
+.selectStyle{
+
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+#selectInfo {
+    float:left;
+    display: inline-block;
+    width:75%;
+}
+
+
+#selectButtons{
+    margin-top: 50px;
+    display: inline-block;
+}
+
+#selectButtons .btn-sm{
+
+    padding: 15px 20px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+}
 /*start modal styling*/
 .modal-header {
     color: #FFF;
@@ -158,20 +241,21 @@ ul, ol {
     background: #5AD663 none repeat scroll 0% 0%;
 }
 
-.form-field input {
+.form-field input, .form-field select {
     border: 1px solid #333;
     outline: 0px none;
     padding: 14px 6px 10px;
     font-size: 14px;
     box-shadow: none;
     height: 100%;
+    border-radius: 4px;
 }
 
 .form-control {
     margin-bottom: 10px;
 }
 
-.form-field input:focus {
+.form-field input:focus, .form-field select:focus {
     border: 2px solid #5AD663;
     outline: 0px none;
     box-shadow: none;
@@ -184,8 +268,6 @@ ul, ol {
     margin: 2px 0px 0px 3px;
     line-height: 1.42857;
 }
-
-
 
 .close {
     color: #FFF;
@@ -203,8 +285,7 @@ ul, ol {
     padding: 12px 6px 8px;
     font-size: 16px;
     font-weight: 600;
-    width: 20%;
-    min-width: 100px;
+    min-width: 100%;
 }
 
 body {
@@ -219,5 +300,25 @@ body {
     cursor: pointer;
     opacity: 1;
 }
+
+input.form-control.error {
+    border: 2px solid #ef3719;
+}
+
+.error {
+    color: #ef3719;
+}
+
+.event-receiver {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 1);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    padding: 13.5px 10px;
+    border-radius: 5px;
+    color: #555;
+}
+
 /*end modal styling*/
 

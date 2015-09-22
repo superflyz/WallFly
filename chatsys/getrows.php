@@ -1,10 +1,6 @@
 <?php
-session_start();
 require_once(__DIR__ . '/../classes/Database.php');
-
-$pID = $_POST['pID'];
-
-//initialise Database Handler
+$pID = $_POST['propertyID'];
 try {
     $DBH = Database::getInstance();
     $DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -15,25 +11,23 @@ try {
     exit();
 }
 
-//return rows related to the property ID in json string
 try {
-    $chatArray = [];
-    $statement = $DBH->prepare("SELECT * FROM chat WHERE propertyID = :pID ORDER BY chat_id ASC ");
-    $statement->bindParam(':pID', $pID);
-    $statement->execute();
-    while ($row = $statement->fetch(PDO::FETCH_OBJ)) {
-        $chatArray[] = $row;
-    }
-    echo json_encode($chatArray);
-    #close db connection
+
+
+    $result = $DBH->prepare("SELECT * FROM chat WHERE propertyID = :pID");
+    $result->bindParam(':pID', $pID);
+    $result->execute();
+    $count = $result->rowCount();
+
+    echo $count;
     $DBH = NULL;
     exit();
 
-
 } catch (PDOException $e) {
-    echo "Unable to get messages";
+    echo "Unable to send message";
     file_put_contents(__DIR__ . '/../Log/PDOErrorLog.txt', $e->getMessage(), FILE_APPEND);
     exit();
 }
+echo $rowCount;
 
-
+?>
