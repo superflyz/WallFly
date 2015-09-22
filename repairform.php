@@ -10,7 +10,7 @@ $username = $_SESSION['username'];
 
 $fileName = $_FILES['repair_image']['name'];
 //var_dump($_POST);
-$uploadDir = '/img/repair/';
+$uploadDir ='img/repair/';
 $target_file = $uploadDir . basename($fileName);
 echo $target_file;
 if ($_FILES['repair_image']['size'] > 0) {

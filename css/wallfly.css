@@ -1140,3 +1140,25 @@ https://groups.google.com/forum/#!topic/twitter-bootstrap-stackoverflow/0Aqzs5s_
 #dfooter p .diff-font {
     font-family: "Diavlo Light"; 
 }
+
+
+#repair{
+    padding: 1%;
+    margin: 15px 0px 60px 0px;
+    background-color: #f0f0f0;
+ 
+    
+}
+
+#repairs h1{
+    text-align: center;
+}
+
+th{
+    font-size: 20px;
+}
+
+td p{
+    font-size: 20px;
+    font-family: "century gothic";
+}

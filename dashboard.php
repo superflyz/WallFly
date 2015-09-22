@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -146,8 +147,7 @@ session_start();
                         <object class="iiframe" data="paymentsys/payment.php" type="text/html"></object>
                     </div>
                     <div class="pill-pane fade" id="repairs">
-                        <object class="iiframe" data="">
-                        </object>
+                        <object class="iiframe" data="repair_history.php" type="text/html"></object>
                     </div>
                 </div>
             </div>
