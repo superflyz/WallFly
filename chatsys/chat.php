@@ -77,10 +77,10 @@ if ($userType == 'TENANT') {
                         selected: propertyAdd
                     },
                     success: function (result) {
-                        setTimeout(function () {
-                            $("#propertyHolder").hide();
-                            window.location.reload();
-                        }, 2000);
+
+                        $("#propertyHolder").hide();
+                        window.location.reload();
+
 
                     }
                 });
