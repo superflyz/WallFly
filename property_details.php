@@ -228,7 +228,28 @@ $result = RepairDetailsRetrieval::retrieve();
             echo "<div class='tabpage' id='tabpage_3'>";
             echo "<h2>Repair Request</h2>";
             ?>
-            <form name='repair_request_form' enctype="multipart/form-data" method="post" action="repairform.php">
+        
+            <script>
+                function validateForm() {
+                    var fname = document.forms["repair_request_form"]["first_name"].value;
+                    var lname = document.forms["repair_request_form"]["last_name"].value;
+                    var subject = document.forms["repair_request_form"]["subject"].value;
+                    var message = document.forms["repair_request_form"]["request"].value;
+                    if (fname == null || fname == "") {
+                        alert("First Name must be filled out");
+                        return false;
+                    }else if (subject == null || subject == "") {
+                        alert("Subject must be filled out");
+                        return false;
+                    }else if (message == null || message == "") {
+                        alert("Request must be filled out");
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
+            </script>
+            <form name='repair_request_form' enctype="multipart/form-data" method="post" onsubmit="return validateForm()" action="repairform.php">
                 <table width="70%">
                     <tr>
                         <td valign="top" width="20%">
@@ -242,7 +263,7 @@ $result = RepairDetailsRetrieval::retrieve();
 
                     <tr>
                         <td valign="top">
-                            <label for="last_name">Last Name *</label>
+                            <label for="last_name">Last Name</label>
                         </td>
                         <td valign="top">
                             <input class="form-control" type="text" name="last_name" maxlength="50" size="30"
@@ -252,7 +273,7 @@ $result = RepairDetailsRetrieval::retrieve();
 
                     <tr>
                         <td valign="top">
-                            <label for="subject">Subject </label>
+                            <label for="subject">Subject *</label>
                         </td>
                         <td valign="top">
                             <input class="form-control" type="text" name="subject" maxlength="30" size="30"
@@ -285,7 +306,9 @@ $result = RepairDetailsRetrieval::retrieve();
 
                     <tr style="margin-top: 20px;">
                         <td style="text-align:right" colspan="2">
-                            <button class="btn btn-success btn-sm" type="submit" name="send_email">Request</button>
+                            
+                            <button class="btn btn-success btn-sm" type="submit"  name="send_email">Request</button>
+                            </script>
                             &nbsp; <input class="btn btn-default btn-sm" type="reset" value="Reset">
                         </td>
                     </tr>
@@ -729,5 +752,25 @@ $result = RepairDetailsRetrieval::retrieve();
         <li style="display:inline; padding:25px;"><a href="#">Report an Issue</li>
     </ul>
 </div>
-</body>
+    
+    <?php if (isset($_GET['success'])): ?>
+    <script>
+    alert('Your repair request has been made!');
+    document.querySelector('#tabHeader_3').click();
+    </script>
+    <?php elseif (isset($_GET['error'])): ?>
+    <script>
+    alert('Something went wrong, please try again later!');
+    </script>
+    <?php elseif (isset($_GET['approve'])): ?>
+    <script>
+    alert('Request Approved');
+    </script>
+    <?php elseif (isset($_GET['deny'])): ?>
+    <script>
+    alert('Request Denied');
+    </script>
+    <?php endif ?>
+
+    </body>
 </html>

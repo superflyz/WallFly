@@ -67,6 +67,7 @@ if ($_FILES['repair_image']['size'] > 0) {
 
 }
 //storing the deatils of the user while they make requests
+
 $firstname = $_POST['first_name'];
 $lastname = $_POST['last_name'];
 $subject = $_POST['subject'];
@@ -92,7 +93,7 @@ try {
     $result = $STH->fetch(PDO::FETCH_ASSOC);
     $userdatabase_id = $result['user_id'];
 
-    $statement = $DBH->prepare("INSERT INTO repairs(date_of_request, user_id, property_id, first_name, last_name,                   subject, request, approval, img_path)
+    $statement = $DBH->prepare("INSERT INTO repairs(date_of_request, user_id, property_id, first_name,                  last_name, subject, request, approval, img_path)
     VALUES (:date_of_request, :user_id, :property_id, :first_name, :last_name, :subject, :request, :approval,                       :img_path)");
     $result = $statement->execute(array(
         "date_of_request" => $date,
@@ -107,10 +108,16 @@ try {
     ));
     #close db connection 
     $DBH = NULL;
+
+    header("Location: property_details.php?id=$property_id&success=1");
     exit();
 
 } catch (PDOException $e) {
     echo "Unable to send message";
     echo $e->getMessage();
+    header("Location: property_details.php?id=$property_id&error=1");
     exit();
 }
+
+
+?>

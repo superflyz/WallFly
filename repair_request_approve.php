@@ -26,6 +26,8 @@ try{
 
     #close db connection 
     $DBH = NULL;
+    header("Location: property_details.php?id=$property_id&approve=1");
+    exit();
 
 
 }catch(PDOException $e) {
