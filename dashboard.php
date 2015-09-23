@@ -93,7 +93,7 @@ session_start();
                                     <section id="dash-links">
                                         <div class="container-fluid">
                                             <div class="row text-center">
-                                                <div class="col-md-4 col-sm-6">
+                                                <div data-info='calendar/calendar.php' class="col-md-4 col-sm-6">
                                                     <a href="#calendar" data-toggle="pill">
                                                         <div class="dash-link">
                                                             <span class="icons">
@@ -104,7 +104,7 @@ session_start();
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <div class="col-md-4 col-sm-6">
+                                                <div data-info='properties.php' class="col-md-4 col-sm-6">
                                                     <a href="#properties" data-toggle="pill">
                                                         <div class="dash-link">
                                                             <span class="icons">
@@ -115,7 +115,7 @@ session_start();
                                                         </div>
                                                     </a>
                                                 </div>
-                                                <div class="col-md-4 col-sm-6">
+                                                <div data-info='chatsys/chat.php' class="col-md-4 col-sm-6">
                                                     <a href="#messages" data-toggle="pill">
                                                         <div class="dash-link">
                                                             <span class="icons">
