@@ -35,7 +35,7 @@ session_start();
                         <li data-info='calendar/calendar.php'><a href="#calendar" data-toggle="pill">Calendar<i class="fa fa-calendar pull-right"></i></a></li>
                         <li data-info='chatsys/chat.php'><a href="#messages" data-toggle="pill">Messages<i class="fa fa-comments-o pull-right"></i></a></li>
                         <li data-info='paymentsys/payment.php'><a href="#payment" data-toggle="pill">Payment<i class="fa fa-credit-card pull-right"></i></a></li>
-                        <li><a data-info='repair_history.php' href="#repairs" data-toggle="pill">Repairs<i class="fa fa-wrench pull-right"></i></a></li>
+                        <li data-info='repair_history.php'><a href="#repairs" data-toggle="pill">Repairs<i class="fa fa-wrench pull-right"></i></a></li>
                     </ul>
                 </nav>
                 <div id="dfooter">
