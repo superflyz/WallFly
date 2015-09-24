@@ -22,7 +22,7 @@ if (!isset($_SESSION['eventAdded'])) {
 if (isset($_SESSION['selectedChatProperty'])) {
     $selectedProperty = $_SESSION['selectedChatProperty'];
     $pID = PropertyFunctions::GetPropertyID($userName, $userType, $selectedProperty);
-    unset($_SESSION['selectedChatProperty']);
+    //unset($_SESSION['selectedChatProperty']);
 
 }
 

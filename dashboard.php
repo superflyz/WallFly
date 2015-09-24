@@ -31,11 +31,11 @@ session_start();
                 <nav id="navbg">
                     <ul id="tab-nav" class="nav nav-pills nav-stacked">
                         <li class="active"><a href="#dashboard" data-toggle="pill">Dashboard<i class="fa fa-desktop pull-right"></i></a></li>
-                        <li data-info='properties.php'><a href="#properties" data-toggle="pill"><span class="wrap">Properties</span><i class="fa fa-home pull-right"></i></a></li>
-                        <li data-info='calendar/calendar.php'><a href="#calendar" data-toggle="pill">Calendar<i class="fa fa-calendar pull-right"></i></a></li>
-                        <li data-info='chatsys/chat.php'><a href="#messages" data-toggle="pill">Messages<i class="fa fa-comments-o pull-right"></i></a></li>
-                        <li data-info='paymentsys/payment.php'><a href="#payment" data-toggle="pill">Payment<i class="fa fa-credit-card pull-right"></i></a></li>
-                        <li data-info='repair_history.php'><a href="#repairs" data-toggle="pill">Repairs<i class="fa fa-wrench pull-right"></i></a></li>
+                        <li><a href="#"><span class="wrap">Properties</span><i class="fa fa-home pull-right"></i></a></li>
+                        <li><a href="calendar.php">Calendar<i class="fa fa-calendar pull-right"></i></a></li>
+                        <li><a href="#">Messages<i class="fa fa-comments-o pull-right"></i></a></li>
+                        <li><a href="#">Payment<i class="fa fa-credit-card pull-right"></i></a></li>
+                        <li><a href="#">Repairs<i class="fa fa-wrench pull-right"></i></a></li>
                     </ul>
                 </nav>
                 <div id="dfooter">
@@ -134,21 +134,13 @@ session_start();
                     </div>
         
                 
-                    <div class="pill-pane fade" id="properties">
-                        <object class="iiframe" data="properties.php" type="text/html"></object>
-                    </div>
-                    <div class="pill-pane fade" id="calendar">
-                        <object class="iiframe" data="calendar/calendar.php" type="text/html"></object>
-                    </div>
-                    <div class="pill-pane fade" id="messages">
-                        <object class="iiframe" data="chatsys/chat.php" type="text/html"></object>
-                    </div>
-                    <div class="pill-pane fade" id="payment">
-                        <object class="iiframe" data="paymentsys/payment.php" type="text/html"></object>
-                    </div>
-                    <div class="pill-pane fade" id="repairs">
-                        <object class="iiframe" data="repair_history.php" type="text/html"></object>
-                    </div>
+                    <!--PUT PAGE STUFF HERE-->
+
+
+
+
+
+
                 </div>
             </div>
         </div>
@@ -166,23 +158,5 @@ session_start();
 <!-- Custom Theme JavaScript -->
 <script src="js/wallfly.js"></script>
 <script src="js/offcanvas.js"></script>
-<script type="text/javascript">
-$(document).ready(function () {
-    $("#tab-nav li").click(function () {
-        $("object").empty();
-        var objecturl = $(this).attr('data-info');
-        $('object').attr('data', objecturl);
-
-
-    });
-
-    //http://jsfiddle.net/s6bP9/
-    $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
-        var target = this.href.split('#');
-        $('.nav a').filter('a[href="#' + target[1] + '"]').tab('show');
-    });
-
-});
-</script>
 </body>
 </html>
